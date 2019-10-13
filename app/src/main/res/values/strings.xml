@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">HealthyApp</string>
     <string name="auth_title">Аутентификация</string>
+    <string name="save">Сохранить</string>
     
     //экран начальных данных
     <string name="base_edit_title">Начальные данные</string>

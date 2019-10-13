@@ -15,23 +15,152 @@
 
         <TextView
             android:id="@+id/toolbar_text"
-            android:text="@string/base_edit_title"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/base_edit_title"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:id="@+id/room_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_marginTop="16dp"
+        android:text="@string/base_edit_room_number"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/room_number_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/room_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/room_number"
+        app:layout_constraintBottom_toBottomOf="@id/room_number"/>
+
+    <TextView
+        android:id="@+id/room_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/base_edit_window_height"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/room_number"
+        app:layout_constraintTop_toBottomOf="@id/room_number" />
+
+    <EditText
+        android:id="@+id/room_height_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/room_number_edit"
+        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
+        app:layout_constraintTop_toTopOf="@id/room_height"
+        app:layout_constraintBottom_toBottomOf="@id/room_height"/>
+
+    <TextView
+        android:id="@+id/room_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/base_edit_area"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/room_number"
+        app:layout_constraintTop_toBottomOf="@id/room_height" />
+
+    <EditText
+        android:id="@+id/room_width_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/room_number_edit"
+        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
+        app:layout_constraintTop_toTopOf="@id/room_area"
+        app:layout_constraintBottom_toBottomOf="@id/room_area"/>
+
+    <TextView
+        android:id="@+id/room_window_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/base_edit_window_number"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/room_number"
+        app:layout_constraintTop_toBottomOf="@id/room_area" />
+
+    <EditText
+        android:id="@+id/room_window_count_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/room_number_edit"
+        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
+        app:layout_constraintTop_toTopOf="@id/room_window_count"
+        app:layout_constraintBottom_toBottomOf="@id/room_window_count"/>
+
+    <TextView
+        android:id="@+id/room_window_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/base_edit_window_height"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/room_number"
+        app:layout_constraintTop_toBottomOf="@id/room_window_count" />
+
+    <EditText
+        android:id="@+id/room_window_height_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/room_number_edit"
+        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
+        app:layout_constraintTop_toTopOf="@id/room_window_height"
+        app:layout_constraintBottom_toBottomOf="@id/room_window_height"/>
+
+    <TextView
+        android:id="@+id/room_window_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/base_edit_window_width"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/room_number"
+        app:layout_constraintTop_toBottomOf="@id/room_window_height" />
+
+    <EditText
+        android:id="@+id/room_window_width_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/room_number_edit"
+        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
+        app:layout_constraintTop_toTopOf="@id/room_window_width"
+        app:layout_constraintBottom_toBottomOf="@id/room_window_width"/>
+    <Button
+        android:id="@+id/base_edit_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/black"
+        android:text="@string/save"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
