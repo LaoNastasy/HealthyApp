@@ -2,7 +2,12 @@
     <string name="app_name">HealthyApp</string>
     <string name="auth_title">Аутентификация</string>
     <string name="save">Сохранить</string>
-    
+
+    //эран аутентификации
+    <string name="auth_login">Логин</string>
+    <string name="auth_password">Пароль</string>
+    <string name="auth_ok">OK</string>
+
     //экран начальных данных
     <string name="base_edit_title">Начальные данные</string>
     <string name="base_edit_room_number">Номер помещения</string>
@@ -20,5 +25,5 @@
     <string name="etalon_width_workplace">Необходимая ширина рабочего места</string>
     <string name="etalon_height_workplace">Необходимая высота рабочего места</string>
     <string name="etalon_area_workplace">Необходимая площадь рабочего места</string>
-    
+
 </resources>
