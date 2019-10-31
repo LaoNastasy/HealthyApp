@@ -3,7 +3,7 @@ package com.example.healthyapp.db.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "placement_condition")
 data class PlacementCondition(
         @PrimaryKey(autoGenerate = true)
         var id: Long = 0,
