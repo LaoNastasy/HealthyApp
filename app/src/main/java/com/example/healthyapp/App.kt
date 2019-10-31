@@ -6,7 +6,14 @@ import com.example.healthyapp.db.Database
 
 class App : Application() {
 
-    private val db = Room.databaseBuilder(
+    private var database: Database? = null
+
+    override fun onCreate() {
+        super.onCreate()
+        database = createDatabase()
+    }
+
+    private fun createDatabase(): Database = Room.databaseBuilder(
             applicationContext,
             Database::class.java, "database"
     ).build()
