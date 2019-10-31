@@ -1,6 +1,7 @@
-package com.example.healthyapp.db.model
+package com.example.healthyapp.db.model.dao
 
 import androidx.room.*
+import com.example.healthyapp.db.model.entity.User
 
 @Dao
 interface UserDao {

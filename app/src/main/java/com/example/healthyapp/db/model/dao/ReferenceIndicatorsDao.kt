@@ -1,6 +1,7 @@
-package com.example.healthyapp.db.model
+package com.example.healthyapp.db.model.dao
 
 import androidx.room.*
+import com.example.healthyapp.db.model.entity.ReferenceIndicators
 
 @Dao
 interface ReferenceIndicatorsDao {

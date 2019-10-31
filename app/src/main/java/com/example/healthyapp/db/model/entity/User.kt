@@ -1,4 +1,4 @@
-package com.example.healthyapp.db.model
+package com.example.healthyapp.db.model.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

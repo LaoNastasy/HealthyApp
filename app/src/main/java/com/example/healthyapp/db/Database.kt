@@ -2,7 +2,8 @@ package com.example.healthyapp.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.healthyapp.db.model.*
+import com.example.healthyapp.db.model.dao.*
+import com.example.healthyapp.db.model.entity.*
 
 @Database(entities = [
     Placement::class,
