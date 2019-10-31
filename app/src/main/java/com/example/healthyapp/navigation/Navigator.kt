@@ -1,4 +1,4 @@
-package com.example.healthyapp
+package com.example.healthyapp.navigation
 
 interface Navigator {
 
