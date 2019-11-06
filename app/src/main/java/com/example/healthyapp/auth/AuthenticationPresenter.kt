@@ -1,8 +1,21 @@
 package com.example.healthyapp.auth
 
-interface AuthenticationView{
+import com.example.healthyapp.UserRepositoryImpl
+import com.example.healthyapp.base.BasePresenter
+import com.example.healthyapp.base.BaseView
 
+interface AuthenticationView : BaseView {
+    fun goToBaseRoomEditScreen()
+    fun showError()
 }
 
-class AuthenticationPresenter {
+class AuthenticationPresenter(private val userRepository: UserRepositoryImpl) :
+    BasePresenter<AuthenticationView>() {
+
+
+    fun login(login: String, password: String) {
+        val user = userRepository.getUserByLogin(login)
+        if (user?.password == password) view?.goToBaseRoomEditScreen()
+        else view?.showError()
+    }
 }

@@ -6,13 +6,36 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.R
+import com.example.healthyapp.UserRepositoryImpl
+import com.example.healthyapp.navigation.Navigator
+import kotlinx.android.synthetic.main.fragment_authentification.*
+import kotlinx.android.synthetic.main.fragment_authentification.view.*
 
-class AuthenticationFragment : BaseFragment(), AuthenticationView {
+class AuthenticationFragment : BaseFragment<AuthenticationPresenter, AuthenticationView>(), AuthenticationView {
+
+    override fun initPresenter() = AuthenticationPresenter(UserRepositoryImpl())
+
+    override fun getMvpView() = this
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_authentification, container, false)
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.auth_button.setOnClickListener { presenter.login(login.text.toString(), password.text.toString()) }
+    }
+
+    override fun goToBaseRoomEditScreen() {
+        (activity as Navigator).goToBaseRoomEditScreen()
+    }
+
+    override fun showError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
