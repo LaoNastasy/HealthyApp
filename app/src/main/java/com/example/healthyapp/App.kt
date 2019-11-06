@@ -10,11 +10,11 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        database = createDatabase()
     }
 
-    private fun createDatabase(): Database = Room.databaseBuilder(
+    private fun getDatabase(): Database = database
+        ?: Room.databaseBuilder(
             applicationContext,
             Database::class.java, "database"
-    ).build()
+        ).build()
 }
