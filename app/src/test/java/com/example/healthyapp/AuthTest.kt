@@ -18,7 +18,7 @@ class AuthTest {
     private val user = User(1, "login", "password", "employee", "Alexandr", "Popov")
 
     @Test
-    fun authPresenterTest() {
+    fun authNoUserTest() {
         presenter.view = view
         presenter.login("", "")
         Mockito.verify(view, times(0)).goToBaseRoomEditScreen()
