@@ -1,4 +1,17 @@
 package com.example.healthyapp.base
 
-class BasePresenter {
+open class BasePresenter<T : BaseView> {
+
+    var view: T? = null
+
+    fun attachView(view: T) {
+        this.view = view
+    }
+
+    fun detachView() {
+        view = null
+    }
+
+    fun isViewAttached(): Boolean = (view != null)
+
 }
