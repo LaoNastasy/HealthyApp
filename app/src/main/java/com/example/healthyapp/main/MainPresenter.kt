@@ -1,13 +1,18 @@
 package com.example.healthyapp.main
 
-interface MainView {
+import com.example.healthyapp.UserRepository
+import com.example.healthyapp.base.BasePresenter
+import com.example.healthyapp.base.BaseView
+
+interface MainView : BaseView {
     fun goToBaseRoomEditScreen()
     fun goToAuthFragment()
 }
 
-class MainPresenter {
+class MainPresenter(private val userRepository: UserRepository) : BasePresenter<MainView>() {
 
-    fun checkAuth(){
-
+    fun checkAuth() {
+        if (userRepository.isUserSignedIn()) view?.goToBaseRoomEditScreen()
+        else view?.goToAuthFragment()
     }
 }

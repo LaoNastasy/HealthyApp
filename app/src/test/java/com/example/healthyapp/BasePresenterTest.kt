@@ -13,14 +13,14 @@ class BasePresenterTest {
 
 
     @Test
-    fun attachViewTest() {
+    fun `attach view`() {
         basePresenter.attachView(view)
         assert(basePresenter.view == view)
         assert(basePresenter.isViewAttached())
     }
 
     @Test
-    fun detachViewTest(){
+    fun `detach view`(){
         basePresenter.detachView()
         assert(basePresenter.view == null)
         assert(!basePresenter.isViewAttached())
