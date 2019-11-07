@@ -1,6 +1,6 @@
 package com.example.healthyapp.auth
 
-import com.example.healthyapp.UserRepositoryImpl
+import com.example.healthyapp.UserRepository
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 
@@ -9,7 +9,7 @@ interface AuthenticationView : BaseView {
     fun showError()
 }
 
-class AuthenticationPresenter(private val userRepository: UserRepositoryImpl) :
+class AuthenticationPresenter(private val userRepository: UserRepository) :
     BasePresenter<AuthenticationView>() {
 
 
