@@ -1,8 +1,11 @@
 package com.example.healthyapp
 
+import com.example.healthyapp.db.Database
 import com.example.healthyapp.db.model.entity.User
+import javax.inject.Inject
 
-open class UserRepositoryImpl : UserRepository {
+
+open class UserRepositoryImpl @Inject constructor(val database:Database): UserRepository {
 
 
     override fun getUserByLogin(login: String): User? {

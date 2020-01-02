@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.R
-import com.example.healthyapp.UserRepositoryImpl
 import com.example.healthyapp.navigation.Navigator
 import kotlinx.android.synthetic.main.fragment_authentification.*
 import kotlinx.android.synthetic.main.fragment_authentification.view.*
 
 class AuthenticationFragment : BaseFragment<AuthenticationPresenter, AuthenticationView>(), AuthenticationView {
 
-    override fun initPresenter() = AuthenticationPresenter(UserRepositoryImpl())
+    override fun initPresenter() = AuthenticationPresenter()
 
     override fun getMvpView() = this
 

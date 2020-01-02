@@ -11,7 +11,7 @@ import com.example.healthyapp.navigation.Navigator
 class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainView {
 
 
-    override fun initPresenter() = MainPresenter(UserRepositoryImpl())
+    override fun initPresenter() = MainPresenter()
 
     override fun getMvpView() = this
 
