@@ -7,7 +7,7 @@ import com.example.healthyapp.db.model.entity.PlacementCondition
 interface PlacementConditionDao {
 
     @Insert
-    fun addPlacementCondition(placementCondition: PlacementCondition): Int
+    fun addPlacementCondition(placementCondition: PlacementCondition): Long
 
     @Delete
     fun deletePlacementCondition(placementCondition: PlacementCondition): Int

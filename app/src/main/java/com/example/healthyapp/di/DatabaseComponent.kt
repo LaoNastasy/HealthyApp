@@ -2,8 +2,11 @@ package com.example.healthyapp.di
 
 import com.example.healthyapp.auth.AuthenticationFragment
 import com.example.healthyapp.main.MainActivity
+import com.example.healthyapp.main.MainPresenter
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [AppModule::class])
 interface DatabaseComponent {
 
@@ -11,4 +14,5 @@ interface DatabaseComponent {
 
     fun injectAuthFragment(authFragment: AuthenticationFragment)
 
+    fun mainPresenter():MainPresenter
 }

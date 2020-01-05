@@ -7,7 +7,7 @@ import com.example.healthyapp.db.model.entity.Placement
 interface PlacementDao {
 
     @Insert
-    fun addPlacement(placement: Placement): Int
+    fun addPlacement(placement: Placement): Long
 
     @Delete
     fun deletePlacement(placement: Placement): Int

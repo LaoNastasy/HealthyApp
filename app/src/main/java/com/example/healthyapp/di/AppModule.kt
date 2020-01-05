@@ -5,12 +5,15 @@ import androidx.room.Room
 import com.example.healthyapp.UserRepository
 import com.example.healthyapp.UserRepositoryImpl
 import com.example.healthyapp.db.Database
+import com.example.healthyapp.main.MainPresenter
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
-class AppModule(var context: Context) {
+class AppModule(private val context: Context) {
 
+    @Singleton
     @Provides
     fun provideDatabase(): Database = Room.databaseBuilder(
         context,
@@ -25,4 +28,6 @@ class AppModule(var context: Context) {
     @Provides
     fun userRepo(database: Database): UserRepository = UserRepositoryImpl(database)
 
+    @Provides
+    fun mainPresenter(userRepository: UserRepository):MainPresenter = MainPresenter(userRepository)
 }

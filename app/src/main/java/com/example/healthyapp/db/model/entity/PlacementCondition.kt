@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "placement_condition")
 data class PlacementCondition(
-        @PrimaryKey(autoGenerate = true)
-        var id: Long = 0,
-        private var humidity: Int = 0,
-        private var temperature: Int = 0,
-        private var illumination: Int = 0
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0,
+    var humidity: Int = 0,
+    var temperature: Int = 0,
+    var illumination: Int = 0
 )

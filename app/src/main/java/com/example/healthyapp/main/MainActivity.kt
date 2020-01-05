@@ -5,15 +5,21 @@ import androidx.fragment.app.Fragment
 import com.example.healthyapp.*
 import com.example.healthyapp.auth.AuthenticationFragment
 import com.example.healthyapp.base.BaseActivity
+import com.example.healthyapp.di.DI
 import com.example.healthyapp.roomEdit.BaseRoomEditFragment
 import com.example.healthyapp.navigation.Navigator
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainView {
 
-    @Inject lateinit var userRepo:UserRepository
+    @Inject
+    lateinit var mainPresenter: MainPresenter
 
-    override fun initPresenter() = MainPresenter(userRepo)
+    init {
+        DI.component.injectMainActivity(this)
+    }
+
+    override fun initPresenter() = mainPresenter
 
     override fun getMvpView() = this
 
@@ -21,7 +27,7 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        presenter.checkAuth()
+        //presenter.checkAuth()
     }
 
     override fun goToBaseRoomEditScreen() {

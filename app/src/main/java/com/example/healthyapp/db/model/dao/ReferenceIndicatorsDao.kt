@@ -7,7 +7,7 @@ import com.example.healthyapp.db.model.entity.ReferenceIndicators
 interface ReferenceIndicatorsDao {
 
     @Insert
-    fun addReferenceIndicators(indicators: ReferenceIndicators): Int
+    fun addReferenceIndicators(indicators: ReferenceIndicators): Long
 
     @Delete
     fun deleteReferenceIndicators(indicators: ReferenceIndicators): Int

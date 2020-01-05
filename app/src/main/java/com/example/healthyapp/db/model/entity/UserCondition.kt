@@ -11,16 +11,6 @@ data class UserCondition(
         @ColumnInfo(name = "id_user") var idUser: Long,
         @ColumnInfo(name = "eye_discomfort") var eyeDiscomfort: String,
         @ColumnInfo(name = "legs_discomfort") var legsDiscomfort: Boolean,
-        @ColumnInfo(name = "spinal_discomfort") var spinalDiscomfort: Boolean,
-        @ColumnInfo(name = "general_discomfort") var generalDiscomfort: GeneralDiscomfort
+        @ColumnInfo(name = "spinal_discomfort") var spinalDiscomfort: Boolean
 )
 
-enum class GeneralDiscomfort {
-    COLD, HOT;
-
-    override fun toString(): String = when (this) {
-        COLD -> "COLD";
-        HOT -> "HOT"
-    }
-
-}
