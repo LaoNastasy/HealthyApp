@@ -1,14 +1,14 @@
 package com.example.healthyapp.di
 
-import com.example.healthyapp.UserRepository
-import com.example.healthyapp.db.Database
+import com.example.healthyapp.auth.AuthenticationFragment
+import com.example.healthyapp.main.MainActivity
 import dagger.Component
 
 @Component(modules = [AppModule::class])
 interface DatabaseComponent {
 
-    fun getDatabase(): Database
+    fun injectMainActivity(mainActivity: MainActivity)
 
-    fun getUserRepo(): UserRepository
+    fun injectAuthFragment(authFragment: AuthenticationFragment)
 
 }

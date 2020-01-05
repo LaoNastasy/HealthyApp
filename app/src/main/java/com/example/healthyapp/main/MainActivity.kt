@@ -7,11 +7,13 @@ import com.example.healthyapp.auth.AuthenticationFragment
 import com.example.healthyapp.base.BaseActivity
 import com.example.healthyapp.roomEdit.BaseRoomEditFragment
 import com.example.healthyapp.navigation.Navigator
+import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainView {
 
+    @Inject lateinit var userRepo:UserRepository
 
-    override fun initPresenter() = MainPresenter()
+    override fun initPresenter() = MainPresenter(userRepo)
 
     override fun getMvpView() = this
 
