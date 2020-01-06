@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.healthyapp.*
 import com.example.healthyapp.auth.AuthenticationFragment
-import com.example.healthyapp.auth.RegistrationFragment
+import com.example.healthyapp.registration.RegistrationFragment
 import com.example.healthyapp.base.BaseActivity
 import com.example.healthyapp.di.DI
 import com.example.healthyapp.roomEdit.BaseRoomEditFragment
