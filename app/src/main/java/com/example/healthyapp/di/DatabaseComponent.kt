@@ -1,6 +1,7 @@
 package com.example.healthyapp.di
 
 import com.example.healthyapp.auth.AuthenticationFragment
+import com.example.healthyapp.auth.AuthenticationPresenter
 import com.example.healthyapp.main.MainActivity
 import com.example.healthyapp.main.MainPresenter
 import dagger.Component
@@ -14,5 +15,7 @@ interface DatabaseComponent {
 
     fun injectAuthFragment(authFragment: AuthenticationFragment)
 
-    fun mainPresenter():MainPresenter
+    fun mainPresenter(): MainPresenter
+
+    fun authPresenter(): AuthenticationPresenter
 }

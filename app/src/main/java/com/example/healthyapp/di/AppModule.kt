@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.healthyapp.UserRepository
 import com.example.healthyapp.UserRepositoryImpl
+import com.example.healthyapp.auth.AuthenticationPresenter
 import com.example.healthyapp.db.Database
 import com.example.healthyapp.main.MainPresenter
 import dagger.Module
@@ -30,4 +31,7 @@ class AppModule(private val context: Context) {
 
     @Provides
     fun mainPresenter(userRepository: UserRepository):MainPresenter = MainPresenter(userRepository)
+
+    @Provides
+    fun authPresenter(userRepository: UserRepository):AuthenticationPresenter = AuthenticationPresenter(userRepository)
 }

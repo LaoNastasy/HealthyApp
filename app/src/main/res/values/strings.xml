@@ -3,11 +3,15 @@
     <string name="auth_title">Аутентификация</string>
     <string name="save">Сохранить</string>
 
-    //эран аутентификации
+    //экран аутентификации
     <string name="auth_login">Логин</string>
     <string name="auth_password">Пароль</string>
     <string name="auth_ok">OK</string>
     <string name="registration">зарегистрироваться</string>
+
+    //экран регистрации
+    <string name="registration_title">Регистрация</string>
+    <string name="password_repeat">Повторите пароль</string>
 
     //экран начальных данных
     <string name="base_edit_title">Начальные данные</string>

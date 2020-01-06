@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.R
-import com.example.healthyapp.UserRepository
+import com.example.healthyapp.di.DI
 import com.example.healthyapp.navigation.Navigator
 import kotlinx.android.synthetic.main.fragment_authentification.*
 import kotlinx.android.synthetic.main.fragment_authentification.view.*
@@ -16,9 +16,13 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
     AuthenticationView {
 
     @Inject
-    lateinit var userRepo: UserRepository
+    lateinit var authPresenter: AuthenticationPresenter
 
-    override fun initPresenter() = AuthenticationPresenter(userRepo)
+    init {
+        DI.component.injectAuthFragment(this)
+    }
+
+    override fun initPresenter() = authPresenter
 
     override fun getMvpView() = this
 
