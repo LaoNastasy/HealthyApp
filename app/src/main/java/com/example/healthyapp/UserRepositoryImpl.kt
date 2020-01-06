@@ -9,10 +9,10 @@ open class UserRepositoryImpl @Inject constructor(val database:Database): UserRe
 
 
     override fun getUserByLogin(login: String): User? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return database.getUserDao().getUserByLogin(login)
     }
 
     override fun isUserSignedIn(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return true
     }
 }

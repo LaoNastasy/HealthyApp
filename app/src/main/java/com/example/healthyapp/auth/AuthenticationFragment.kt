@@ -39,10 +39,18 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
                 password.text.toString()
             )
         }
+
+        view.registration.setOnClickListener {
+            presenter.onRegistrationClick()
+        }
     }
 
-    override fun goToBaseRoomEditScreen() {
-        (activity as Navigator).goToBaseRoomEditScreen()
+    override fun goToBaseRoomEdit() {
+        (activity as Navigator).goToBaseRoomEditFragment()
+    }
+
+    override fun gotoRegistration() {
+        (activity as Navigator).goToRegistrationFragment()
     }
 
     override fun showError() {

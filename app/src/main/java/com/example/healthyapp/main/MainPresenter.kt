@@ -6,14 +6,14 @@ import com.example.healthyapp.base.BaseView
 import javax.inject.Inject
 
 interface MainView : BaseView {
-    fun goToBaseRoomEditScreen()
+    fun goToBaseRoomEditFragment()
     fun goToAuthFragment()
 }
 
 class MainPresenter @Inject constructor(private val userRepository: UserRepository) : BasePresenter<MainView>() {
 
     fun checkAuth() {
-        if (userRepository.isUserSignedIn()) view?.goToBaseRoomEditScreen()
+        if (userRepository.isUserSignedIn()) view?.goToBaseRoomEditFragment()
         else view?.goToAuthFragment()
     }
 }

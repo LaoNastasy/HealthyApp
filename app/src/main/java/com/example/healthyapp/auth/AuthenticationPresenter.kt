@@ -6,7 +6,8 @@ import com.example.healthyapp.base.BaseView
 import javax.inject.Inject
 
 interface AuthenticationView : BaseView {
-    fun goToBaseRoomEditScreen()
+    fun goToBaseRoomEdit()
+    fun gotoRegistration()
     fun showError()
 }
 
@@ -16,7 +17,11 @@ class AuthenticationPresenter @Inject constructor(private val userRepository: Us
 
     fun login(login: String, password: String) {
         val user = userRepository.getUserByLogin(login)
-        if (user?.password == password) view?.goToBaseRoomEditScreen()
+        if (user?.password == password) view?.goToBaseRoomEdit()
         else view?.showError()
+    }
+
+    fun onRegistrationClick(){
+        view?.gotoRegistration()
     }
 }

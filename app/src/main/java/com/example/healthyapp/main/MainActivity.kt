@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.healthyapp.*
 import com.example.healthyapp.auth.AuthenticationFragment
+import com.example.healthyapp.auth.RegistrationFragment
 import com.example.healthyapp.base.BaseActivity
 import com.example.healthyapp.di.DI
 import com.example.healthyapp.roomEdit.BaseRoomEditFragment
@@ -27,15 +28,19 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //presenter.checkAuth()
+        presenter.checkAuth()
     }
 
-    override fun goToBaseRoomEditScreen() {
+    override fun goToBaseRoomEditFragment() {
         goToFragment(BaseRoomEditFragment())
     }
 
     override fun goToAuthFragment() {
         goToFragment(AuthenticationFragment())
+    }
+
+    override fun goToRegistrationFragment() {
+        goToFragment(RegistrationFragment())
     }
 
     private fun goToFragment(fragment: Fragment) {

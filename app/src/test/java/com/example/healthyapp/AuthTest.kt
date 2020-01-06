@@ -21,7 +21,7 @@ class AuthTest {
     fun `auth no user`() {
         presenter.view = view
         presenter.login("", "")
-        Mockito.verify(view, times(0)).goToBaseRoomEditScreen()
+        Mockito.verify(view, times(0)).goToBaseRoomEdit()
         Mockito.verify(view).showError()
 
     }
@@ -31,7 +31,7 @@ class AuthTest {
         presenter.view = view
         `when`(userRepository.getUserByLogin("login")).thenReturn(user)
         presenter.login("login", "password")
-        Mockito.verify(view).goToBaseRoomEditScreen()
+        Mockito.verify(view).goToBaseRoomEdit()
         Mockito.verify(view, times(0)).showError()
     }
 
@@ -40,7 +40,7 @@ class AuthTest {
         presenter.view = view
         `when`(userRepository.getUserByLogin("login")).thenReturn(user)
         presenter.login("login", "")
-        Mockito.verify(view, times(0)).goToBaseRoomEditScreen()
+        Mockito.verify(view, times(0)).goToBaseRoomEdit()
         Mockito.verify(view).showError()
     }
 }
