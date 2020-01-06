@@ -2,8 +2,8 @@ package com.example.healthyapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.healthyapp.UserRepository
-import com.example.healthyapp.UserRepositoryImpl
+import com.example.healthyapp.repo.UserRepository
+import com.example.healthyapp.repo.UserRepositoryImpl
 import com.example.healthyapp.auth.AuthenticationPresenter
 import com.example.healthyapp.db.Database
 import com.example.healthyapp.main.MainPresenter
@@ -27,7 +27,8 @@ class AppModule(private val context: Context) {
     }
 
     @Provides
-    fun userRepo(database: Database): UserRepository = UserRepositoryImpl(database)
+    fun userRepo(database: Database): UserRepository =
+        UserRepositoryImpl(database)
 
     @Provides
     fun mainPresenter(userRepository: UserRepository):MainPresenter = MainPresenter(userRepository)

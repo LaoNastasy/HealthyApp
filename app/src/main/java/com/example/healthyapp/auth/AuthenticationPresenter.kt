@@ -1,6 +1,6 @@
 package com.example.healthyapp.auth
 
-import com.example.healthyapp.UserRepository
+import com.example.healthyapp.repo.UserRepository
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 import javax.inject.Inject

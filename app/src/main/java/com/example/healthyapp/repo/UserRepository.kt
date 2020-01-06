@@ -1,4 +1,4 @@
-package com.example.healthyapp
+package com.example.healthyapp.repo
 
 import com.example.healthyapp.db.model.entity.User
 

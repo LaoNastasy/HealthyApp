@@ -1,11 +1,12 @@
-package com.example.healthyapp
+package com.example.healthyapp.repo
 
 import com.example.healthyapp.db.Database
 import com.example.healthyapp.db.model.entity.User
 import javax.inject.Inject
 
 
-open class UserRepositoryImpl @Inject constructor(val database:Database): UserRepository {
+open class UserRepositoryImpl @Inject constructor(val database: Database) :
+    UserRepository {
 
 
     override fun getUserByLogin(login: String): User? {
@@ -13,6 +14,6 @@ open class UserRepositoryImpl @Inject constructor(val database:Database): UserRe
     }
 
     override fun isUserSignedIn(): Boolean {
-        return true
+        return false
     }
 }

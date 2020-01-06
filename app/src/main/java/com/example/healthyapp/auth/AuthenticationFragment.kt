@@ -37,14 +37,14 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.auth_button.setOnClickListener {
+        view.ok.setOnClickListener {
             presenter.login(
                 login.text.toString(),
                 password.text.toString()
             )
         }
 
-        view.registration.setOnClickListener {
+        view.registrate.setOnClickListener {
             presenter.onRegistrationClick()
         }
     }

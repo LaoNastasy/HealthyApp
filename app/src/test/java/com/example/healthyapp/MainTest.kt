@@ -2,6 +2,7 @@ package com.example.healthyapp
 
 import com.example.healthyapp.main.MainPresenter
 import com.example.healthyapp.main.MainView
+import com.example.healthyapp.repo.UserRepository
 import org.junit.Test
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
