@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/person"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/person"
+        app:layout_constraintBottom_toTopOf="@id/klimat"
+        app:layout_constraintEnd_toStartOf="@id/statistic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/person_screen"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/person"
+        app:layout_constraintStart_toStartOf="@id/person"
+        app:layout_constraintTop_toBottomOf="@id/person" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/statistic"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/statistic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/person"
+        app:layout_constraintTop_toTopOf="@id/person" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/statistic_screen"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/statistic"
+        app:layout_constraintStart_toStartOf="@id/statistic"
+        app:layout_constraintTop_toBottomOf="@id/statistic" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/klimat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/klimat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/person"
+        app:layout_constraintTop_toBottomOf="@id/person" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/klimat_screen"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/klimat"
+        app:layout_constraintStart_toStartOf="@id/klimat"
+        app:layout_constraintTop_toBottomOf="@id/klimat" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/kabinet"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/kabinets"
+        app:layout_constraintStart_toStartOf="@id/statistic"
+        app:layout_constraintTop_toTopOf="@id/klimat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/new_room_screen"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/kabinet"
+        app:layout_constraintStart_toStartOf="@id/kabinet"
+        app:layout_constraintTop_toBottomOf="@id/kabinet" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

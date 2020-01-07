@@ -13,6 +13,12 @@
     <string name="registration_title">Регистрация</string>
     <string name="password_repeat">Повторите пароль</string>
 
+    //главное меню
+    <string name="person_screen">Внесение данных\nсамочувствия</string>
+    <string name="statistic_screen">Статистика</string>
+    <string name="klimat_screen">Климат\nв помещении</string>
+    <string name="new_room_screen">Добавить\nпомещение</string>
+
     //экран начальных данных
     <string name="base_edit_title">Начальные данные</string>
     <string name="base_edit_room_number">Номер помещения</string>

@@ -1,7 +1,7 @@
 package com.example.healthyapp
 
-import com.example.healthyapp.auth.AuthenticationPresenter
-import com.example.healthyapp.auth.AuthenticationView
+import com.example.healthyapp.features.auth.AuthenticationPresenter
+import com.example.healthyapp.features.auth.AuthenticationView
 import com.example.healthyapp.db.model.entity.User
 import com.example.healthyapp.repo.UserRepository
 import org.junit.Test

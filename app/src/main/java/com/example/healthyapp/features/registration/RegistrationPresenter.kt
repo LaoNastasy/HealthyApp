@@ -1,4 +1,4 @@
-package com.example.healthyapp.registration
+package com.example.healthyapp.features.registration
 
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView

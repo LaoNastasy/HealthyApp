@@ -1,4 +1,4 @@
-package com.example.healthyapp.registration
+package com.example.healthyapp.features.registration
 
 import android.os.Bundle
 import android.view.LayoutInflater

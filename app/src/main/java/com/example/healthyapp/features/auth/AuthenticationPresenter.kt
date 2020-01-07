@@ -1,4 +1,4 @@
-package com.example.healthyapp.auth
+package com.example.healthyapp.features.auth
 
 import com.example.healthyapp.repo.UserRepository
 import com.example.healthyapp.base.BasePresenter

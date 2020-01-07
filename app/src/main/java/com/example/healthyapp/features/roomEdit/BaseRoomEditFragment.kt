@@ -1,4 +1,4 @@
-package com.example.healthyapp.roomEdit
+package com.example.healthyapp.features.roomEdit
 
 import android.os.Bundle
 import android.view.LayoutInflater

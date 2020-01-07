@@ -1,4 +1,4 @@
-package com.example.healthyapp.auth
+package com.example.healthyapp.features.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
