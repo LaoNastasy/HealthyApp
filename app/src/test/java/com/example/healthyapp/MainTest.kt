@@ -17,7 +17,7 @@ class MainTest {
     fun `not signed in`(){
         presenter.view = view
         presenter.checkAuth()
-        Mockito.verify(view).goToAuthFragment()
+        Mockito.verify(view).goToAuthScreen()
     }
 
     @Test
@@ -25,6 +25,6 @@ class MainTest {
         presenter.view = view
         `when`(userRepository.isUserSignedIn()).thenReturn(true)
         presenter.checkAuth()
-        Mockito.verify(view).goToBaseRoomEditFragment()
+        Mockito.verify(view).goToBaseRoomEditScreen()
     }
 }

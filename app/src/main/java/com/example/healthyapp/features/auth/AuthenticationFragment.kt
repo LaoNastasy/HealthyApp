@@ -50,11 +50,11 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
     }
 
     override fun goToBaseRoomEdit() {
-        (activity as Navigator).goToBaseRoomEditFragment()
+        (activity as Navigator).goToBaseRoomEditScreen()
     }
 
     override fun gotoRegistration() {
-        (activity as Navigator).goToRegistrationFragment()
+        (activity as Navigator).goToRegistrationScreen()
     }
 
     override fun showError() {

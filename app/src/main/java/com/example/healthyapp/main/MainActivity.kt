@@ -7,7 +7,9 @@ import com.example.healthyapp.features.auth.AuthenticationFragment
 import com.example.healthyapp.features.registration.RegistrationFragment
 import com.example.healthyapp.base.BaseActivity
 import com.example.healthyapp.di.DI
+import com.example.healthyapp.features.main_screen.MainFragment
 import com.example.healthyapp.features.roomEdit.BaseRoomEditFragment
+import com.example.healthyapp.features.statistic.StatisticFragment
 import com.example.healthyapp.navigation.Navigator
 import javax.inject.Inject
 
@@ -31,16 +33,32 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
         presenter.checkAuth()
     }
 
-    override fun goToBaseRoomEditFragment() {
+    override fun goToBaseRoomEditScreen() {
         goToFragment(BaseRoomEditFragment())
     }
 
-    override fun goToAuthFragment() {
+    override fun goToAuthScreen() {
         goToFragment(AuthenticationFragment())
     }
 
-    override fun goToRegistrationFragment() {
+    override fun goToRegistrationScreen() {
         goToFragment(RegistrationFragment())
+    }
+
+    override fun goToPersonScreen() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun goToStatisticScreen() {
+        goToFragment(StatisticFragment())
+    }
+
+    override fun goToKlimatScreen() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun goToMainScreen() {
+        goToFragment(MainFragment())
     }
 
     private fun goToFragment(fragment: Fragment) {

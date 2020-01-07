@@ -33,6 +33,6 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
     }
 
     override fun goToMainFragment() {
-        (activity as Navigator).goToBaseRoomEditFragment()
+        (activity as Navigator).goToBaseRoomEditScreen()
     }
 }

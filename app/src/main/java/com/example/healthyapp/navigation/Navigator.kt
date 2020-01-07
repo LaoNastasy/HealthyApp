@@ -2,7 +2,11 @@ package com.example.healthyapp.navigation
 
 interface Navigator {
 
-    fun goToBaseRoomEditFragment()
-    fun goToAuthFragment()
-    fun goToRegistrationFragment()
+    fun goToBaseRoomEditScreen()
+    fun goToAuthScreen()
+    fun goToRegistrationScreen()
+    fun goToPersonScreen()
+    fun goToStatisticScreen()
+    fun goToKlimatScreen()
+    fun goToMainScreen()
 }
