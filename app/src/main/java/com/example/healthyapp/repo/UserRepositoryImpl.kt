@@ -14,6 +14,6 @@ open class UserRepositoryImpl @Inject constructor(val database: Database) :
     }
 
     override fun isUserSignedIn(): Boolean {
-        return false
+        return true
     }
 }
