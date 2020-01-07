@@ -16,7 +16,7 @@
     //главное меню
     <string name="person_screen">Внесение данных\nсамочувствия</string>
     <string name="statistic_screen">Статистика</string>
-    <string name="klimat_screen">Климат\nв помещении</string>
+    <string name="climate_screen">Климат\nв помещении</string>
     <string name="new_room_screen">Добавить\nпомещение</string>
 
     //экран начальных данных

@@ -10,7 +10,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/person"
-        app:layout_constraintBottom_toTopOf="@id/klimat"
+        app:layout_constraintBottom_toTopOf="@id/climate"
         app:layout_constraintEnd_toStartOf="@id/statistic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,11 +50,11 @@
         app:layout_constraintTop_toBottomOf="@id/statistic" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/klimat"
+        android:id="@+id/climate"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/klimat"
+        android:src="@drawable/climate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/person"
         app:layout_constraintTop_toBottomOf="@id/person" />
@@ -64,12 +64,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="@string/klimat_screen"
+        android:text="@string/climate_screen"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/klimat"
-        app:layout_constraintStart_toStartOf="@id/klimat"
-        app:layout_constraintTop_toBottomOf="@id/klimat" />
+        app:layout_constraintEnd_toEndOf="@id/climate"
+        app:layout_constraintStart_toStartOf="@id/climate"
+        app:layout_constraintTop_toBottomOf="@id/climate" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/kabinet"
@@ -78,7 +78,7 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/kabinets"
         app:layout_constraintStart_toStartOf="@id/statistic"
-        app:layout_constraintTop_toTopOf="@id/klimat" />
+        app:layout_constraintTop_toTopOf="@id/climate" />
 
     <TextView
         android:layout_width="wrap_content"

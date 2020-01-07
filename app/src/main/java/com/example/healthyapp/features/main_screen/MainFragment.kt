@@ -31,7 +31,7 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
         view.person.setOnClickListener { presenter.onPersonClick() }
-        view.klimat.setOnClickListener { presenter.onKlimatClick() }
+        view.climate.setOnClickListener { presenter.onKlimatClick() }
         view.statistic.setOnClickListener { presenter.onStatisticClick() }
         view.kabinet.setOnClickListener { presenter.onNewRoomClick() }
 

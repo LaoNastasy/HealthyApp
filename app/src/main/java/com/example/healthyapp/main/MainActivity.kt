@@ -7,7 +7,9 @@ import com.example.healthyapp.features.auth.AuthenticationFragment
 import com.example.healthyapp.features.registration.RegistrationFragment
 import com.example.healthyapp.base.BaseActivity
 import com.example.healthyapp.di.DI
+import com.example.healthyapp.features.klimat.ClimateFragment
 import com.example.healthyapp.features.main_screen.MainFragment
+import com.example.healthyapp.features.person.PersonFragment
 import com.example.healthyapp.features.roomEdit.BaseRoomEditFragment
 import com.example.healthyapp.features.statistic.StatisticFragment
 import com.example.healthyapp.navigation.Navigator
@@ -46,7 +48,7 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
     }
 
     override fun goToPersonScreen() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        goToFragment(PersonFragment())
     }
 
     override fun goToStatisticScreen() {
@@ -54,7 +56,7 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
     }
 
     override fun goToKlimatScreen() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        goToFragment(ClimateFragment())
     }
 
     override fun goToMainScreen() {

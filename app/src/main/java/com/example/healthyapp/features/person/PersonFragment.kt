@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.statistic
+package com.example.healthyapp.features.person
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,18 +7,19 @@ import android.view.ViewGroup
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
+import com.example.healthyapp.navigation.Navigator
 import javax.inject.Inject
 
-class StatisticFragment : BaseFragment<StatisticPresenter, StatisticView>(), StatisticView {
+class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
 
     @Inject
-    lateinit var statisticPresenter: StatisticPresenter
+    lateinit var personPresenter: PersonPresenter
 
     init {
-        DI.component.injectStatisticFragment(this)
+        DI.component.injectPersonFragment(this)
     }
 
-    override fun initPresenter() = statisticPresenter
+    override fun initPresenter() = personPresenter
 
     override fun getMvpView() = this
 
@@ -27,8 +28,12 @@ class StatisticFragment : BaseFragment<StatisticPresenter, StatisticView>(), Sta
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_statistic, container, false)
+        val view = inflater.inflate(R.layout.fragment_person, container, false)
 
         return view
+    }
+
+    override fun goBack() {
+        (activity as Navigator).goToMainScreen()
     }
 }

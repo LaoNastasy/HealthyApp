@@ -6,7 +6,9 @@ import com.example.healthyapp.repo.UserRepository
 import com.example.healthyapp.repo.UserRepositoryImpl
 import com.example.healthyapp.features.auth.AuthenticationPresenter
 import com.example.healthyapp.db.Database
+import com.example.healthyapp.features.klimat.ClimatePresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
+import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
 import dagger.Module
@@ -40,8 +42,14 @@ class AppModule(private val context: Context) {
         AuthenticationPresenter(userRepository)
 
     @Provides
-    fun mainScreenPresenter():MainScreenPresenter = MainScreenPresenter()
+    fun mainScreenPresenter(): MainScreenPresenter = MainScreenPresenter()
 
     @Provides
-    fun statisticPresenter():StatisticPresenter = StatisticPresenter()
+    fun statisticPresenter(): StatisticPresenter = StatisticPresenter()
+
+    @Provides
+    fun personPresenter(): PersonPresenter = PersonPresenter()
+
+    @Provides
+    fun climatePresenter():ClimatePresenter = ClimatePresenter()
 }
