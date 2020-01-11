@@ -16,12 +16,19 @@ class AuthenticationPresenter @Inject constructor(private val userRepository: Us
 
 
     fun login(login: String, password: String) {
-        val user = userRepository.getUserByLogin(login)
-        if (user?.password == password) view?.goToBaseRoomEdit()
-        else view?.showError()
+        userRepository.getUserByLogin(
+            login,
+            {
+                if (it?.password == password) view?.goToBaseRoomEdit()
+                else view?.showError()
+            },
+            { view?.showError() }
+        )
+
+
     }
 
-    fun onRegistrationClick(){
+    fun onRegistrationClick() {
         view?.gotoRegistration()
     }
 }

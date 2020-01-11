@@ -8,10 +8,12 @@
     <string name="auth_password">Пароль</string>
     <string name="auth_ok">OK</string>
     <string name="registration">зарегистрироваться</string>
+    <string name="wrong_password">Неверный пароль</string>
 
     //экран регистрации
     <string name="registration_title">Регистрация</string>
     <string name="password_repeat">Повторите пароль</string>
+    <string name="registration_error">Проблемы при регистрации</string>
 
     //главное меню
     <string name="person_screen">Внесение данных\nсамочувствия</string>

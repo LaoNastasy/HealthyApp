@@ -7,12 +7,22 @@ import javax.inject.Inject
 
 interface RegistrationView : BaseView {
     fun goToMainFragment()
+    fun showError()
 }
 
-class RegistrationPresenter @Inject constructor(userRepo: UserRepository) :
+class RegistrationPresenter @Inject constructor(val userRepo: UserRepository) :
     BasePresenter<RegistrationView>() {
 
     fun registrate(login: String, password: String) {
-
+        userRepo.signUp(
+            login,
+            password,
+            { userRepo.signIn(
+                login,
+                { view?.goToMainFragment() },
+                { view?.showError() })
+            },
+            { view?.showError() }
+        )
     }
 }

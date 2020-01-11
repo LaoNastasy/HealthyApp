@@ -31,8 +31,8 @@ class AppModule(private val context: Context) {
     }
 
     @Provides
-    fun userRepo(database: Database): UserRepository =
-        UserRepositoryImpl(database)
+    fun userRepo(database: Database, context: Context): UserRepository =
+        UserRepositoryImpl(database, context)
 
     @Provides
     fun mainPresenter(userRepository: UserRepository): MainPresenter = MainPresenter(userRepository)
