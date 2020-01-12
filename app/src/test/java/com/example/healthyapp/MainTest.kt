@@ -25,6 +25,6 @@ class MainTest {
         presenter.view = view
         `when`(userRepository.isUserSignedIn()).thenReturn(true)
         presenter.checkAuth()
-        Mockito.verify(view).goToBaseRoomEditScreen()
+        Mockito.verify(view).goToMainScreen()
     }
 }

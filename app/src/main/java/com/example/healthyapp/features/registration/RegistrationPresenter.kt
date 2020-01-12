@@ -6,7 +6,7 @@ import com.example.healthyapp.repo.UserRepository
 import javax.inject.Inject
 
 interface RegistrationView : BaseView {
-    fun goToMainFragment()
+    fun goToMainScreen()
     fun showError()
 }
 
@@ -19,7 +19,7 @@ class RegistrationPresenter @Inject constructor(val userRepo: UserRepository) :
             password,
             { userRepo.signIn(
                 login,
-                { view?.goToMainFragment() },
+                { view?.goToMainScreen() },
                 { view?.showError() })
             },
             { view?.showError() }

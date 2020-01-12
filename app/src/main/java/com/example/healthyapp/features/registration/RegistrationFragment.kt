@@ -43,8 +43,8 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
         return view
     }
 
-    override fun goToMainFragment() {
-        (activity as Navigator).goToBaseRoomEditScreen()
+    override fun goToMainScreen() {
+        (activity as Navigator).goToMainScreen()
     }
 
     override fun showError() {
