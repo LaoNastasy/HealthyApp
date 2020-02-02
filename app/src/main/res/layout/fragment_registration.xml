@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="16dp"
             android:background="@android:color/transparent"
             android:inputType="textEmailAddress"
             android:maxLines="1"
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="20dp"
             android:text="@string/auth_password"
             android:textColor="@color/white"
             android:textSize="14sp" />
@@ -81,7 +81,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
             <EditText
@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="20dp"
             android:text="@string/password_repeat"
             android:textColor="@color/white"
             android:textSize="14sp" />
@@ -117,7 +117,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
             <EditText
@@ -142,6 +142,18 @@
             android:background="@color/white" />
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="44dp"
+        android:padding="8dp"
+        android:text="@string/back"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
     <FrameLayout
         android:id="@+id/registrate"

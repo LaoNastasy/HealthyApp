@@ -9,6 +9,7 @@
     <string name="auth_ok">OK</string>
     <string name="registration">зарегистрироваться</string>
     <string name="wrong_password">Неверный пароль</string>
+    <string name="back">Назад</string>
 
     //экран регистрации
     <string name="registration_title">Регистрация</string>

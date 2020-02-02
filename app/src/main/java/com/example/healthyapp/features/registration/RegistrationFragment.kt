@@ -39,6 +39,7 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
                 view.password.text.toString()
             )
         }
+        view.back.setOnClickListener{(activity as Navigator).goToAuthScreen()}
 
         return view
     }
