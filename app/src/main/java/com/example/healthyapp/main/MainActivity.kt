@@ -36,7 +36,7 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
     }
 
     override fun goToBaseRoomEditScreen() {
-        goToFragment(BaseRoomEditFragment())
+        goToFragment(BaseRoomEditFragment(), true)
     }
 
     override fun goToAuthScreen() {
@@ -48,23 +48,25 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
     }
 
     override fun goToPersonScreen() {
-        goToFragment(PersonFragment())
+        goToFragment(PersonFragment(), true)
     }
 
     override fun goToStatisticScreen() {
-        goToFragment(StatisticFragment())
+        goToFragment(StatisticFragment(), true)
     }
 
     override fun goToKlimatScreen() {
-        goToFragment(ClimateFragment())
+        goToFragment(ClimateFragment(), true)
     }
 
     override fun goToMainScreen() {
         goToFragment(MainFragment())
     }
 
-    private fun goToFragment(fragment: Fragment) {
+    private fun goToFragment(fragment: Fragment, addToBackStack: Boolean = false) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_place, fragment).commit()
+        fragmentTransaction.replace(R.id.fragment_place, fragment)
+        if (addToBackStack) fragmentTransaction.addToBackStack(fragment::class.java.name)
+        fragmentTransaction.commit()
     }
 }
