@@ -1,9 +1,10 @@
-package com.example.healthyapp.repo
+package com.example.healthyapp.repo.implementations
 
 import android.content.Context
 import com.example.healthyapp.PreferenceUtils
 import com.example.healthyapp.db.Database
 import com.example.healthyapp.db.model.entity.User
+import com.example.healthyapp.repo.UserRepository
 import kotlinx.coroutines.*
 import java.lang.Exception
 import javax.inject.Inject
@@ -45,7 +46,10 @@ open class UserRepositoryImpl @Inject constructor(val database: Database, val co
 
     override fun signIn(login: String, onSuccess: () -> Unit, onError: () -> Unit) {
         try {
-            prefs.saveString(login, LOGIN)
+            prefs.saveString(
+                login,
+                LOGIN
+            )
             onSuccess.invoke()
         } catch (ex: Exception) {
             onError.invoke()
@@ -54,7 +58,10 @@ open class UserRepositoryImpl @Inject constructor(val database: Database, val co
 
     override fun logout(onSuccess: () -> Unit, onError: () -> Unit) {
         try {
-            prefs.saveString("", LOGIN)
+            prefs.saveString(
+                "",
+                LOGIN
+            )
             onSuccess.invoke()
         } catch (ex: Exception) {
             onError.invoke()

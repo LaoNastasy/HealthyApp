@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey
 data class Workplace(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
+    @ColumnInfo(name = "user_id") val userId:Long,
     @ColumnInfo(name = "table_height") val tableHeight: Int,
     @ColumnInfo(name = "monitor_height") val monitorHeight: Int,
     @ColumnInfo(name = "keyboard_height") val keyboardHeight: Int,

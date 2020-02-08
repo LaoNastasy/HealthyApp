@@ -11,6 +11,7 @@
         android:background="@color/colorPrimary">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|start"
@@ -23,7 +24,6 @@
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
             android:padding="8dp"
-            android:text="@string/person_title"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -32,12 +32,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/person_title"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/person_height" />
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/person_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -54,11 +67,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/person_shoulder_height" />
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/person_shoulder_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -75,11 +89,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/person_legs_height" />
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/person_legs_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -96,11 +111,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/person_back_height" />
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/person_back_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -124,6 +140,7 @@
         android:paddingBottom="8dp">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/person_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"

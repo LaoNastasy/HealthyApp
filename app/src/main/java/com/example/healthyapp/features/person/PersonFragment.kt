@@ -8,6 +8,7 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import com.example.healthyapp.navigation.Navigator
+import kotlinx.android.synthetic.main.fragment_person.view.*
 import javax.inject.Inject
 
 class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
@@ -29,6 +30,17 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_person, container, false)
+        view.back.setOnClickListener { presenter.onBackClick() }
+
+        view.person_save.setOnClickListener {
+            presenter.onSaveClick(
+                height = view.person_height.text.toString(),
+                backHeight = view.person_back_height.text.toString(),
+                legsHeight = view.person_legs_height.text.toString(),
+                shoulderHeight = view.person_shoulder_height.text.toString()
+            )
+        }
+
 
         return view
     }

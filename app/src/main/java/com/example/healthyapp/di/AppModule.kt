@@ -3,7 +3,7 @@ package com.example.healthyapp.di
 import android.content.Context
 import androidx.room.Room
 import com.example.healthyapp.repo.UserRepository
-import com.example.healthyapp.repo.UserRepositoryImpl
+import com.example.healthyapp.repo.implementations.UserRepositoryImpl
 import com.example.healthyapp.features.auth.AuthenticationPresenter
 import com.example.healthyapp.db.Database
 import com.example.healthyapp.features.klimat.ClimatePresenter
@@ -11,6 +11,8 @@ import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
+import com.example.healthyapp.repo.LogicRepo
+import com.example.healthyapp.repo.implementations.LogicRepoImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -32,7 +34,13 @@ class AppModule(private val context: Context) {
 
     @Provides
     fun userRepo(database: Database, context: Context): UserRepository =
-        UserRepositoryImpl(database, context)
+        UserRepositoryImpl(
+            database,
+            context
+        )
+
+    @Provides
+    fun logicRepo(): LogicRepo = LogicRepoImpl()
 
     @Provides
     fun mainPresenter(userRepository: UserRepository): MainPresenter = MainPresenter(userRepository)
@@ -42,14 +50,15 @@ class AppModule(private val context: Context) {
         AuthenticationPresenter(userRepository)
 
     @Provides
-    fun mainScreenPresenter(userRepository: UserRepository): MainScreenPresenter = MainScreenPresenter(userRepository)
+    fun mainScreenPresenter(userRepository: UserRepository): MainScreenPresenter =
+        MainScreenPresenter(userRepository)
 
     @Provides
     fun statisticPresenter(): StatisticPresenter = StatisticPresenter()
 
     @Provides
-    fun personPresenter(): PersonPresenter = PersonPresenter()
+    fun personPresenter(logicRepo: LogicRepo): PersonPresenter = PersonPresenter(logicRepo)
 
     @Provides
-    fun climatePresenter():ClimatePresenter = ClimatePresenter()
+    fun climatePresenter(): ClimatePresenter = ClimatePresenter()
 }
