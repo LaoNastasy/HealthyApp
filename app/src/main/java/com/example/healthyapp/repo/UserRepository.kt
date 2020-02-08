@@ -5,7 +5,7 @@ import com.example.healthyapp.db.model.entity.User
 interface UserRepository {
     fun getUserByLogin(
         login: String,
-        onSuccess: (user: User?) -> Unit,
+        onSuccess: (user: User) -> Unit,
         onError: () -> Unit
     )
 

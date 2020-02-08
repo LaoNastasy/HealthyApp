@@ -4,8 +4,7 @@ import android.content.Context
 import com.example.healthyapp.PreferenceUtils
 import com.example.healthyapp.db.Database
 import com.example.healthyapp.db.model.entity.User
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -17,17 +16,26 @@ open class UserRepositoryImpl @Inject constructor(val database: Database, val co
 
     override fun getUserByLogin(
         login: String,
-        onSuccess: (user: User?) -> Unit,
+        onSuccess: (user: User) -> Unit,
         onError: () -> Unit
     ) {
-        try {
-            GlobalScope.launch {
-               val user = database.getUserDao().getUserByLogin(login)
-                onSuccess.invoke(user)
+
+        val scope = CoroutineScope(Dispatchers.Default)
+
+        suspend fun getUserAsync(): Deferred<User?> {
+            return coroutineScope {
+                scope.async {
+                    database.getUserDao().getUserByLogin(login)
+                }
             }
-        }catch (ex:Exception){
-            onError.invoke()
         }
+
+        runBlocking {
+            val user = getUserAsync().await()
+            if (user == null) onError.invoke()
+            else onSuccess.invoke(user)
+        }
+
 
     }
 
@@ -59,24 +67,30 @@ open class UserRepositoryImpl @Inject constructor(val database: Database, val co
         onSuccess: () -> Unit,
         onError: () -> Unit
     ) {
-        try {
-            GlobalScope.launch {
-                database.getUserDao().addUser(
-                    User(
-                        id = 0,
-                        login = login,
-                        password = password,
-                        role = "developer",
-                        firstName = "Ivan",
-                        secondName = "Petrov"
-                    )
-                )
-                onSuccess.invoke()
-            }
 
-        } catch (ex: Exception) {
-            onError.invoke()
+        val scope = CoroutineScope(Dispatchers.Default)
+
+        suspend fun saveUserAsync(): Deferred<Long> {
+            return coroutineScope {
+                scope.async {
+                    database.getUserDao().addUser(
+                        User(
+                            id = 0,
+                            login = login,
+                            password = password,
+                            role = "developer",
+                            firstName = "Ivan",
+                            secondName = "Petrov"
+                        )
+                    )
+                }
+            }
         }
+        runBlocking {
+            val index = saveUserAsync().await()
+            onSuccess.invoke()
+        }
+
     }
 
     companion object {
