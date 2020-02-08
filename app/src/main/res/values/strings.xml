@@ -10,6 +10,7 @@
     <string name="registration">зарегистрироваться</string>
     <string name="wrong_password">Неверный пароль</string>
     <string name="back">Назад</string>
+    <string name="exit">Выйти</string>
 
     //экран регистрации
     <string name="registration_title">Регистрация</string>
@@ -17,7 +18,7 @@
     <string name="registration_error">Проблемы при регистрации</string>
 
     //главное меню
-    <string name="person_screen">Внесение данных\nсамочувствия</string>
+    <string name="person_screen">Добавить \nрабочее место</string>
     <string name="statistic_screen">Статистика</string>
     <string name="climate_screen">Климат\nв помещении</string>
     <string name="new_room_screen">Добавить\nпомещение</string>

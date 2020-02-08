@@ -31,9 +31,10 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
         view.person.setOnClickListener { presenter.onPersonClick() }
-        view.climate.setOnClickListener { presenter.onKlimatClick() }
+        view.climate.setOnClickListener { presenter.onClimateClick() }
         view.statistic.setOnClickListener { presenter.onStatisticClick() }
         view.kabinet.setOnClickListener { presenter.onNewRoomClick() }
+        view.exit.setOnClickListener { presenter.logOut() }
 
         return view
     }
@@ -44,5 +45,11 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
 
     override fun goToNewRoomScreen() = (activity as Navigator).goToBaseRoomEditScreen()
 
-    override fun goToKlimatScreen() = (activity as Navigator).goToKlimatScreen()
+    override fun goToClimateScreen() = (activity as Navigator).goToKlimatScreen()
+
+    override fun logOut() = (activity as Navigator).goToAuthScreen()
+
+    override fun showError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

@@ -7,7 +7,6 @@ import javax.inject.Inject
 
 interface RegistrationView : BaseView {
     fun goToMainScreen()
-    fun showError()
 }
 
 class RegistrationPresenter @Inject constructor(val userRepo: UserRepository) :

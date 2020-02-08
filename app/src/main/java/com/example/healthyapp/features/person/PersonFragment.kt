@@ -36,4 +36,8 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
     override fun goBack() {
         (activity as Navigator).goToMainScreen()
     }
+
+    override fun showError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

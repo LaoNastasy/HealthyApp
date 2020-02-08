@@ -5,6 +5,30 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logout_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_directions_run_black_24dp"
+        android:tint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:paddingStart="24dp"
+        android:text="@string/exit"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/logout_image"
+        app:layout_constraintStart_toStartOf="@id/logout_image"
+        app:layout_constraintTop_toTopOf="@id/logout_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/person"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -55,6 +79,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/climate"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/person"
         app:layout_constraintTop_toBottomOf="@id/person" />
@@ -67,6 +92,7 @@
         android:text="@string/climate_screen"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@id/climate"
         app:layout_constraintStart_toStartOf="@id/climate"
         app:layout_constraintTop_toBottomOf="@id/climate" />

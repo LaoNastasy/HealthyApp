@@ -43,6 +43,10 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
         goToFragment(AuthenticationFragment())
     }
 
+    override fun showError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun goToRegistrationScreen() {
         goToFragment(RegistrationFragment())
     }

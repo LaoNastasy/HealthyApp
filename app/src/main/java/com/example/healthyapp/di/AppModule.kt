@@ -42,7 +42,7 @@ class AppModule(private val context: Context) {
         AuthenticationPresenter(userRepository)
 
     @Provides
-    fun mainScreenPresenter(): MainScreenPresenter = MainScreenPresenter()
+    fun mainScreenPresenter(userRepository: UserRepository): MainScreenPresenter = MainScreenPresenter(userRepository)
 
     @Provides
     fun statisticPresenter(): StatisticPresenter = StatisticPresenter()

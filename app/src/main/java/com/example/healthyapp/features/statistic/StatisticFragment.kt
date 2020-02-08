@@ -31,4 +31,8 @@ class StatisticFragment : BaseFragment<StatisticPresenter, StatisticView>(), Sta
 
         return view
     }
+
+    override fun showError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

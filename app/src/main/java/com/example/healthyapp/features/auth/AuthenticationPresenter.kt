@@ -8,7 +8,6 @@ import javax.inject.Inject
 interface AuthenticationView : BaseView {
     fun goToMainScreen()
     fun gotoRegistration()
-    fun showError()
 }
 
 class AuthenticationPresenter @Inject constructor(private val userRepository: UserRepository) :
