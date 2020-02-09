@@ -8,6 +8,7 @@ import com.example.healthyapp.features.main_screen.MainFragment
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonFragment
 import com.example.healthyapp.features.person.PersonPresenter
+import com.example.healthyapp.features.person.WorkplaceBottomFragment
 import com.example.healthyapp.main.MainActivity
 import com.example.healthyapp.main.MainPresenter
 import com.example.healthyapp.features.registration.RegistrationFragment
@@ -30,9 +31,11 @@ interface DatabaseComponent {
 
     fun injectStatisticFragment(fragment: StatisticFragment)
 
-    fun injectClimateFragment(fragment:ClimateFragment)
+    fun injectClimateFragment(fragment: ClimateFragment)
 
-    fun injectPersonFragment(fragment:PersonFragment)
+    fun injectPersonFragment(fragment: PersonFragment)
+
+    fun injectWorkplaceFragment(fragment: WorkplaceBottomFragment)
 
     fun mainPresenter(): MainPresenter
 
@@ -42,7 +45,7 @@ interface DatabaseComponent {
 
     fun statisticPresenter(): StatisticPresenter
 
-    fun personPresenter():PersonPresenter
+    fun personPresenter(): PersonPresenter
 
-    fun climatePresenter():ClimatePresenter
+    fun climatePresenter(): ClimatePresenter
 }

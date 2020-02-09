@@ -8,7 +8,7 @@ import kotlin.math.roundToInt
 class LogicRepoImpl : LogicRepo {
 
 
-    override fun getWorplaceInformation(user: WorkplaceUser): Workplace {
+    override fun getWorkplaceInformation(user: WorkplaceUser): Workplace {
 
         val table = 70
         val chair = table + user.shoulderHeight - user.backHeight

@@ -32,7 +32,7 @@ class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
             view?.showError()
             return
         }
-        val workplace = logicRepo.getWorplaceInformation(
+        val workplace = logicRepo.getWorkplaceInformation(
             WorkplaceUser(
                 id = 0,
                 userHeight = heightInt,

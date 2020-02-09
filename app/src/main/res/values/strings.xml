@@ -2,6 +2,7 @@
     <string name="app_name">HealthyApp</string>
     <string name="auth_title">Аутентификация</string>
     <string name="save">Сохранить</string>
+    <string name="commit">Подтвердить</string>
 
     //экран аутентификации
     <string name="auth_login">Логин</string>
@@ -48,5 +49,14 @@
     <string name="person_back_height">Длина спины (см)</string>
     <string name="person_legs_height">Длина голени (см)</string>
     <string name="person_shoulder_height">Длина плеча (см)</string>
+
+    //экран рабочего места
+    <string name="workplace_title">Рабочее место</string>
+    <string name="workplace_table_height">Высота стола</string>
+    <string name="workplace_keyboard_height">Высота расположения клавитуры над полом</string>
+    <string name="workplace_chair_height">Высота сиденья кресла</string>
+    <string name="workplace_monitor_height">Высота монитора</string>
+    <string name="workplace_stand_height">Высота подставки для ног</string>
+
 
 </resources>
