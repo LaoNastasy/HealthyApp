@@ -11,7 +11,7 @@ import javax.inject.Inject
 class WorkplaceBottomFragment : BaseBottomFragment<PersonPresenter, PersonView>(), PersonView {
 
     @Inject
-    private lateinit var personPresenter: PersonPresenter
+    lateinit var personPresenter: PersonPresenter
 
     override fun initPresenter(): PersonPresenter = personPresenter
 
