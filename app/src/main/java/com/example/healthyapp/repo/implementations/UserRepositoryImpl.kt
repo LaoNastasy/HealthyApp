@@ -21,20 +21,12 @@ open class UserRepositoryImpl @Inject constructor(val database: Database, val co
         onError: () -> Unit
     ) {
 
-        val scope = CoroutineScope(Dispatchers.Default)
-
-        suspend fun getUserAsync(): Deferred<User?> {
-            return coroutineScope {
-                scope.async {
-                    database.getUserDao().getUserByLogin(login)
-                }
+        CoroutineScope(Dispatchers.IO).launch {
+            val user = database.getUserDao().getUserByLogin(login)
+            withContext(Dispatchers.Main) {
+                if (user == null) onError.invoke()
+                else onSuccess.invoke(user)
             }
-        }
-
-        runBlocking {
-            val user = getUserAsync().await()
-            if (user == null) onError.invoke()
-            else onSuccess.invoke(user)
         }
 
 
@@ -75,27 +67,18 @@ open class UserRepositoryImpl @Inject constructor(val database: Database, val co
         onError: () -> Unit
     ) {
 
-        val scope = CoroutineScope(Dispatchers.Default)
-
-        suspend fun saveUserAsync(): Deferred<Long> {
-            return coroutineScope {
-                scope.async {
-                    database.getUserDao().addUser(
-                        User(
-                            id = 0,
-                            login = login,
-                            password = password,
-                            role = "developer",
-                            firstName = "Ivan",
-                            secondName = "Petrov"
-                        )
-                    )
-                }
-            }
-        }
-        runBlocking {
-            val index = saveUserAsync().await()
-            onSuccess.invoke()
+        CoroutineScope(Dispatchers.IO).launch {
+            database.getUserDao().addUser(
+                User(
+                    id = 0,
+                    login = login,
+                    password = password,
+                    role = "developer",
+                    firstName = "Ivan",
+                    secondName = "Petrov"
+                )
+            )
+            withContext(Dispatchers.Main) { onSuccess.invoke() }
         }
 
     }
