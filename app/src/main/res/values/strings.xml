@@ -2,11 +2,28 @@
     <string name="app_name">HealthyApp</string>
     <string name="auth_title">Аутентификация</string>
     <string name="save">Сохранить</string>
+    <string name="commit">Подтвердить</string>
+    <string name="common_error">Что-то пошло не так</string>
 
-    //эран аутентификации
+    //экран аутентификации
     <string name="auth_login">Логин</string>
     <string name="auth_password">Пароль</string>
     <string name="auth_ok">OK</string>
+    <string name="registration">зарегистрироваться</string>
+    <string name="wrong_password">Неверный пароль</string>
+    <string name="back">Назад</string>
+    <string name="exit">Выйти</string>
+
+    //экран регистрации
+    <string name="registration_title">Регистрация</string>
+    <string name="password_repeat">Повторите пароль</string>
+    <string name="registration_error">Проблемы при регистрации</string>
+
+    //главное меню
+    <string name="person_screen">Добавить \nрабочее место</string>
+    <string name="statistic_screen">Статистика</string>
+    <string name="climate_screen">Климат\nв помещении</string>
+    <string name="new_room_screen">Добавить\nпомещение</string>
 
     //экран начальных данных
     <string name="base_edit_title">Начальные данные</string>
@@ -25,5 +42,22 @@
     <string name="etalon_width_workplace">Необходимая ширина рабочего места</string>
     <string name="etalon_height_workplace">Необходимая высота рабочего места</string>
     <string name="etalon_area_workplace">Необходимая площадь рабочего места</string>
+
+
+    //экран внесения данных о пользователе
+    <string name="person_title">Внесите параметры будущего пользователя</string>
+    <string name="person_height">Высота над плоскостью сиденья кресла (см)</string>
+    <string name="person_back_height">Длина спины (см)</string>
+    <string name="person_legs_height">Длина голени (см)</string>
+    <string name="person_shoulder_height">Длина плеча (см)</string>
+
+    //экран рабочего места
+    <string name="workplace_title">Рабочее место</string>
+    <string name="workplace_table_height">Высота стола</string>
+    <string name="workplace_keyboard_height">Высота расположения клавитуры над полом</string>
+    <string name="workplace_chair_height">Высота сиденья кресла</string>
+    <string name="workplace_monitor_height">Высота монитора</string>
+    <string name="workplace_stand_height">Высота подставки для ног</string>
+
 
 </resources>
