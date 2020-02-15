@@ -19,7 +19,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [AppModule::class])
-interface DatabaseComponent {
+interface AppComponent {
 
     fun injectMainActivity(mainActivity: MainActivity)
 
@@ -37,15 +37,4 @@ interface DatabaseComponent {
 
     fun injectWorkplaceFragment(fragment: WorkplaceBottomFragment)
 
-    fun mainPresenter(): MainPresenter
-
-    fun authPresenter(): AuthenticationPresenter
-
-    fun mainScreenPresenter(): MainScreenPresenter
-
-    fun statisticPresenter(): StatisticPresenter
-
-    fun personPresenter(): PersonPresenter
-
-    fun climatePresenter(): ClimatePresenter
 }

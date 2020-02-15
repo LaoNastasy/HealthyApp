@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
-import com.example.healthyapp.navigation.Navigator
 import kotlinx.android.synthetic.main.fragment_main.view.*
 import javax.inject.Inject
 
@@ -39,15 +38,15 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
         return view
     }
 
-    override fun goToPersonScreen() = (activity as Navigator).goToPersonScreen()
+    override fun goToPersonScreen() = navigator.goToPersonScreen()
 
-    override fun goToStatisticScreen() = (activity as Navigator).goToStatisticScreen()
+    override fun goToStatisticScreen() = navigator.goToStatisticScreen()
 
-    override fun goToNewRoomScreen() = (activity as Navigator).goToBaseRoomEditScreen()
+    override fun goToNewRoomScreen() = navigator.goToBaseRoomEditScreen()
 
-    override fun goToClimateScreen() = (activity as Navigator).goToKlimatScreen()
+    override fun goToClimateScreen() = navigator.goToClimateScreen()
 
-    override fun logOut() = (activity as Navigator).goToAuthScreen()
+    override fun logOut() = navigator.goToAuthScreen()
 
     override fun showError() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

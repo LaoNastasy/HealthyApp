@@ -2,14 +2,15 @@ package com.example.healthyapp.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.healthyapp.*
-import com.example.healthyapp.features.auth.AuthenticationFragment
-import com.example.healthyapp.features.registration.RegistrationFragment
+import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseActivity
 import com.example.healthyapp.di.DI
+import com.example.healthyapp.features.auth.AuthenticationFragment
 import com.example.healthyapp.features.klimat.ClimateFragment
 import com.example.healthyapp.features.main_screen.MainFragment
 import com.example.healthyapp.features.person.PersonFragment
+import com.example.healthyapp.features.person.WorkplaceBottomFragment
+import com.example.healthyapp.features.registration.RegistrationFragment
 import com.example.healthyapp.features.roomEdit.BaseRoomEditFragment
 import com.example.healthyapp.features.statistic.StatisticFragment
 import com.example.healthyapp.navigation.Navigator
@@ -55,11 +56,18 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
         goToFragment(PersonFragment(), true)
     }
 
+    override fun goToWorkplaceScreen() {
+        WorkplaceBottomFragment().show(
+            supportFragmentManager,
+            WorkplaceBottomFragment::class.simpleName
+        )
+    }
+
     override fun goToStatisticScreen() {
         goToFragment(StatisticFragment(), true)
     }
 
-    override fun goToKlimatScreen() {
+    override fun goToClimateScreen() {
         goToFragment(ClimateFragment(), true)
     }
 

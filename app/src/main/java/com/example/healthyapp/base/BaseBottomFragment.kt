@@ -2,9 +2,11 @@ package com.example.healthyapp.base
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-abstract class BaseBottomFragment<P : BasePresenter<V>, V : BaseView> : BottomSheetDialogFragment() {
+abstract class BaseBottomFragment<P : BasePresenter<V>, V : BaseView> :
+    BottomSheetDialogFragment() {
 
     lateinit var presenter: P
 
@@ -21,6 +23,11 @@ abstract class BaseBottomFragment<P : BasePresenter<V>, V : BaseView> : BottomSh
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.detachView()
+    }
+
+    protected fun showError(message: String?) {
+        if (!message.isNullOrBlank())
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     /***

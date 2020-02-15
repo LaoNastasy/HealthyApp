@@ -5,6 +5,7 @@ import com.example.healthyapp.db.model.entity.WorkplaceUser
 
 interface LogicRepo {
 
-    fun getWorkplaceInformation(user: WorkplaceUser): Workplace
+    fun addWorkplaceUserInformation(user: WorkplaceUser)
+    fun getCurrentWorkplace(): Workplace?
 
 }

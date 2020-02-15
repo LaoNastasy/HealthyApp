@@ -8,7 +8,6 @@ import android.widget.Toast
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
-import com.example.healthyapp.navigation.Navigator
 import kotlinx.android.synthetic.main.fragment_registration.view.*
 import javax.inject.Inject
 
@@ -39,13 +38,13 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
                 view.password.text.toString()
             )
         }
-        view.back.setOnClickListener{(activity as Navigator).goToAuthScreen()}
+        view.back.setOnClickListener{navigator.goToAuthScreen()}
 
         return view
     }
 
     override fun goToMainScreen() {
-        (activity as Navigator).goToMainScreen()
+        navigator.goToMainScreen()
     }
 
     override fun showError() {

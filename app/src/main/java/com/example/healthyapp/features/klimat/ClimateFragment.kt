@@ -19,7 +19,7 @@ class ClimateFragment : BaseFragment<ClimatePresenter, ClimateView>(), ClimateVi
         DI.component.injectClimateFragment(this)
     }
 
-    override fun initPresenter() = ClimatePresenter()
+    override fun initPresenter() = climatePresenter
 
     override fun getMvpView() = this
 

@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 interface PersonView : BaseView {
     fun goBack()
+    fun showWorkplace()
 }
 
 class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
@@ -32,7 +33,7 @@ class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
             view?.showError()
             return
         }
-        val workplace = logicRepo.getWorkplaceInformation(
+        logicRepo.addWorkplaceUserInformation(
             WorkplaceUser(
                 id = 0,
                 userHeight = heightInt,
@@ -41,5 +42,8 @@ class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
                 shoulderHeight = shoulderHeightInt
             )
         )
+
+        view?.showWorkplace()
     }
+
 }

@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.R
+import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
-import com.example.healthyapp.navigation.Navigator
 import kotlinx.android.synthetic.main.fragment_authentification.*
 import kotlinx.android.synthetic.main.fragment_authentification.view.*
 import javax.inject.Inject
@@ -51,11 +50,11 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
     }
 
     override fun goToMainScreen() {
-        (activity as Navigator).goToMainScreen()
+       navigator.goToMainScreen()
     }
 
     override fun gotoRegistration() {
-        (activity as Navigator).goToRegistrationScreen()
+        navigator.goToRegistrationScreen()
     }
 
     override fun showError() {

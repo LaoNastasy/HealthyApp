@@ -6,7 +6,8 @@ interface Navigator {
     fun goToAuthScreen()
     fun goToRegistrationScreen()
     fun goToPersonScreen()
+    fun goToWorkplaceScreen()
     fun goToStatisticScreen()
-    fun goToKlimatScreen()
+    fun goToClimateScreen()
     fun goToMainScreen()
 }

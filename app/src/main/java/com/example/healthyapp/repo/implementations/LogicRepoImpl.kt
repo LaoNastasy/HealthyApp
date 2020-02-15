@@ -7,13 +7,14 @@ import kotlin.math.roundToInt
 
 class LogicRepoImpl : LogicRepo {
 
+    private var currentWorkplace: Workplace? = null
 
-    override fun getWorkplaceInformation(user: WorkplaceUser): Workplace {
+    override fun addWorkplaceUserInformation(user: WorkplaceUser) {
 
         val table = 70
         val chair = table + user.shoulderHeight - user.backHeight
 
-        return Workplace(
+        currentWorkplace = Workplace(
             id = 0,
             userId = user.id,
             tableHeight = table,
@@ -23,5 +24,7 @@ class LogicRepoImpl : LogicRepo {
             monitorHeight = chair + (user.userHeight * 0.86F).roundToInt()
         )
     }
+
+    override fun getCurrentWorkplace(): Workplace? = currentWorkplace
 
 }

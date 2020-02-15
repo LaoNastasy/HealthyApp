@@ -4,10 +4,10 @@ import android.content.Context
 
 object DI {
 
-    lateinit var component: DatabaseComponent
+    lateinit var component: AppComponent
 
     fun init(context: Context) {
-        component = DaggerDatabaseComponent.builder()
+        component = DaggerAppComponent.builder()
             .appModule(AppModule(context))
             .build()
     }

@@ -9,6 +9,7 @@ import com.example.healthyapp.db.Database
 import com.example.healthyapp.features.klimat.ClimatePresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
+import com.example.healthyapp.features.person.WorkplacePresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
 import com.example.healthyapp.repo.LogicRepo
@@ -61,4 +62,7 @@ class AppModule(private val context: Context) {
 
     @Provides
     fun climatePresenter(): ClimatePresenter = ClimatePresenter()
+
+    @Provides
+    fun workplacePresenter(logicRepo: LogicRepo): WorkplacePresenter = WorkplacePresenter(logicRepo)
 }

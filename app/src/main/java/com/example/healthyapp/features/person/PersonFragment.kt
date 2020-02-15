@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
-import com.example.healthyapp.navigation.Navigator
 import kotlinx.android.synthetic.main.fragment_person.view.*
 import javax.inject.Inject
 
@@ -46,7 +45,11 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
     }
 
     override fun goBack() {
-        (activity as Navigator).goToMainScreen()
+        navigator.goToMainScreen()
+    }
+
+    override fun showWorkplace() {
+        navigator.goToWorkplaceScreen()
     }
 
     override fun showError() {
