@@ -30,9 +30,8 @@
     <string name="base_edit_room_number">Номер помещения</string>
     <string name="base_edit_height">Высота помещения</string>
     <string name="base_edit_area">Площадь помещения</string>
-    <string name="base_edit_window_number">Количество окон</string>
-    <string name="base_edit_window_width">Ширина окна</string>
-    <string name="base_edit_window_height">Высота окна</string>
+    <string name="base_edit_width">Ширина помещения</string>
+    <string name="base_edit_length">Длина помещения</string>
     <string name="base_edit_number_workplace">Количество рабочих мест</string>
 
     <string name="etalon_temperature">Идеальная температура</string>
