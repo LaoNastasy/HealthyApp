@@ -7,7 +7,6 @@ import javax.inject.Inject
 
 interface AuthenticationView : BaseView {
     fun goToMainScreen()
-    fun gotoRegistration()
 }
 
 class AuthenticationPresenter @Inject constructor(private val userRepository: UserRepository) :
@@ -22,13 +21,11 @@ class AuthenticationPresenter @Inject constructor(private val userRepository: Us
                     userRepository.signIn(login,
                         { view?.goToMainScreen() },
                         { view?.showError() })
-                else view?.showError()
+                else
+                    view?.showError()
             },
             { view?.showError() }
         )
     }
 
-    fun onRegistrationClick() {
-        view?.gotoRegistration()
-    }
 }

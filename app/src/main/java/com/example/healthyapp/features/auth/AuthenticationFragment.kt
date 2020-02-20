@@ -10,19 +10,11 @@ import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_authentification.*
 import kotlinx.android.synthetic.main.fragment_authentification.view.*
-import javax.inject.Inject
 
 class AuthenticationFragment : BaseFragment<AuthenticationPresenter, AuthenticationView>(),
     AuthenticationView {
 
-    @Inject
-    lateinit var authPresenter: AuthenticationPresenter
-
-    init {
-        DI.component.injectAuthFragment(this)
-    }
-
-    override fun initPresenter() = authPresenter
+    override fun initPresenter() = DI.component.authenticationPresenter()
 
     override fun getMvpView() = this
 
@@ -45,19 +37,15 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
         }
 
         view.registrate.setOnClickListener {
-            presenter.onRegistrationClick()
+            navigator.goToRegistrationScreen()
         }
     }
 
     override fun goToMainScreen() {
-       navigator.goToMainScreen()
-    }
-
-    override fun gotoRegistration() {
-        navigator.goToRegistrationScreen()
+        navigator.goToMainScreen()
     }
 
     override fun showError() {
-        Toast.makeText(context,getString(R.string.wrong_password), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, getString(R.string.wrong_password), Toast.LENGTH_SHORT).show()
     }
 }

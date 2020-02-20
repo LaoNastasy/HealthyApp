@@ -37,4 +37,6 @@ interface AppComponent {
 
     fun injectWorkplaceFragment(fragment: WorkplaceBottomFragment)
 
+    fun authenticationPresenter(): AuthenticationPresenter
+
 }

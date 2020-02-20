@@ -8,4 +8,8 @@ interface RoomEditView : BaseView {
 }
 
 class RoomEditPresenter : BasePresenter<RoomEditView>() {
+
+    fun saveRoom(){
+
+    }
 }
