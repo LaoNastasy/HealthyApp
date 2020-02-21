@@ -14,18 +14,10 @@ import com.example.healthyapp.features.registration.RegistrationFragment
 import com.example.healthyapp.features.roomEdit.BaseRoomEditFragment
 import com.example.healthyapp.features.statistic.StatisticFragment
 import com.example.healthyapp.navigation.Navigator
-import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainView {
 
-    @Inject
-    lateinit var mainPresenter: MainPresenter
-
-    init {
-        DI.component.injectMainActivity(this)
-    }
-
-    override fun initPresenter() = mainPresenter
+    override fun initPresenter() = DI.component.mainPresenter()
 
     override fun getMvpView() = this
 

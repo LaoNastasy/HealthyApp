@@ -8,8 +8,7 @@ import org.mockito.Mockito
 import org.mockito.Mockito.times
 
 
-class AuthTest {
-
+class AuthPresenterTest {
 
     private val userRepository = UserRepositoryFakeImpl()
     private val view = Mockito.mock(AuthenticationView::class.java)
