@@ -34,6 +34,7 @@ class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, Workplace
     ): View? {
         rootView = inflater.inflate(R.layout.bottom_fragment_new_workplace, container, false)
         presenter.getCurrentWorkplace()
+        rootView.workplace_save.setOnClickListener { presenter.saveWorkplace() }
         return rootView
     }
 
@@ -44,6 +45,11 @@ class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, Workplace
         rootView.workplace_keyboard_height.text = workplace.keyboardHeight.toString()
         rootView.workplace_monitor_height.text = workplace.monitorHeight.toString()
         rootView.workplace_stand_height.text = workplace.standHeight.toString()
+    }
+
+    override fun close() {
+        dismiss()
+        navigator.goToMainScreen()
     }
 
     override fun showError() {

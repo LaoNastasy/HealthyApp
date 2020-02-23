@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
+import kotlinx.android.synthetic.main.fragment_base_edit.view.*
 
 class BaseRoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEditView {
 
@@ -19,6 +20,8 @@ class BaseRoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), Ro
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_base_edit, container, false)
+
+        view.base_edit_save.setOnClickListener { presenter.saveRoom() }
 
         return view
     }

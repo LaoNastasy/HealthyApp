@@ -7,5 +7,6 @@ interface LogicRepo {
 
     fun addWorkplaceUserInformation(user: WorkplaceUser)
     fun getCurrentWorkplace(): Workplace?
+    fun saveWorkplace(workplace: Workplace, onSuccess: () -> Unit)
 
 }

@@ -1,11 +1,16 @@
 package com.example.healthyapp.repo.implementations
 
+import com.example.healthyapp.db.Database
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
 import com.example.healthyapp.repo.LogicRepo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.math.roundToInt
 
-class LogicRepoImpl : LogicRepo {
+class LogicRepoImpl(private val db: Database) : LogicRepo {
 
     private var currentWorkplace: Workplace? = null
 
@@ -26,5 +31,14 @@ class LogicRepoImpl : LogicRepo {
     }
 
     override fun getCurrentWorkplace(): Workplace? = currentWorkplace
+
+    override fun saveWorkplace(workplace: Workplace, onSuccess: () -> Unit) {
+
+        CoroutineScope(Dispatchers.IO).launch {
+            db.getWorkplaceDao().addWorkplace(workplace)
+            withContext(Dispatchers.Main) { onSuccess.invoke() }
+        }
+
+    }
 
 }
