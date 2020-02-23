@@ -10,6 +10,7 @@ import com.example.healthyapp.features.klimat.ClimatePresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.person.WorkplacePresenter
+import com.example.healthyapp.features.roomEdit.RoomEditPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
 import com.example.healthyapp.repo.LogicRepo
@@ -41,7 +42,7 @@ class AppModule(private val context: Context) {
         )
 
     @Provides
-    fun logicRepo(): LogicRepo = LogicRepoImpl()
+    fun logicRepo(database: Database): LogicRepo = LogicRepoImpl(database)
 
     @Provides
     fun mainPresenter(userRepository: UserRepository): MainPresenter = MainPresenter(userRepository)
@@ -65,4 +66,7 @@ class AppModule(private val context: Context) {
 
     @Provides
     fun workplacePresenter(logicRepo: LogicRepo): WorkplacePresenter = WorkplacePresenter(logicRepo)
+
+    @Provides
+    fun roomEditPresenter(logicRepo: LogicRepo): RoomEditPresenter = RoomEditPresenter(logicRepo)
 }

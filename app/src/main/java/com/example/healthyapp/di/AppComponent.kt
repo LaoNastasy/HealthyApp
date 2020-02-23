@@ -7,6 +7,7 @@ import com.example.healthyapp.features.main_screen.MainFragment
 import com.example.healthyapp.features.person.PersonFragment
 import com.example.healthyapp.features.person.WorkplaceBottomFragment
 import com.example.healthyapp.features.registration.RegistrationFragment
+import com.example.healthyapp.features.roomEdit.RoomEditPresenter
 import com.example.healthyapp.features.statistic.StatisticFragment
 import com.example.healthyapp.main.MainPresenter
 import dagger.Component
@@ -33,5 +34,7 @@ interface AppComponent {
     fun injectWorkplaceFragment(fragment: WorkplaceBottomFragment)
 
     fun authenticationPresenter(): AuthenticationPresenter
+
+    fun roomEditPresenter(): RoomEditPresenter
 
 }

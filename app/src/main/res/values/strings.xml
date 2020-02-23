@@ -4,6 +4,8 @@
     <string name="save">Сохранить</string>
     <string name="commit">Подтвердить</string>
     <string name="common_error">Что-то пошло не так</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
 
     //экран аутентификации
     <string name="auth_login">Логин</string>
@@ -34,13 +36,9 @@
     <string name="base_edit_length">Длина помещения</string>
     <string name="base_edit_number_workplace">Количество рабочих мест</string>
 
-    <string name="etalon_temperature">Идеальная температура</string>
-    <string name="etalon_humidity">Идеальная влажность</string>
-    <string name="etalon_illumination">Идеальная освещенность</string>
-
-    <string name="etalon_width_workplace">Необходимая ширина рабочего места</string>
-    <string name="etalon_height_workplace">Необходимая высота рабочего места</string>
-    <string name="etalon_area_workplace">Необходимая площадь рабочего места</string>
+    <string name="alert_need_add_workplace">Хотите добавить в данное помещение рабочее место?</string>
+    <string name="exist_workplace">Вуществующее рабочее место</string>
+    <string name="new_workplace">Место для нового сотрудника</string>
 
 
     //экран внесения данных о пользователе

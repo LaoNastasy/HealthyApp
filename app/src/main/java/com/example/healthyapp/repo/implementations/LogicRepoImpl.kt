@@ -1,6 +1,7 @@
 package com.example.healthyapp.repo.implementations
 
 import com.example.healthyapp.db.Database
+import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
 import com.example.healthyapp.repo.LogicRepo
@@ -39,6 +40,13 @@ class LogicRepoImpl(private val db: Database) : LogicRepo {
             withContext(Dispatchers.Main) { onSuccess.invoke() }
         }
 
+    }
+
+    override fun saveRoom(placement: Placement, onSuccess: () -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            db.getPlacementDao().addPlacement(placement)
+            withContext(Dispatchers.Main) { onSuccess.invoke() }
+        }
     }
 
 }
