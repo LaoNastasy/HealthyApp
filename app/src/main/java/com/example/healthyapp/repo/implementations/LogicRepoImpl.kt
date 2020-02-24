@@ -15,7 +15,7 @@ class LogicRepoImpl(private val db: Database) : LogicRepo {
 
     private var currentWorkplace: Workplace? = null
 
-    override fun addWorkplaceUserInformation(user: WorkplaceUser) {
+    override fun addWorkplaceUserInformation(user: WorkplaceUser, roomNumber:Int) {
 
         val table = 70
         val chair = table + user.shoulderHeight - user.backHeight
@@ -27,7 +27,8 @@ class LogicRepoImpl(private val db: Database) : LogicRepo {
             keyboardHeight = table,
             chairHeight = chair,
             standHeight = chair - user.userLegsHeight,
-            monitorHeight = chair + (user.userHeight * 0.86F).roundToInt()
+            monitorHeight = chair + (user.userHeight * 0.86F).roundToInt(),
+            roomNumber = roomNumber
         )
     }
 

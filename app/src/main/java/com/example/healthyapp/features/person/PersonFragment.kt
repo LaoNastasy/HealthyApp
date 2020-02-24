@@ -29,6 +29,8 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_person, container, false)
+        val roomNumber = arguments?.getInt(PersonFragment::class.simpleName) ?: 0
+
         view.back.setOnClickListener { presenter.onBackClick() }
 
         view.person_save.setOnClickListener {
@@ -36,7 +38,8 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
                 height = view.person_height.text.toString(),
                 backHeight = view.person_back_height.text.toString(),
                 legsHeight = view.person_legs_height.text.toString(),
-                shoulderHeight = view.person_shoulder_height.text.toString()
+                shoulderHeight = view.person_shoulder_height.text.toString(),
+                roomNumber = roomNumber
             )
         }
 

@@ -13,5 +13,6 @@ data class Workplace(
     @ColumnInfo(name = "monitor_height") val monitorHeight: Int,
     @ColumnInfo(name = "keyboard_height") val keyboardHeight: Int,
     @ColumnInfo(name = "chair_height") val chairHeight: Int,
-    @ColumnInfo(name = "stand_height") val standHeight: Int
+    @ColumnInfo(name = "stand_height") val standHeight: Int,
+    @ColumnInfo(name = "room_number") val roomNumber: Int
 )

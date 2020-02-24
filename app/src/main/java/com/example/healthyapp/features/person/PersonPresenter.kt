@@ -22,7 +22,8 @@ class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
         height: String,
         backHeight: String,
         legsHeight: String,
-        shoulderHeight: String
+        shoulderHeight: String,
+        roomNumber:Int
     ) {
         val heightInt = height.toInt()
         val backHeightInt = backHeight.toInt()
@@ -40,7 +41,7 @@ class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
                 backHeight = backHeightInt,
                 userLegsHeight = legsHeightInt,
                 shoulderHeight = shoulderHeightInt
-            )
+            ), roomNumber
         )
 
         view?.showWorkplace()
