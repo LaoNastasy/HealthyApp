@@ -11,7 +11,7 @@ import com.example.healthyapp.features.main_screen.MainFragment
 import com.example.healthyapp.features.person.PersonFragment
 import com.example.healthyapp.features.person.WorkplaceBottomFragment
 import com.example.healthyapp.features.registration.RegistrationFragment
-import com.example.healthyapp.features.roomEdit.BaseRoomEditFragment
+import com.example.healthyapp.features.roomEdit.RoomEditFragment
 import com.example.healthyapp.features.statistic.StatisticFragment
 import com.example.healthyapp.navigation.Navigator
 
@@ -29,7 +29,7 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
     }
 
     override fun goToBaseRoomEditScreen() {
-        goToFragment(BaseRoomEditFragment(), true)
+        goToFragment(RoomEditFragment(), true)
     }
 
     override fun goToAuthScreen() {
@@ -44,8 +44,12 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
         goToFragment(RegistrationFragment())
     }
 
-    override fun goToPersonScreen() {
-        goToFragment(PersonFragment(), true)
+    override fun goToPersonScreen(roomNumber: Int) {
+        val fragment = PersonFragment()
+        val bundle = Bundle()
+        bundle.putInt(PersonFragment::class.simpleName, roomNumber)
+        fragment.arguments = bundle
+        goToFragment(fragment, true)
     }
 
     override fun goToWorkplaceScreen() {
@@ -65,6 +69,10 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
 
     override fun goToMainScreen() {
         goToFragment(MainFragment())
+    }
+
+    override fun goBack() {
+        supportFragmentManager.popBackStack()
     }
 
     private fun goToFragment(fragment: Fragment, addToBackStack: Boolean = false) {

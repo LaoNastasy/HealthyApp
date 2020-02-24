@@ -11,9 +11,13 @@ interface RoomEditView : BaseView {
 
 class RoomEditPresenter(private val logicRepo: LogicRepo) : BasePresenter<RoomEditView>() {
 
+    private var currentRoom: Placement? = null
+
     fun saveRoom(placement: Placement) {
         logicRepo.saveRoom(placement) {
             view?.showAddWorkplaceDialog()
         }
     }
+
+    fun getRoomNumber() = currentRoom?.number
 }

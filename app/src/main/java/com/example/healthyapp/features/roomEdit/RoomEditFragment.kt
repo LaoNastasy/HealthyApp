@@ -11,7 +11,7 @@ import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_base_edit.view.*
 
-class BaseRoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEditView {
+class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEditView {
 
     override fun initPresenter() = DI.component.roomEditPresenter()
 
@@ -46,25 +46,36 @@ class BaseRoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), Ro
             .setPositiveButton(R.string.yes) { dialog, _ ->
                 dialog.dismiss()
                 showChooseDialog()
+            }
+            .setOnDismissListener {
+                navigator.goBack()
             }.create()
         dialog.show()
     }
 
     private fun showChooseDialog() {
+        var choise = -1
         val dialog = AlertDialog.Builder(context ?: return)
-            .setMessage(R.string.alert_need_add_workplace)
+            .setTitle(R.string.add)
             .setSingleChoiceItems(
                 arrayOf(getString(R.string.exist_workplace), getString(R.string.new_workplace)),
-                1
-            ) { dialog, _ ->
-                dialog.dismiss()
+                -1
+            ) { _, i ->
+                choise = i
             }
-            .setSingleChoiceItems(
-                arrayOf(getString(R.string.exist_workplace), getString(R.string.new_workplace)),
-                2
-            ) { dialog, _ ->
-                dialog.dismiss()
-                navigator.goToPersonScreen()
+            .setPositiveButton(R.string.ok) { dialogInterface, i ->
+                when (choise) {
+                    0 -> dialogInterface.dismiss()
+                    1 -> {
+                        dialogInterface.dismiss()
+                        navigator.goToPersonScreen(
+                            presenter.getRoomNumber() ?: return@setPositiveButton
+                        )
+                    }
+                }
+            }
+            .setNegativeButton(R.string.cancel) { dialogInterface, _ ->
+                dialogInterface.dismiss()
             }
             .create()
         dialog.show()
