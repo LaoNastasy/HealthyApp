@@ -3,9 +3,9 @@ package com.example.healthyapp.di
 import com.example.healthyapp.features.auth.AuthenticationFragment
 import com.example.healthyapp.features.auth.AuthenticationPresenter
 import com.example.healthyapp.features.klimat.ClimateFragment
-import com.example.healthyapp.features.main_screen.MainFragment
+import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonFragment
-import com.example.healthyapp.features.person.WorkplaceBottomFragment
+import com.example.healthyapp.features.person.WorkplacePresenter
 import com.example.healthyapp.features.registration.RegistrationFragment
 import com.example.healthyapp.features.roomEdit.RoomEditPresenter
 import com.example.healthyapp.features.statistic.StatisticFragment
@@ -23,7 +23,7 @@ interface AppComponent {
 
     fun injectRegistrationFragment(registrationFragment: RegistrationFragment)
 
-    fun injectMainScreenFragment(fragment: MainFragment)
+    fun mainScreenPresenter():MainScreenPresenter
 
     fun injectStatisticFragment(fragment: StatisticFragment)
 
@@ -31,7 +31,7 @@ interface AppComponent {
 
     fun injectPersonFragment(fragment: PersonFragment)
 
-    fun injectWorkplaceFragment(fragment: WorkplaceBottomFragment)
+    fun workplacePresenter(): WorkplacePresenter
 
     fun authenticationPresenter(): AuthenticationPresenter
 

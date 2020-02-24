@@ -34,6 +34,7 @@ class AppModule(private val context: Context) {
         return context.applicationContext
     }
 
+    @Singleton
     @Provides
     fun userRepo(database: Database, context: Context): UserRepository =
         UserRepositoryImpl(
@@ -41,6 +42,7 @@ class AppModule(private val context: Context) {
             context
         )
 
+    @Singleton
     @Provides
     fun logicRepo(database: Database): LogicRepo = LogicRepoImpl(database)
 

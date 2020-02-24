@@ -57,6 +57,8 @@
     <string name="workplace_chair_height">Высота сиденья кресла</string>
     <string name="workplace_monitor_height">Высота монитора</string>
     <string name="workplace_stand_height">Высота подставки для ног</string>
+    <string name="success_save_workplace">Новое рабочее место успешно добавлено. Повторно посмотреть его параметры
+    Вы можете в соответствующем разделе приложения. Хотите добавить еще одно рабочее место в выбранное помещение?</string>
 
 
 </resources>

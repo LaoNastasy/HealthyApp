@@ -9,7 +9,7 @@ import javax.inject.Inject
 interface WorkplaceView : BaseView {
 
     fun showWorkplace(workplace: Workplace)
-    fun close()
+    fun showSuccessSaveDialog()
 }
 
 class WorkplacePresenter @Inject constructor(private val logicRepo: LogicRepo) :
@@ -21,11 +21,12 @@ class WorkplacePresenter @Inject constructor(private val logicRepo: LogicRepo) :
         val place = logicRepo.getCurrentWorkplace()
         if (place == null) view?.showError()
         else view?.showWorkplace(place)
+        currentWorkplace = place
     }
 
     fun saveWorkplace() {
         logicRepo.saveWorkplace(currentWorkplace ?: return) {
-            view?.close()
+            view?.showSuccessSaveDialog()
         }
     }
 }

@@ -32,7 +32,8 @@ class LogicRepoImpl(private val db: Database) : LogicRepo {
         )
     }
 
-    override fun getCurrentWorkplace(): Workplace? = currentWorkplace
+    override fun getCurrentWorkplace(): Workplace?
+            = currentWorkplace
 
     override fun saveWorkplace(workplace: Workplace, onSuccess: () -> Unit) {
 

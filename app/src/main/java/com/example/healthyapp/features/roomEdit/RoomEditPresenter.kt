@@ -15,6 +15,7 @@ class RoomEditPresenter(private val logicRepo: LogicRepo) : BasePresenter<RoomEd
 
     fun saveRoom(placement: Placement) {
         logicRepo.saveRoom(placement) {
+            currentRoom = placement
             view?.showAddWorkplaceDialog()
         }
     }

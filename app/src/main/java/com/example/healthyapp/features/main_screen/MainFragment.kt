@@ -8,18 +8,10 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_main.view.*
-import javax.inject.Inject
 
 class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainScreenView {
 
-    @Inject
-    lateinit var mainPresenter: MainScreenPresenter
-
-    init {
-        DI.component.injectMainScreenFragment(this)
-    }
-
-    override fun initPresenter() = mainPresenter
+    override fun initPresenter() = DI.component.mainScreenPresenter()
     override fun getMvpView() = this
 
     override fun onCreateView(
