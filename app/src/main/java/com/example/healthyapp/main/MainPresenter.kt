@@ -13,7 +13,8 @@ interface MainView : BaseView {
 class MainPresenter @Inject constructor(private val userRepository: UserRepository) : BasePresenter<MainView>() {
 
     fun checkAuth() {
-        if (userRepository.isUserSignedIn()) view?.goToMainScreen()
-        else view?.goToAuthScreen()
+//        if (userRepository.isUserSignedIn())
+            view?.goToMainScreen()
+//        else view?.goToAuthScreen()
     }
 }

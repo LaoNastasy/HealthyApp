@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_01"
+    android:id="@+id/motion_layout"
+    tools:showPath="true">
+
+    <View
+        android:id="@+id/first"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:background="#FF0404" />
+
+<!--    <View-->
+<!--        android:id="@+id/second"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="#FFEB3B" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/third"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:background="#04C4FF" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/fourth"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="#D904FF" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/fifth"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:background="#673AB7" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/sixth"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="#009688" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/seventh"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="#E91E63" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/eight"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="#0F9600" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/ninth"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="#FF5722" />-->
+
+<!--    <androidx.constraintlayout.helper.widget.Layer-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:alpha="0.5"-->
+<!--        app:constraint_referenced_ids="ninth,eight,seventh" />-->
+
+
+<!--    <androidx.constraintlayout.helper.widget.Flow-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:constraint_referenced_ids="first,second,third,fourth,fifth,sixth,seventh,eight,ninth"-->
+<!--        app:flow_horizontalBias="1"-->
+<!--        app:flow_horizontalGap="10dp"-->
+<!--        app:flow_horizontalStyle="packed"-->
+<!--        app:flow_verticalAlign="bottom"-->
+<!--        app:flow_verticalGap="10dp"-->
+<!--        app:flow_wrapMode="chain"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

@@ -8,18 +8,10 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_person.view.*
-import javax.inject.Inject
 
 class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
 
-    @Inject
-    lateinit var personPresenter: PersonPresenter
-
-    init {
-        DI.component.injectPersonFragment(this)
-    }
-
-    override fun initPresenter() = personPresenter
+    override fun initPresenter() = DI.component.personPresenter()
 
     override fun getMvpView() = this
 
@@ -34,6 +26,13 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
         view.back.setOnClickListener { presenter.onBackClick() }
 
         view.person_save.setOnClickListener {
+            if (view.person_height.text.isNullOrEmpty()
+                || view.person_back_height.text.isNullOrEmpty()
+                || view.person_legs_height.text.isNullOrEmpty()
+                || view.person_shoulder_height.text.isNullOrEmpty()
+                || view.person_shoulder_height.text.isNullOrEmpty())
+                return@setOnClickListener
+
             presenter.onSaveClick(
                 height = view.person_height.text.toString(),
                 backHeight = view.person_back_height.text.toString(),
