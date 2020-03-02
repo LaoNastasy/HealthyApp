@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
@@ -51,7 +52,7 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
     }
 
     override fun showWorkplace() {
-        navigator.goToWorkplaceScreen()
+        Navigation.findNavController(view?:return).navigate(R.id.workplaceBottomFragment)
     }
 
     override fun showError() {
