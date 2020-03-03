@@ -18,11 +18,14 @@
         <action
             android:id="@+id/action_mainFragment_to_roomEditFragment"
             app:destination="@id/roomEditFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_statisticFragment"
+            app:destination="@id/statisticFragment" />
     </fragment>
     <fragment
         android:id="@+id/personFragment"
         android:name="com.example.healthyapp.features.person.PersonFragment"
-        android:label="PersonFragment" >
+        android:label="PersonFragment">
         <action
             android:id="@+id/action_personFragment_to_workplaceBottomFragment"
             app:destination="@id/workplaceBottomFragment" />
@@ -35,7 +38,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.healthyapp.features.auth.AuthenticationFragment"
-        android:label="loginFragment" >
+        android:label="loginFragment">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -47,7 +50,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.healthyapp.features.registration.RegistrationFragment"
-        android:label="RegistrationFragment" >
+        android:label="RegistrationFragment">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -59,4 +62,8 @@
         android:id="@+id/roomEditFragment"
         android:name="com.example.healthyapp.features.roomEdit.RoomEditFragment"
         android:label="RoomEditFragment" />
+    <fragment
+        android:id="@+id/statisticFragment"
+        android:name="com.example.healthyapp.features.statistic.StatisticFragment"
+        android:label="StatisticFragment" />
 </navigation>

@@ -3,21 +3,17 @@ package com.example.healthyapp.base
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.healthyapp.main.MainActivity
-import com.example.healthyapp.navigation.Navigator
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 abstract class BaseBottomFragment<P : BasePresenter<V>, V : BaseView> :
     BottomSheetDialogFragment() {
 
     lateinit var presenter: P
-    protected lateinit var navigator: Navigator
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter = initPresenter()
-        navigator = (activity as MainActivity)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

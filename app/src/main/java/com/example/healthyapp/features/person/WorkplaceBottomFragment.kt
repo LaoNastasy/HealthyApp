@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseBottomFragment
 import com.example.healthyapp.db.model.entity.Workplace
@@ -52,14 +53,21 @@ class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, Workplace
             .setPositiveButton(R.string.yes) { dialogInterface, _ ->
                 dialogInterface.dismiss()
                 dismiss()
-                navigator.goToPersonScreen(workplace.roomNumber)
+                val bundle = Bundle()
+                bundle.putInt(this::class.simpleName, workplace.roomNumber)
+                Navigation.findNavController(view
+                    ?: return@setPositiveButton).navigate(R.id.roomEditFragment, bundle)
+
             }
             .setNegativeButton(R.string.no) { dialogInterface, _ ->
                 dialogInterface.dismiss()
                 dismiss()
-                navigator.goToMainScreen()
+                Navigation.findNavController(view
+                    ?: return@setNegativeButton).navigate(R.id.mainFragment)
             }
-            .setOnDismissListener { navigator.goBack() }
+            .setOnDismissListener {
+                Navigation.findNavController(view ?: return@setOnDismissListener).popBackStack()
+            }
             .show()
     }
 

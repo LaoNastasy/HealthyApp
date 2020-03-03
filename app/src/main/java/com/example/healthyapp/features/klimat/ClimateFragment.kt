@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
-import com.example.healthyapp.navigation.Navigator
 import javax.inject.Inject
 
 class ClimateFragment : BaseFragment<ClimatePresenter, ClimateView>(), ClimateView {
@@ -23,7 +23,10 @@ class ClimateFragment : BaseFragment<ClimatePresenter, ClimateView>(), ClimateVi
 
     override fun getMvpView() = this
 
-    override fun goBack() = (activity as Navigator).goToMainScreen()
+    override fun goBack() {
+        Navigation.findNavController(view ?: return).popBackStack()
+    }
+
     override fun showError() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

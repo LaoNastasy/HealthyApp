@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Placement
@@ -48,7 +49,7 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
                 showChooseDialog()
             }
             .setOnDismissListener {
-                navigator.goBack()
+                Navigation.findNavController(view ?: return@setOnDismissListener).popBackStack()
             }.create()
         dialog.show()
     }
@@ -68,9 +69,11 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
                     0 -> dialogInterface.dismiss()
                     1 -> {
                         dialogInterface.dismiss()
-                        navigator.goToPersonScreen(
-                            presenter.getRoomNumber() ?: return@setPositiveButton
-                        )
+                        val bundle = Bundle()
+                        bundle.putInt(this::class.simpleName, presenter.getRoomNumber()
+                            ?: return@setPositiveButton)
+                        Navigation.findNavController(view
+                            ?: return@setPositiveButton).navigate(R.id.roomEditFragment, bundle)
                     }
                 }
             }

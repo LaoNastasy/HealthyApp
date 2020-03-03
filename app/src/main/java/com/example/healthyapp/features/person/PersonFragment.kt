@@ -48,7 +48,7 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
     }
 
     override fun goBack() {
-        navigator.goToMainScreen()
+        Navigation.findNavController(view?:return).popBackStack()
     }
 
     override fun showWorkplace() {

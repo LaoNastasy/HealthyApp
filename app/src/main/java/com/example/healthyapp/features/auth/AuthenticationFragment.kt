@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
@@ -37,12 +39,12 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
         }
 
         view.registrate.setOnClickListener {
-            navigator.goToRegistrationScreen()
+            findNavController().navigate(R.id.registerFragment)
         }
     }
 
     override fun goToMainScreen() {
-        navigator.goToMainScreen()
+       Navigation.findNavController(view?:return).navigate(R.id.mainFragment)
     }
 
     override fun showError() {

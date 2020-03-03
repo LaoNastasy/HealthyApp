@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-228" />
-                            <option name="y" value="315" />
+                            <option name="x" value="-436" />
+                            <option name="y" value="317" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -39,8 +39,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-133" />
-                            <option name="y" value="-88" />
+                            <option name="x" value="-233" />
+                            <option name="y" value="-195" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -51,6 +51,11 @@
                               </value>
                             </entry>
                             <entry key="action_mainFragment_to_roomEditFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_mainFragment_to_statisticFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -86,8 +91,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="39" />
-                            <option name="y" value="331" />
+                            <option name="x" value="-197" />
+                            <option name="y" value="361" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -114,6 +119,18 @@
                           <Point>
                             <option name="x" value="292" />
                             <option name="y" value="193" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="statisticFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="40" />
+                            <option name="y" value="357" />
                           </Point>
                         </option>
                       </LayoutPositions>
