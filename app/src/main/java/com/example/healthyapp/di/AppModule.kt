@@ -6,10 +6,10 @@ import com.example.healthyapp.repo.UserRepository
 import com.example.healthyapp.repo.implementations.UserRepositoryImpl
 import com.example.healthyapp.features.auth.AuthenticationPresenter
 import com.example.healthyapp.db.Database
-import com.example.healthyapp.features.klimat.ClimatePresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.person.WorkplacePresenter
+import com.example.healthyapp.features.registration.RegistrationPresenter
 import com.example.healthyapp.features.roomEdit.RoomEditPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
@@ -54,6 +54,10 @@ class AppModule(private val context: Context) {
         AuthenticationPresenter(userRepository)
 
     @Provides
+    fun registrationPresenter(userRepo: UserRepository): RegistrationPresenter =
+        RegistrationPresenter(userRepo)
+
+    @Provides
     fun mainScreenPresenter(userRepository: UserRepository): MainScreenPresenter =
         MainScreenPresenter(userRepository)
 
@@ -62,9 +66,6 @@ class AppModule(private val context: Context) {
 
     @Provides
     fun personPresenter(logicRepo: LogicRepo): PersonPresenter = PersonPresenter(logicRepo)
-
-    @Provides
-    fun climatePresenter(): ClimatePresenter = ClimatePresenter()
 
     @Provides
     fun workplacePresenter(logicRepo: LogicRepo): WorkplacePresenter = WorkplacePresenter(logicRepo)

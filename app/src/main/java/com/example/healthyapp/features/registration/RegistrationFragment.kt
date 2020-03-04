@@ -10,19 +10,11 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_registration.view.*
-import javax.inject.Inject
 
 class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationView>(),
     RegistrationView {
 
-    @Inject
-    lateinit var registrationPresenter: RegistrationPresenter
-
-    init {
-        DI.component.injectRegistrationFragment(this)
-    }
-
-    override fun initPresenter() = registrationPresenter
+    override fun initPresenter() = DI.component.registrationPresenter()
 
     override fun getMvpView() = this
 
