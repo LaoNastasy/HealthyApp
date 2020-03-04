@@ -43,14 +43,13 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
     override fun showAddWorkplaceDialog() {
         val dialog = AlertDialog.Builder(context ?: return)
             .setMessage(R.string.alert_need_add_workplace)
-            .setNegativeButton(R.string.no) { dialog, _ -> dialog.dismiss() }
+            .setNegativeButton(R.string.no) { dialog, _ -> dialog.dismiss()
+                Navigation.findNavController(view ?: return@setNegativeButton).popBackStack()}
             .setPositiveButton(R.string.yes) { dialog, _ ->
                 dialog.dismiss()
                 showChooseDialog()
             }
-            .setOnDismissListener {
-                Navigation.findNavController(view ?: return@setOnDismissListener).popBackStack()
-            }.create()
+            .create()
         dialog.show()
     }
 
@@ -73,7 +72,7 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
                         bundle.putInt(this::class.simpleName, presenter.getRoomNumber()
                             ?: return@setPositiveButton)
                         Navigation.findNavController(view
-                            ?: return@setPositiveButton).navigate(R.id.roomEditFragment, bundle)
+                            ?: return@setPositiveButton).navigate(R.id.personFragment, bundle)
                     }
                 }
             }
@@ -85,6 +84,6 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
     }
 
     override fun showError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        showError(getString(R.string.common_error))
     }
 }

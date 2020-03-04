@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseBottomFragment
 import com.example.healthyapp.db.model.entity.Workplace
@@ -22,6 +23,8 @@ class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, Workplace
     private lateinit var rootView: View
     private lateinit var workplace: Workplace
 
+    private lateinit var navController: NavController
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,6 +38,7 @@ class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, Workplace
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.getCurrentWorkplace()
+        navController = findNavController()
     }
 
 
@@ -52,21 +56,18 @@ class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, Workplace
             .setMessage(R.string.success_save_workplace)
             .setPositiveButton(R.string.yes) { dialogInterface, _ ->
                 dialogInterface.dismiss()
-                dismiss()
                 val bundle = Bundle()
                 bundle.putInt(this::class.simpleName, workplace.roomNumber)
-                Navigation.findNavController(view
-                    ?: return@setPositiveButton).navigate(R.id.roomEditFragment, bundle)
-
+                navController.navigate(R.id.roomEditFragment, bundle)
+                dismiss()
             }
             .setNegativeButton(R.string.no) { dialogInterface, _ ->
                 dialogInterface.dismiss()
+                navController.navigate(R.id.mainFragment)
                 dismiss()
-                Navigation.findNavController(view
-                    ?: return@setNegativeButton).navigate(R.id.mainFragment)
             }
             .setOnDismissListener {
-                Navigation.findNavController(view ?: return@setOnDismissListener).popBackStack()
+                navController.popBackStack()
             }
             .show()
     }

@@ -14,7 +14,7 @@ class MainPresenter @Inject constructor(private val userRepository: UserReposito
 
     fun checkAuth() {
 //        if (userRepository.isUserSignedIn())
-            view?.goToMainScreen()
+//            view?.goToMainScreen()
 //        else view?.goToAuthScreen()
     }
 }
