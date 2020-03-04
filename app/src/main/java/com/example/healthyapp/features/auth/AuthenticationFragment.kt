@@ -5,24 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_authentification.*
 import kotlinx.android.synthetic.main.fragment_authentification.view.*
-import javax.inject.Inject
 
 class AuthenticationFragment : BaseFragment<AuthenticationPresenter, AuthenticationView>(),
     AuthenticationView {
 
-    @Inject
-    lateinit var authPresenter: AuthenticationPresenter
-
-    init {
-        DI.component.injectAuthFragment(this)
-    }
-
-    override fun initPresenter() = authPresenter
+    override fun initPresenter() = DI.component.authenticationPresenter()
 
     override fun getMvpView() = this
 
@@ -45,19 +39,15 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
         }
 
         view.registrate.setOnClickListener {
-            presenter.onRegistrationClick()
+            findNavController().navigate(R.id.registerFragment)
         }
     }
 
     override fun goToMainScreen() {
-       navigator.goToMainScreen()
-    }
-
-    override fun gotoRegistration() {
-        navigator.goToRegistrationScreen()
+       Navigation.findNavController(view?:return).navigate(R.id.mainFragment)
     }
 
     override fun showError() {
-        Toast.makeText(context,getString(R.string.wrong_password), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, getString(R.string.wrong_password), Toast.LENGTH_SHORT).show()
     }
 }

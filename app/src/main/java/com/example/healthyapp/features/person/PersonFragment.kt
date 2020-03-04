@@ -4,22 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_person.view.*
-import javax.inject.Inject
 
 class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
 
-    @Inject
-    lateinit var personPresenter: PersonPresenter
-
-    init {
-        DI.component.injectPersonFragment(this)
-    }
-
-    override fun initPresenter() = personPresenter
+    override fun initPresenter() = DI.component.personPresenter()
 
     override fun getMvpView() = this
 
@@ -29,14 +22,24 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_person, container, false)
+        val roomNumber = arguments?.getInt(PersonFragment::class.simpleName) ?: 0
+
         view.back.setOnClickListener { presenter.onBackClick() }
 
         view.person_save.setOnClickListener {
+            if (view.person_height.text.isNullOrEmpty()
+                || view.person_back_height.text.isNullOrEmpty()
+                || view.person_legs_height.text.isNullOrEmpty()
+                || view.person_shoulder_height.text.isNullOrEmpty()
+                || view.person_shoulder_height.text.isNullOrEmpty())
+                return@setOnClickListener
+
             presenter.onSaveClick(
                 height = view.person_height.text.toString(),
                 backHeight = view.person_back_height.text.toString(),
                 legsHeight = view.person_legs_height.text.toString(),
-                shoulderHeight = view.person_shoulder_height.text.toString()
+                shoulderHeight = view.person_shoulder_height.text.toString(),
+                roomNumber = roomNumber
             )
         }
 
@@ -45,11 +48,11 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
     }
 
     override fun goBack() {
-        navigator.goToMainScreen()
+        Navigation.findNavController(view?:return).popBackStack()
     }
 
     override fun showWorkplace() {
-        navigator.goToWorkplaceScreen()
+        Navigation.findNavController(view?:return).navigate(R.id.workplaceBottomFragment)
     }
 
     override fun showError() {

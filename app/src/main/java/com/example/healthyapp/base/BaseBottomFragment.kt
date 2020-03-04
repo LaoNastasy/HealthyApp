@@ -10,6 +10,7 @@ abstract class BaseBottomFragment<P : BasePresenter<V>, V : BaseView> :
 
     lateinit var presenter: P
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter = initPresenter()

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.healthyapp.features.main_screen.MainFragment"
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_personFragment2"
+            app:destination="@id/personFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popExitAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/action_mainFragment_to_roomEditFragment"
+            app:destination="@id/roomEditFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_statisticFragment"
+            app:destination="@id/statisticFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personFragment"
+        android:name="com.example.healthyapp.features.person.PersonFragment"
+        android:label="PersonFragment">
+        <action
+            android:id="@+id/action_personFragment_to_workplaceBottomFragment"
+            app:destination="@id/workplaceBottomFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/workplaceBottomFragment"
+        android:name="com.example.healthyapp.features.person.WorkplaceBottomFragment"
+        android:label="WorkplaceBottomFragment" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.healthyapp.features.auth.AuthenticationFragment"
+        android:label="loginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.healthyapp.features.registration.RegistrationFragment"
+        android:label="RegistrationFragment">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomEditFragment"
+        android:name="com.example.healthyapp.features.roomEdit.RoomEditFragment"
+        android:label="RoomEditFragment" />
+    <fragment
+        android:id="@+id/statisticFragment"
+        android:name="com.example.healthyapp.features.statistic.StatisticFragment"
+        android:label="StatisticFragment" />
+</navigation>

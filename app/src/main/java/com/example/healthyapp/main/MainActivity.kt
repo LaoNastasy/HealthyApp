@@ -1,31 +1,14 @@
 package com.example.healthyapp.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseActivity
 import com.example.healthyapp.di.DI
-import com.example.healthyapp.features.auth.AuthenticationFragment
-import com.example.healthyapp.features.klimat.ClimateFragment
-import com.example.healthyapp.features.main_screen.MainFragment
-import com.example.healthyapp.features.person.PersonFragment
-import com.example.healthyapp.features.person.WorkplaceBottomFragment
-import com.example.healthyapp.features.registration.RegistrationFragment
-import com.example.healthyapp.features.roomEdit.BaseRoomEditFragment
-import com.example.healthyapp.features.statistic.StatisticFragment
-import com.example.healthyapp.navigation.Navigator
-import javax.inject.Inject
 
-class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainView {
+class MainActivity : BaseActivity<MainPresenter, MainView>(), MainView {
 
-    @Inject
-    lateinit var mainPresenter: MainPresenter
-
-    init {
-        DI.component.injectMainActivity(this)
-    }
-
-    override fun initPresenter() = mainPresenter
+    override fun initPresenter() = DI.component.mainPresenter()
 
     override fun getMvpView() = this
 
@@ -36,49 +19,17 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), Navigator, MainVie
         presenter.checkAuth()
     }
 
-    override fun goToBaseRoomEditScreen() {
-        goToFragment(BaseRoomEditFragment(), true)
-    }
-
     override fun goToAuthScreen() {
-        goToFragment(AuthenticationFragment())
+        findNavController(R.id.fragment).navigate(R.id.loginFragment)
     }
 
     override fun showError() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun goToRegistrationScreen() {
-        goToFragment(RegistrationFragment())
-    }
-
-    override fun goToPersonScreen() {
-        goToFragment(PersonFragment(), true)
-    }
-
-    override fun goToWorkplaceScreen() {
-        WorkplaceBottomFragment().show(
-            supportFragmentManager,
-            WorkplaceBottomFragment::class.simpleName
-        )
-    }
-
-    override fun goToStatisticScreen() {
-        goToFragment(StatisticFragment(), true)
-    }
-
-    override fun goToClimateScreen() {
-        goToFragment(ClimateFragment(), true)
-    }
 
     override fun goToMainScreen() {
-        goToFragment(MainFragment())
+        findNavController(R.id.fragment).navigate(R.id.mainFragment)
     }
 
-    private fun goToFragment(fragment: Fragment, addToBackStack: Boolean = false) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_place, fragment)
-        if (addToBackStack) fragmentTransaction.addToBackStack(fragment::class.java.name)
-        fragmentTransaction.commit()
-    }
 }

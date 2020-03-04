@@ -1,188 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/toolbar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/base_edit_title"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/toolbar_text"
+            android:id="@+id/room_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/base_edit_title"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/base_edit_room_number" />
 
-    <TextView
-        android:id="@+id/room_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/base_edit_room_number"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/start"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/room_number_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/whiteShadow"
+            android:fontFamily="sans-serif-light"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/room_number_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/room_number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/room_number"
-        app:layout_constraintTop_toTopOf="@id/room_number" />
+        <TextView
+            android:id="@+id/room_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/base_edit_height" />
 
-    <TextView
-        android:id="@+id/room_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/base_edit_window_height"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/room_number"
-        app:layout_constraintTop_toBottomOf="@id/room_number" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/room_height_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/whiteShadow"
+            android:fontFamily="sans-serif-light"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/room_height_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/room_height"
-        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
-        app:layout_constraintStart_toStartOf="@id/room_number_edit"
-        app:layout_constraintTop_toTopOf="@id/room_height" />
+        <TextView
+            android:id="@+id/room_width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/base_edit_width" />
 
-    <TextView
-        android:id="@+id/room_area"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/base_edit_area"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/room_number"
-        app:layout_constraintTop_toBottomOf="@id/room_height" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/room_width_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/whiteShadow"
+            android:fontFamily="sans-serif-light"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/room_width_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/room_area"
-        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
-        app:layout_constraintStart_toEndOf="@id/room_area"
-        app:layout_constraintTop_toTopOf="@id/room_area" />
+        <TextView
+            android:id="@+id/room_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/base_edit_length" />
 
-    <TextView
-        android:id="@+id/room_window_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/base_edit_window_number"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/room_number"
-        app:layout_constraintTop_toBottomOf="@id/room_area" />
-
-    <EditText
-        android:id="@+id/room_window_count_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/room_window_count"
-        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
-        app:layout_constraintStart_toStartOf="@id/room_number_edit"
-        app:layout_constraintTop_toTopOf="@id/room_window_count" />
-
-    <TextView
-        android:id="@+id/room_window_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/base_edit_window_height"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/room_number"
-        app:layout_constraintTop_toBottomOf="@id/room_window_count" />
-
-    <EditText
-        android:id="@+id/room_window_height_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/room_window_height"
-        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
-        app:layout_constraintStart_toStartOf="@id/room_number_edit"
-        app:layout_constraintTop_toTopOf="@id/room_window_height" />
-
-    <TextView
-        android:id="@+id/room_window_width"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/base_edit_window_width"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/room_number"
-        app:layout_constraintTop_toBottomOf="@id/room_window_height" />
-
-    <EditText
-        android:id="@+id/room_window_width_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/room_window_width"
-        app:layout_constraintEnd_toEndOf="@id/room_number_edit"
-        app:layout_constraintStart_toStartOf="@id/room_number_edit"
-        app:layout_constraintTop_toTopOf="@id/room_window_width" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/room_length_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/whiteShadow"
+            android:fontFamily="sans-serif-light"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/base_edit_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="16dp"
         android:background="@color/colorPrimary"
         android:padding="8dp"
         android:text="@string/save"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="16sp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
