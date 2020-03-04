@@ -4,7 +4,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
-
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.healthyapp.features.main_screen.MainFragment"
@@ -22,6 +21,7 @@
             android:id="@+id/action_mainFragment_to_statisticFragment"
             app:destination="@id/statisticFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/personFragment"
         android:name="com.example.healthyapp.features.person.PersonFragment"
@@ -30,6 +30,7 @@
             android:id="@+id/action_personFragment_to_workplaceBottomFragment"
             app:destination="@id/workplaceBottomFragment" />
     </fragment>
+
     <dialog
         android:id="@+id/workplaceBottomFragment"
         android:name="com.example.healthyapp.features.person.WorkplaceBottomFragment"
@@ -58,10 +59,16 @@
             android:id="@+id/action_registerFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/roomEditFragment"
         android:name="com.example.healthyapp.features.roomEdit.RoomEditFragment"
-        android:label="RoomEditFragment" />
+        android:label="RoomEditFragment" >
+        <action
+            android:id="@+id/action_roomEditFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/statisticFragment"
         android:name="com.example.healthyapp.features.statistic.StatisticFragment"
