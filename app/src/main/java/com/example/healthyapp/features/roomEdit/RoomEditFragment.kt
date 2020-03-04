@@ -64,7 +64,7 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
             ) { _, i ->
                 choise = i
             }
-            .setPositiveButton(R.string.ok) { dialogInterface, i ->
+            .setPositiveButton(R.string.ok) { dialogInterface, _ ->
                 when (choise) {
                     0 -> dialogInterface.dismiss()
                     1 -> {

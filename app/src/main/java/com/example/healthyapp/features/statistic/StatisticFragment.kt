@@ -10,18 +10,10 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_try_flow.view.*
-import javax.inject.Inject
 
 class StatisticFragment : BaseFragment<StatisticPresenter, StatisticView>(), StatisticView {
 
-    @Inject
-    lateinit var statisticPresenter: StatisticPresenter
-
-    init {
-        DI.component.injectStatisticFragment(this)
-    }
-
-    override fun initPresenter() = statisticPresenter
+    override fun initPresenter() = DI.component.statisticPresenter()
 
     override fun getMvpView() = this
 

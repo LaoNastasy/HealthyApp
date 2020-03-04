@@ -9,7 +9,7 @@ interface RegistrationView : BaseView {
     fun goToMainScreen()
 }
 
-class RegistrationPresenter @Inject constructor(val userRepo: UserRepository) :
+class RegistrationPresenter @Inject constructor(private val userRepo: UserRepository) :
     BasePresenter<RegistrationView>() {
 
     fun registrate(login: String, password: String) {

@@ -8,7 +8,6 @@ import androidx.navigation.Navigation
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
-import com.example.healthyapp.navigation.Navigator
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
 class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainScreenView {
