@@ -10,10 +10,7 @@
         android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_personFragment2"
-            app:destination="@id/personFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:popExitAnim="@anim/fragment_close_exit" />
+            app:destination="@id/personFragment" />
         <action
             android:id="@+id/action_mainFragment_to_roomEditFragment"
             app:destination="@id/roomEditFragment" />
