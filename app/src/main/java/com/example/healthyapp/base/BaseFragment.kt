@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment<P : BasePresenter<V>, V : BaseView> : Fragment() {
+abstract class BaseFragment<P : BasePresenter<V>, V : BaseView> : Fragment(), BaseView {
 
     lateinit var presenter: P
 
