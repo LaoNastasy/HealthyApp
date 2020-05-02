@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "313218899503",
+    "firebase_url": "https://ergonomicproject-77ffc.firebaseio.com",
+    "project_id": "ergonomicproject-77ffc",
+    "storage_bucket": "ergonomicproject-77ffc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313218899503:android:e8fa8be1ee72ae315a30da",
+        "android_client_info": {
+          "package_name": "com.alitvinova.healthyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313218899503-n9nk86jed1qkb6u744r9u57nhdr2hv56.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQTQWgAMJIrwY1W20xMKxEo76D5oYQASI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313218899503-n9nk86jed1qkb6u744r9u57nhdr2hv56.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
