@@ -3,7 +3,7 @@ package com.example.healthyapp.features.person
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 import com.example.healthyapp.db.model.entity.WorkplaceUser
-import com.example.healthyapp.repo.LogicRepo
+import com.example.healthyapp.repo.WorkplaceRepo
 import javax.inject.Inject
 
 interface PersonView : BaseView {
@@ -11,7 +11,7 @@ interface PersonView : BaseView {
     fun showWorkplace()
 }
 
-class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
+class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRepo) :
     BasePresenter<PersonView>() {
 
     fun onBackClick() {
@@ -23,7 +23,7 @@ class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
         backHeight: String,
         legsHeight: String,
         shoulderHeight: String,
-        roomNumber:Int
+        roomNumber: Int
     ) {
         val heightInt = height.toInt()
         val backHeightInt = backHeight.toInt()
@@ -34,17 +34,21 @@ class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
             view?.showError()
             return
         }
-        logicRepo.addWorkplaceUserInformation(
+        workplaceRepo.saveWorkplaceUserInformation(
             WorkplaceUser(
                 id = 0,
-                userHeight = heightInt,
-                backHeight = backHeightInt,
-                userLegsHeight = legsHeightInt,
-                shoulderHeight = shoulderHeightInt
-            ), roomNumber
+                height = heightInt,
+                eyesHeight = backHeightInt,
+                legsHeight = legsHeightInt,
+                shoulder = shoulderHeightInt,
+                back = backHeightInt,
+                name = ""
+            ),
+            roomNumber
+            , onSuccess = { view?.showWorkplace() },
+            onError = { view?.showError() }
         )
 
-        view?.showWorkplace()
     }
 
 }

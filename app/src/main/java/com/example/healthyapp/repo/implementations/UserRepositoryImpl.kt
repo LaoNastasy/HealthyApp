@@ -3,19 +3,16 @@ package com.example.healthyapp.repo.implementations
 import android.content.Context
 import android.util.Log
 import com.example.healthyapp.PreferenceUtils
-import com.example.healthyapp.db.Database
 import com.example.healthyapp.db.model.entity.User
 import com.example.healthyapp.repo.UserRepository
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
 import javax.inject.Inject
 
 
-open class UserRepositoryImpl @Inject constructor(val database: Database, val context: Context) :
+open class UserRepositoryImpl @Inject constructor(val db: FirebaseFirestore, val context: Context) :
     UserRepository {
 
     private val TAG = UserRepositoryImpl::class.simpleName
-    private val db = Firebase.firestore
     private val prefs = PreferenceUtils(context)
 
     override fun getUserByLogin(
