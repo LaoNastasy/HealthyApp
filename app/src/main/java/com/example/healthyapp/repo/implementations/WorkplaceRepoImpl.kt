@@ -51,7 +51,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
     ) {
         currentUser ?: onError.invoke()
         val user = currentUser ?: return
-        val wpUser = hashSetOf(
+        val wpUser = hashMapOf(
             "height" to user.height,
             "back" to user.back,
             "shoulder" to user.shoulder,
@@ -63,7 +63,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
         fun saveWP(id: String) {
             currentWorkplace ?: onError.invoke()
             val workplace = currentWorkplace ?: return
-            val wp = hashSetOf(
+            val wp = hashMapOf(
                 "user_id" to "workplace_user/$id",
                 "table" to workplace.tableHeight,
                 "chair" to workplace.chairHeight,
