@@ -23,12 +23,12 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
         val chair = table + user.shoulder - user.back
 
         val wp = Workplace(
-            id = 0,
+            id = "",
             userId = user.id,
             tableHeight = table,
             chairHeight = chair,
             standHeight = chair - user.legsHeight,
-            monitorHeight = chair + (user.height * 0.86F).roundToInt(),
+            monitorHeight = chair + (user.sitHeight * 0.86F).roundToInt(),
             roomNumber = roomNumber
         )
         currentWorkplace = wp

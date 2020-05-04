@@ -20,24 +20,27 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
 
     fun onSaveClick(
         height: String,
+        sitHeight:String,
         backHeight: String,
         legsHeight: String,
         shoulderHeight: String,
         roomNumber: Int
     ) {
         val heightInt = height.toInt()
+        val sitHeightInt = sitHeight.toInt()
         val backHeightInt = backHeight.toInt()
         val legsHeightInt = legsHeight.toInt()
         val shoulderHeightInt = shoulderHeight.toInt()
 
-        if (heightInt <= 0 || backHeightInt <= 0 || legsHeightInt <= 0 || shoulderHeightInt <= 0) {
+        if (heightInt <= 0 || backHeightInt <= 0 || legsHeightInt <= 0 || shoulderHeightInt <= 0 || sitHeightInt<=0) {
             view?.showError()
             return
         }
         workplaceRepo.saveWorkplaceUserInformation(
             WorkplaceUser(
-                id = 0,
+                id = "",
                 height = heightInt,
+                sitHeight = sitHeightInt,
                 eyesHeight = backHeightInt,
                 legsHeight = legsHeightInt,
                 shoulder = shoulderHeightInt,

@@ -44,8 +44,9 @@
 
 
     //экран внесения данных о пользователе
-    <string name="person_title">Внесите параметры будущего пользователя</string>
-    <string name="person_height">Высота над плоскостью сиденья кресла (см)</string>
+    <string name="person_title">Параметры пользователя</string>
+    <string name="person_height">Рост (см)</string>
+    <string name="person_height_sit">Рост сидя (см)</string>
     <string name="person_back_height">Длина спины (см)</string>
     <string name="person_legs_height">Длина голени (см)</string>
     <string name="person_shoulder_height">Длина плеча (см)</string>

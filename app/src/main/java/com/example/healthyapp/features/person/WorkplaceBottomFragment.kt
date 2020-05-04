@@ -9,11 +9,12 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseBottomFragment
+import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.bottom_fragment_new_workplace.view.*
 
-class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, WorkplaceView>(),
+class WorkplaceBottomFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
     WorkplaceView {
 
     override fun initPresenter() = DI.component.workplacePresenter()
@@ -46,7 +47,6 @@ class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, Workplace
         this.workplace = workplace
         rootView.workplace_table_height.text = workplace.tableHeight.toString()
         rootView.workplace_chair_height.text = workplace.chairHeight.toString()
-        rootView.workplace_keyboard_height.text = workplace.keyboardHeight.toString()
         rootView.workplace_monitor_height.text = workplace.monitorHeight.toString()
         rootView.workplace_stand_height.text = workplace.standHeight.toString()
     }
@@ -59,12 +59,12 @@ class WorkplaceBottomFragment : BaseBottomFragment<WorkplacePresenter, Workplace
                 val bundle = Bundle()
                 bundle.putInt(this::class.simpleName, workplace.roomNumber)
                 navController.navigate(R.id.roomEditFragment, bundle)
-                dismiss()
+
             }
             .setNegativeButton(R.string.no) { dialogInterface, _ ->
                 dialogInterface.dismiss()
                 navController.navigate(R.id.mainFragment)
-                dismiss()
+
             }
             .setOnDismissListener {
                 navController.popBackStack()

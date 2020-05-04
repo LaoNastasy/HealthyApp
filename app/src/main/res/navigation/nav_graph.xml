@@ -28,7 +28,7 @@
             app:destination="@id/workplaceBottomFragment" />
     </fragment>
 
-    <dialog
+    <fragment
         android:id="@+id/workplaceBottomFragment"
         android:name="com.example.healthyapp.features.person.WorkplaceBottomFragment"
         android:label="WorkplaceBottomFragment" />
