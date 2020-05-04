@@ -7,7 +7,7 @@ class UserRepositoryFakeImpl : UserRepository {
     override fun getUserByLogin(login: String, onSuccess: (user: User) -> Unit, onError: () -> Unit) {
         if (login == "login")
             onSuccess.invoke(
-                User(1, "login", "password", "employee", "Alexandr", "Popov")
+                User("0", "login", "password", "Alexandr", "Popov")
             )
         else onError.invoke()
     }

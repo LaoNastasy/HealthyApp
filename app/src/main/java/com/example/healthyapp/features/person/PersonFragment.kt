@@ -28,6 +28,7 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
 
         view.person_save.setOnClickListener {
             if (view.person_height.text.isNullOrEmpty()
+                || view.person_sit_height.text.isNullOrEmpty()
                 || view.person_back_height.text.isNullOrEmpty()
                 || view.person_legs_height.text.isNullOrEmpty()
                 || view.person_shoulder_height.text.isNullOrEmpty()
@@ -36,6 +37,7 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
 
             presenter.onSaveClick(
                 height = view.person_height.text.toString(),
+                sitHeight = view.person_sit_height.text.toString(),
                 backHeight = view.person_back_height.text.toString(),
                 legsHeight = view.person_legs_height.text.toString(),
                 shoulderHeight = view.person_shoulder_height.text.toString(),

@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/colorPrimary">
@@ -25,39 +25,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="8dp"
                 android:padding="8dp"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-medium"
-                android:padding="8dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/person_title"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/back"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </FrameLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="@string/person_title"
-            android:textSize="16sp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="32dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/person_height" />
+            android:fontFamily="sans-serif"
+            android:text="@string/person_height"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/person_height"
@@ -66,7 +65,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/whiteShadow"
+            android:background="@drawable/bg_edit_text"
             android:fontFamily="sans-serif-light"
             android:inputType="number"
             android:padding="8dp"
@@ -76,10 +75,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/person_shoulder_height" />
+            android:fontFamily="sans-serif"
+            android:text="@string/person_shoulder_height"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/person_shoulder_height"
@@ -88,7 +89,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/whiteShadow"
+            android:background="@drawable/bg_edit_text"
             android:fontFamily="sans-serif-light"
             android:inputType="number"
             android:padding="8dp"
@@ -98,10 +99,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/person_legs_height" />
+            android:fontFamily="sans-serif"
+            android:text="@string/person_legs_height"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/person_legs_height"
@@ -110,7 +113,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/whiteShadow"
+            android:background="@drawable/bg_edit_text"
             android:fontFamily="sans-serif-light"
             android:inputType="number"
             android:padding="8dp"
@@ -120,10 +123,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/person_back_height" />
+            android:fontFamily="sans-serif"
+            android:text="@string/person_back_height"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/person_back_height"
@@ -132,7 +137,32 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/whiteShadow"
+            android:background="@drawable/bg_edit_text"
+            android:fontFamily="sans-serif-light"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/person_height_sit"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/person_sit_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_edit_text"
             android:fontFamily="sans-serif-light"
             android:inputType="number"
             android:padding="8dp"
@@ -147,7 +177,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_button"
         android:fontFamily="sans-serif-medium"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
@@ -156,6 +187,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear" />
+        app:layout_constraintTop_toBottomOf="@id/linear"
+        app:layout_constraintVertical_bias="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

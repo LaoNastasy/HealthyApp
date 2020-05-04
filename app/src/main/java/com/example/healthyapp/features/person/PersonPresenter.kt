@@ -3,7 +3,7 @@ package com.example.healthyapp.features.person
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 import com.example.healthyapp.db.model.entity.WorkplaceUser
-import com.example.healthyapp.repo.LogicRepo
+import com.example.healthyapp.repo.WorkplaceRepo
 import javax.inject.Inject
 
 interface PersonView : BaseView {
@@ -11,7 +11,7 @@ interface PersonView : BaseView {
     fun showWorkplace()
 }
 
-class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
+class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRepo) :
     BasePresenter<PersonView>() {
 
     fun onBackClick() {
@@ -20,31 +20,38 @@ class PersonPresenter @Inject constructor(private val logicRepo: LogicRepo) :
 
     fun onSaveClick(
         height: String,
+        sitHeight:String,
         backHeight: String,
         legsHeight: String,
         shoulderHeight: String,
-        roomNumber:Int
+        roomNumber: Int
     ) {
         val heightInt = height.toInt()
+        val sitHeightInt = sitHeight.toInt()
         val backHeightInt = backHeight.toInt()
         val legsHeightInt = legsHeight.toInt()
         val shoulderHeightInt = shoulderHeight.toInt()
 
-        if (heightInt <= 0 || backHeightInt <= 0 || legsHeightInt <= 0 || shoulderHeightInt <= 0) {
+        if (heightInt <= 0 || backHeightInt <= 0 || legsHeightInt <= 0 || shoulderHeightInt <= 0 || sitHeightInt<=0) {
             view?.showError()
             return
         }
-        logicRepo.addWorkplaceUserInformation(
+        workplaceRepo.saveWorkplaceUserInformation(
             WorkplaceUser(
-                id = 0,
-                userHeight = heightInt,
-                backHeight = backHeightInt,
-                userLegsHeight = legsHeightInt,
-                shoulderHeight = shoulderHeightInt
-            ), roomNumber
+                id = "",
+                height = heightInt,
+                sitHeight = sitHeightInt,
+                eyesHeight = backHeightInt,
+                legsHeight = legsHeightInt,
+                shoulder = shoulderHeightInt,
+                back = backHeightInt,
+                name = ""
+            ),
+            roomNumber
+            , onSuccess = { view?.showWorkplace() },
+            onError = { view?.showError() }
         )
 
-        view?.showWorkplace()
     }
 
 }
