@@ -1,10 +1,13 @@
 package com.example.healthyapp.repo.implementations
 
+import android.util.Log
+import com.example.healthyapp.R
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
 import com.example.healthyapp.repo.WorkplaceRepo
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
 import kotlin.math.roundToInt
 
 class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
@@ -89,20 +92,44 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
     override fun saveRoom(
         placement: Placement,
         onSuccess: () -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     ) {
 
-        val pl = hashMapOf(
-            "number" to placement.number,
-            "length" to placement.length,
-            "width" to placement.width,
-            "height" to placement.height
-        )
+        if (placement.height < 180
+            || placement.length < 200
+            || placement.width < 200
+        ) {
+            onError.invoke(R.string.room_error_validate)
+            return
+        }
 
         db.collection("placement")
-            .add(pl)
-            .addOnSuccessListener { onSuccess.invoke() }
-            .addOnFailureListener { onError.invoke() }
+            .whereEqualTo("number", placement.number)
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.w("FirebaseFS", firebaseFirestoreException.code.toString())
+                    onError.invoke(R.string.common_error)
+                    return@addSnapshotListener
+                }
+
+                if (querySnapshot?.documents?.size != 0) {
+                    onError.invoke(R.string.room_number_exist)
+                    return@addSnapshotListener
+                }
+
+                val pl = hashMapOf(
+                    "number" to placement.number,
+                    "length" to placement.length,
+                    "width" to placement.width,
+                    "height" to placement.height
+                )
+
+                db.collection("placement")
+                    .add(pl)
+                    .addOnSuccessListener { onSuccess.invoke() }
+                    .addOnFailureListener { onError.invoke(R.string.common_error) }
+            }
+
 
     }
 

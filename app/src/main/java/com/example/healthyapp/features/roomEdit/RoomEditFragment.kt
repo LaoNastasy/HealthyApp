@@ -83,7 +83,4 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
         dialog.show()
     }
 
-    override fun showError() {
-        showError(getString(R.string.common_error))
-    }
 }

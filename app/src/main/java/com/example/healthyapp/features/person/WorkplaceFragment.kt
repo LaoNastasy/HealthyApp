@@ -71,7 +71,4 @@ class WorkplaceFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
             .show()
     }
 
-    override fun showError() {
-        showError(getString(R.string.common_error))
-    }
 }

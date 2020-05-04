@@ -21,7 +21,7 @@ class RoomEditPresenter(private val workplaceRepo: WorkplaceRepo) : BasePresente
                 view?.showAddWorkplaceDialog()
             },
             onError = {
-                view?.showError()
+                view?.showError(it)
             }
         )
     }

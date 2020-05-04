@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
@@ -44,10 +42,7 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
     }
 
     override fun goToMainScreen() {
-       Navigation.findNavController(view?:return).navigate(R.id.mainFragment)
+        findNavController().navigate(R.id.mainFragment)
     }
 
-    override fun showError() {
-        Toast.makeText(context, getString(R.string.wrong_password), Toast.LENGTH_SHORT).show()
-    }
 }

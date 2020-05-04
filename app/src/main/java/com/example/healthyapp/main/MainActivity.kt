@@ -23,11 +23,6 @@ class MainActivity : BaseActivity<MainPresenter, MainView>(), MainView {
         findNavController(R.id.fragment).navigate(R.id.loginFragment)
     }
 
-    override fun showError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-
     override fun goToMainScreen() {
         findNavController(R.id.fragment).navigate(R.id.mainFragment)
     }

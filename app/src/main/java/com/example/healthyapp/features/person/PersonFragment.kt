@@ -57,7 +57,4 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
         Navigation.findNavController(view?:return).navigate(R.id.workplaceBottomFragment)
     }
 
-    override fun showError() {
-        showError(getString(R.string.common_error))
-    }
 }

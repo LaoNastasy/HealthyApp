@@ -1,5 +1,6 @@
 package com.example.healthyapp.di
 
+import android.content.Context
 import com.example.healthyapp.features.auth.AuthenticationPresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
@@ -14,6 +15,8 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [AppModule::class])
 interface AppComponent {
+
+    fun context():Context
 
     fun mainPresenter(): MainPresenter
 

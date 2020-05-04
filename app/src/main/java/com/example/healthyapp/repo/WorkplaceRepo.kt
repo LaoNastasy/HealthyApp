@@ -42,7 +42,7 @@ interface WorkplaceRepo {
     fun saveRoom(
         placement: Placement,
         onSuccess: () -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     )
 
 }

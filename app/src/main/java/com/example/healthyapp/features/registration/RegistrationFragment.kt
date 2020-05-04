@@ -42,7 +42,4 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
         Navigation.findNavController(view?:return).navigate(R.id.mainFragment)
     }
 
-    override fun showError() {
-        Toast.makeText(context, getString(R.string.registration_error), Toast.LENGTH_SHORT).show()
-    }
 }
