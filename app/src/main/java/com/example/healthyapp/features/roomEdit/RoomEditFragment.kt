@@ -28,7 +28,7 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
         view.base_edit_save.setOnClickListener {
             presenter.saveRoom(
                 Placement(
-                    id = 0,
+                    id = "",
                     number = view.room_number_edit.text.toString().toInt(),
                     length = view.room_length_edit.text.toString().toInt(),
                     height = view.room_height_edit.text.toString().toInt(),

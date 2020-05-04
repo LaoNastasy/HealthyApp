@@ -14,10 +14,16 @@ class RoomEditPresenter(private val workplaceRepo: WorkplaceRepo) : BasePresente
     private var currentRoom: Placement? = null
 
     fun saveRoom(placement: Placement) {
-        workplaceRepo.saveRoom(placement) {
-            currentRoom = placement
-            view?.showAddWorkplaceDialog()
-        }
+        workplaceRepo.saveRoom(
+            placement,
+            onSuccess = {
+                currentRoom = placement
+                view?.showAddWorkplaceDialog()
+            },
+            onError = {
+                view?.showError()
+            }
+        )
     }
 
     fun getRoomNumber() = currentRoom?.number

@@ -32,8 +32,17 @@ interface WorkplaceRepo {
      */
     fun saveWorkplace(
         onSuccess: () -> Unit,
-        onError: () -> Unit)
+        onError: () -> Unit
+    )
 
-    fun saveRoom(placement: Placement, onSuccess: () -> Unit)
+    /**
+     * сохранение помещения в бд
+     */
+
+    fun saveRoom(
+        placement: Placement,
+        onSuccess: () -> Unit,
+        onError: () -> Unit
+    )
 
 }

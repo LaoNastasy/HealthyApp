@@ -86,13 +86,24 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
     }
 
 
-    override fun saveRoom(placement: Placement, onSuccess: () -> Unit) {
+    override fun saveRoom(
+        placement: Placement,
+        onSuccess: () -> Unit,
+        onError: () -> Unit
+    ) {
 
+        val pl = hashMapOf(
+            "number" to placement.number,
+            "length" to placement.length,
+            "width" to placement.width,
+            "height" to placement.height
+        )
 
-//        CoroutineScope(Dispatchers.IO).launch {
-//            db.getPlacementDao().addPlacement(placement)
-//            withContext(Dispatchers.Main) { onSuccess.invoke() }
-//        }
+        db.collection("placement")
+            .add(pl)
+            .addOnSuccessListener { onSuccess.invoke() }
+            .addOnFailureListener { onError.invoke() }
+
     }
 
 }
