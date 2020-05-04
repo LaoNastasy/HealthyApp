@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/workplaceBottomFragment"
-        android:name="com.example.healthyapp.features.person.WorkplaceBottomFragment"
+        android:name="com.example.healthyapp.features.person.WorkplaceFragment"
         android:label="WorkplaceBottomFragment" />
 
     <fragment

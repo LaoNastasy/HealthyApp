@@ -8,13 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
-import com.example.healthyapp.base.BaseBottomFragment
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.bottom_fragment_new_workplace.view.*
 
-class WorkplaceBottomFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
+class WorkplaceFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
     WorkplaceView {
 
     override fun initPresenter() = DI.component.workplacePresenter()
@@ -74,7 +73,5 @@ class WorkplaceBottomFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(
 
     override fun showError() {
         showError(getString(R.string.common_error))
-
-
     }
 }
