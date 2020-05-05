@@ -6,6 +6,7 @@ import com.example.healthyapp.repo.implementations.UserRepositoryImpl
 import com.example.healthyapp.features.auth.AuthenticationPresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
+import com.example.healthyapp.features.person.RoomNumberPresenter
 import com.example.healthyapp.features.person.WorkplacePresenter
 import com.example.healthyapp.features.registration.RegistrationPresenter
 import com.example.healthyapp.features.roomEdit.RoomEditPresenter
@@ -63,11 +64,17 @@ class AppModule(private val context: Context) {
     fun statisticPresenter(): StatisticPresenter = StatisticPresenter()
 
     @Provides
-    fun personPresenter(workplaceRepo: WorkplaceRepo): PersonPresenter = PersonPresenter(workplaceRepo)
+    fun personPresenter(workplaceRepo: WorkplaceRepo): PersonPresenter =
+        PersonPresenter(workplaceRepo)
 
     @Provides
-    fun workplacePresenter(workplaceRepo: WorkplaceRepo): WorkplacePresenter = WorkplacePresenter(workplaceRepo)
+    fun workplacePresenter(workplaceRepo: WorkplaceRepo): WorkplacePresenter =
+        WorkplacePresenter(workplaceRepo)
 
     @Provides
-    fun roomEditPresenter(workplaceRepo: WorkplaceRepo): RoomEditPresenter = RoomEditPresenter(workplaceRepo)
+    fun roomEditPresenter(workplaceRepo: WorkplaceRepo): RoomEditPresenter =
+        RoomEditPresenter(workplaceRepo)
+
+    @Provides
+    fun roomNumberPresenter(workplaceRepo: WorkplaceRepo): RoomNumberPresenter = RoomNumberPresenter(workplaceRepo)
 }

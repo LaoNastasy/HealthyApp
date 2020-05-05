@@ -29,10 +29,10 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
             presenter.saveRoom(
                 Placement(
                     id = "",
-                    number = view.room_number_edit.text.toString().toInt(),
-                    length = view.room_length_edit.text.toString().toInt(),
-                    height = view.room_height_edit.text.toString().toInt(),
-                    width = view.room_width_edit.text.toString().toInt()
+                    number = view.room_number_edit.text.toString().toLong(),
+                    length = view.room_length_edit.text.toString().toLong(),
+                    height = view.room_height_edit.text.toString().toLong(),
+                    width = view.room_width_edit.text.toString().toLong()
                 )
             )
         }
@@ -69,7 +69,7 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
                     1 -> {
                         dialogInterface.dismiss()
                         val bundle = Bundle()
-                        bundle.putInt(this::class.simpleName, presenter.getRoomNumber()
+                        bundle.putLong(this::class.simpleName, presenter.getRoomNumber()
                             ?: return@setPositiveButton)
                         Navigation.findNavController(view
                             ?: return@setPositiveButton).navigate(R.id.personFragment, bundle)

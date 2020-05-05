@@ -7,7 +7,6 @@ import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
 import com.example.healthyapp.repo.WorkplaceRepo
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreException
 import kotlin.math.roundToInt
 
 class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
@@ -17,9 +16,9 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
 
     override fun saveWorkplaceUserInformation(
         user: WorkplaceUser,
-        roomNumber: Int,
+        roomNumber: Long,
         onSuccess: (workplace: Workplace) -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     ) {
 
         val table = user.height * 75 / 175
@@ -42,17 +41,18 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
 
     override fun getCurrentWorkplace(
         onSuccess: (workplace: Workplace) -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     ) {
-        currentWorkplace ?: onError.invoke()
+        currentWorkplace ?: onError.invoke(R.string.common_error)
         onSuccess(currentWorkplace ?: return)
     }
 
     override fun saveWorkplace(
         onSuccess: () -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     ) {
-        currentUser ?: onError.invoke()
+
+        currentUser ?: onError.invoke(R.string.common_error)
         val user = currentUser ?: return
         val wpUser = hashMapOf(
             "height" to user.height,
@@ -64,7 +64,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
         )
 
         fun saveWP(id: String) {
-            currentWorkplace ?: onError.invoke()
+            currentWorkplace ?: onError.invoke(R.string.common_error)
             val workplace = currentWorkplace ?: return
             val wp = hashMapOf(
                 "user_id" to "workplace_user/$id",
@@ -78,13 +78,13 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
             db.collection("workplace")
                 .add(wp)
                 .addOnSuccessListener { onSuccess.invoke() }
-                .addOnFailureListener { onError.invoke() }
+                .addOnFailureListener { onError.invoke(R.string.common_error) }
         }
 
         db.collection("workplace_user")
             .add(wpUser)
             .addOnSuccessListener { saveWP(it.id) }
-            .addOnFailureListener { onError.invoke() }
+            .addOnFailureListener { onError.invoke(R.string.common_error) }
 
     }
 
@@ -131,6 +131,31 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
             }
 
 
+    }
+
+    override fun getPlacements(
+        onSuccess: (numbers: List<Placement>) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+
+        db.collection("placement")
+            .get()
+            .addOnSuccessListener {
+                val numbers = arrayListOf<Placement>()
+                for (document in it) {
+                    numbers.add(
+                        Placement(
+                            document.id,
+                            number = document["number"] as Long,
+                            height = document["height"] as Long,
+                            width = document["width"] as Long,
+                            length = document["length"] as Long
+                        )
+                    )
+                }
+                onSuccess.invoke(numbers)
+            }
+            .addOnFailureListener { onError.invoke(R.string.common_error) }
     }
 
 }

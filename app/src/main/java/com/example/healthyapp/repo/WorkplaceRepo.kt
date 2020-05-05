@@ -14,9 +14,9 @@ interface WorkplaceRepo {
      */
     fun saveWorkplaceUserInformation(
         user: WorkplaceUser,
-        roomNumber: Int,
+        roomNumber: Long,
         onSuccess: (workplace: Workplace) -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     )
 
     /**
@@ -24,7 +24,7 @@ interface WorkplaceRepo {
      */
     fun getCurrentWorkplace(
         onSuccess: (workplace: Workplace) -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     )
 
     /**
@@ -32,7 +32,7 @@ interface WorkplaceRepo {
      */
     fun saveWorkplace(
         onSuccess: () -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     )
 
     /**
@@ -42,6 +42,15 @@ interface WorkplaceRepo {
     fun saveRoom(
         placement: Placement,
         onSuccess: () -> Unit,
+        onError: (Int) -> Unit
+    )
+
+    /**
+     * получение всех помещений из бд
+     */
+
+    fun getPlacements(
+        onSuccess: (placements: List<Placement>) -> Unit,
         onError: (Int) -> Unit
     )
 

@@ -24,7 +24,7 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
         backHeight: String,
         legsHeight: String,
         shoulderHeight: String,
-        roomNumber: Int
+        roomNumber: Long
     ) {
         val heightInt = height.toInt()
         val sitHeightInt = sitHeight.toInt()

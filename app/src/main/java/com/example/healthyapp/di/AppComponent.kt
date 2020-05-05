@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.healthyapp.features.auth.AuthenticationPresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
+import com.example.healthyapp.features.person.RoomNumberPresenter
 import com.example.healthyapp.features.person.WorkplacePresenter
 import com.example.healthyapp.features.registration.RegistrationPresenter
 import com.example.healthyapp.features.roomEdit.RoomEditPresenter
@@ -16,13 +17,15 @@ import javax.inject.Singleton
 @Component(modules = [AppModule::class])
 interface AppComponent {
 
-    fun context():Context
+    fun context(): Context
 
     fun mainPresenter(): MainPresenter
 
-    fun mainScreenPresenter():MainScreenPresenter
+    fun mainScreenPresenter(): MainScreenPresenter
 
-    fun personPresenter():PersonPresenter
+    fun roomNumberPresenter(): RoomNumberPresenter
+
+    fun personPresenter(): PersonPresenter
 
     fun workplacePresenter(): WorkplacePresenter
 
@@ -30,8 +33,8 @@ interface AppComponent {
 
     fun roomEditPresenter(): RoomEditPresenter
 
-    fun registrationPresenter():RegistrationPresenter
+    fun registrationPresenter(): RegistrationPresenter
 
-    fun statisticPresenter():StatisticPresenter
+    fun statisticPresenter(): StatisticPresenter
 
 }

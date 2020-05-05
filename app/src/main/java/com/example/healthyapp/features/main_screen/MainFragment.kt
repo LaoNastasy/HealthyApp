@@ -32,7 +32,7 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
     }
 
     override fun goToPersonScreen() {
-        findNavController().navigate(R.id.personFragment)
+        findNavController().navigate(R.id.roomNumberFragment)
     }
 
     override fun goToStatisticScreen() {

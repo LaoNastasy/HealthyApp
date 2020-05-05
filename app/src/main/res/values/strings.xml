@@ -44,6 +44,11 @@
     <string name="exist_workplace">Существующее рабочее место</string>
     <string name="new_workplace">Место для нового сотрудника</string>
 
+    //выбор помещения
+    <string name="room_number_title">Выбор помещения</string>
+    <string name="room_number_choice">Выберите помещение из списка</string>
+    <string name="room_number_add">Или добавьте новое</string>
+    <string name="ready">Готово</string>
 
     //экран внесения данных о пользователе
     <string name="person_title">Параметры пользователя</string>

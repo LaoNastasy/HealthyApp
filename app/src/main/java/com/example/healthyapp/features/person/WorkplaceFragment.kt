@@ -56,7 +56,7 @@ class WorkplaceFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
             .setPositiveButton(R.string.yes) { dialogInterface, _ ->
                 dialogInterface.dismiss()
                 val bundle = Bundle()
-                bundle.putInt(this::class.simpleName, workplace.roomNumber)
+                bundle.putLong(this::class.simpleName, workplace.roomNumber)
                 navController.navigate(R.id.roomEditFragment, bundle)
 
             }

@@ -22,7 +22,7 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_person, container, false)
-        val roomNumber = arguments?.getInt(PersonFragment::class.simpleName) ?: 0
+        val roomNumber = arguments?.getLong(PersonFragment::class.simpleName) ?: 0
 
         view.back.setOnClickListener { presenter.onBackClick() }
 

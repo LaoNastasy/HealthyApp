@@ -70,4 +70,8 @@
         android:id="@+id/statisticFragment"
         android:name="com.example.healthyapp.features.statistic.StatisticFragment"
         android:label="StatisticFragment" />
+    <fragment
+        android:id="@+id/roomNumberFragment"
+        android:name="com.example.healthyapp.features.person.RoomNumberFragment"
+        android:label="RoomNumberFragment" />
 </navigation>
