@@ -1,5 +1,6 @@
 package com.example.healthyapp.features.person
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,8 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
                 || view.person_back_height.text.isNullOrEmpty()
                 || view.person_legs_height.text.isNullOrEmpty()
                 || view.person_shoulder_height.text.isNullOrEmpty()
-                || view.person_shoulder_height.text.isNullOrEmpty())
+                || view.person_shoulder_height.text.isNullOrEmpty()
+            )
                 return@setOnClickListener
 
             presenter.onSaveClick(
@@ -50,11 +52,18 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
     }
 
     override fun goBack() {
-        Navigation.findNavController(view?:return).popBackStack()
+        Navigation.findNavController(view ?: return).popBackStack()
     }
 
     override fun showWorkplace() {
-        Navigation.findNavController(view?:return).navigate(R.id.workplaceBottomFragment)
+        Navigation.findNavController(view ?: return).navigate(R.id.workplaceBottomFragment)
+    }
+
+    override fun showErrorAlert(message: Int) {
+        AlertDialog.Builder(context ?: return)
+            .setMessage(message)
+            .setPositiveButton(R.string.ok) { dialog, which -> dialog.dismiss() }
+            .show()
     }
 
 }

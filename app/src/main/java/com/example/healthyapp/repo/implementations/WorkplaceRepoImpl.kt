@@ -22,6 +22,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
     ) {
 
         val table = user.height * 75 / 175
+
         val chair = table + user.shoulder - user.back
 
         val wp = Workplace(
@@ -33,6 +34,18 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
             monitorHeight = chair + (user.sitHeight * 0.86F).roundToInt(),
             roomNumber = roomNumber
         )
+
+        if (wp.tableHeight < 60
+            || wp.tableHeight > 80
+            || wp.chairHeight < 44
+            || wp.chairHeight > 64
+            || wp.standHeight < 0
+            || wp.monitorHeight > 100
+            || wp.monitorHeight < 30
+        ) {
+            onError(R.string.person_incorrect_data)
+            return
+        }
         currentWorkplace = wp
         currentUser = user
 

@@ -1,5 +1,6 @@
 package com.example.healthyapp.features.person
 
+import androidx.annotation.StringRes
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 import com.example.healthyapp.db.model.entity.WorkplaceUser
@@ -9,6 +10,7 @@ import javax.inject.Inject
 interface PersonView : BaseView {
     fun goBack()
     fun showWorkplace()
+    fun showErrorAlert(@StringRes message: Int)
 }
 
 class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRepo) :
@@ -20,7 +22,7 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
 
     fun onSaveClick(
         height: String,
-        sitHeight:String,
+        sitHeight: String,
         backHeight: String,
         legsHeight: String,
         shoulderHeight: String,
@@ -32,7 +34,7 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
         val legsHeightInt = legsHeight.toInt()
         val shoulderHeightInt = shoulderHeight.toInt()
 
-        if (heightInt <= 0 || backHeightInt <= 0 || legsHeightInt <= 0 || shoulderHeightInt <= 0 || sitHeightInt<=0) {
+        if (heightInt <= 0 || backHeightInt <= 0 || legsHeightInt <= 0 || shoulderHeightInt <= 0 || sitHeightInt <= 0) {
             view?.showError()
             return
         }
@@ -49,7 +51,7 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
             ),
             roomNumber
             , onSuccess = { view?.showWorkplace() },
-            onError = { view?.showError() }
+            onError = { view?.showErrorAlert(it) }
         )
 
     }

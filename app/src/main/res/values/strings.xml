@@ -57,6 +57,7 @@
     <string name="person_back_height">Длина спины (см)</string>
     <string name="person_legs_height">Длина голени (см)</string>
     <string name="person_shoulder_height">Длина плеча (см)</string>
+    <string name="person_incorrect_data">Для данных невозможно рассчитать параметры рабочего места. Пожалуйста, убедитесь в корректности введенных данных.</string>
 
     //экран рабочего места
     <string name="workplace_title">Рабочее место</string>
