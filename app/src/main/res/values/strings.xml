@@ -52,6 +52,7 @@
 
     //экран внесения данных о пользователе
     <string name="person_title">Параметры пользователя</string>
+    <string name="person_name">Введите имя пользователя для возможности идентифицировать рабочее место</string>
     <string name="person_height">Рост (см)</string>
     <string name="person_height_sit">Рост сидя (см)</string>
     <string name="person_back_height">Длина спины (см)</string>

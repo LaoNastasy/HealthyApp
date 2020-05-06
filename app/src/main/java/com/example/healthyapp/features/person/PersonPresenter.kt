@@ -26,6 +26,7 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
         backHeight: String,
         legsHeight: String,
         shoulderHeight: String,
+        name: String,
         roomNumber: Long
     ) {
         val heightInt = height.toInt()
@@ -34,7 +35,11 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
         val legsHeightInt = legsHeight.toInt()
         val shoulderHeightInt = shoulderHeight.toInt()
 
-        if (heightInt <= 0 || backHeightInt <= 0 || legsHeightInt <= 0 || shoulderHeightInt <= 0 || sitHeightInt <= 0) {
+        if (heightInt <= 0
+            || backHeightInt <= 0
+            || legsHeightInt <= 0
+            || shoulderHeightInt <= 0
+            || sitHeightInt <= 0) {
             view?.showError()
             return
         }
@@ -47,7 +52,7 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
                 legsHeight = legsHeightInt,
                 shoulder = shoulderHeightInt,
                 back = backHeightInt,
-                name = ""
+                name = name
             ),
             roomNumber
             , onSuccess = { view?.showWorkplace() },
