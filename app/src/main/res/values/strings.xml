@@ -49,6 +49,10 @@
     <string name="room_number_choice">Выберите помещение из списка</string>
     <string name="room_number_add">Или добавьте новое</string>
     <string name="ready">Готово</string>
+    <string name="room_warning_important">Данное помещение уже не удовлетворяет нормам СанПиН. Все равно добавить рабочее место?</string>
+    <string name="room_warning">При добавлении в помещение нового рабочего места оно не будет соответствовать нормам СанПиН. Все равно продолжить?</string>
+    <string name="room_continue">Продолжить</string>
+
 
     //экран внесения данных о пользователе
     <string name="person_title">Параметры пользователя</string>

@@ -1,11 +1,14 @@
 package com.example.healthyapp.features.person
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
@@ -25,9 +28,7 @@ class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(), 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_room_number, container, false)
-
-        return view
+        return inflater.inflate(R.layout.fragment_room_number, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,5 +64,21 @@ class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(), 
     override fun showNumbers(list: List<Long>) {
         adapter.clear()
         adapter.addAll(list.map { it.toString() })
+    }
+
+    override fun showWarning(res: Int) {
+        AlertDialog.Builder(requireContext())
+            .setPositiveButton(R.string.room_continue) { _, _ ->
+                goNext()
+            }
+            .setNegativeButton(R.string.cancel) { dialog: DialogInterface?, _ ->
+                dialog?.dismiss()
+            }
+            .setMessage(res)
+            .show()
+    }
+
+    override fun goNext() {
+        findNavController().navigate(R.id.personFragment)
     }
 }

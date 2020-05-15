@@ -54,4 +54,15 @@ interface WorkplaceRepo {
         onError: (Int) -> Unit
     )
 
+    /**
+     * получение количества рабочих мест в рабочем помещении
+     */
+    fun getWorkpacesByPlacement(
+        placementId: String,
+        onSuccess: (Int) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+
+    }
+
 }

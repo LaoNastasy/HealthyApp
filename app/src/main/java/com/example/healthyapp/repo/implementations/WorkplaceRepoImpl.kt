@@ -171,4 +171,18 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
             .addOnFailureListener { onError.invoke(R.string.common_error) }
     }
 
+    override fun getWorkpacesByPlacement(
+        placementId: String,
+        onSuccess: (Int) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+        db.collection("workplace")
+            .whereEqualTo("room_number", placementId)
+            .get()
+            .addOnSuccessListener {
+                onSuccess.invoke(it.size())
+            }
+            .addOnFailureListener { onError.invoke(R.string.common_error) }
+    }
+
 }
