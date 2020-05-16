@@ -38,7 +38,7 @@ class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter
     fun onItemSelected(position: Int) {
         val placement = listPlacement[position]
         chosenPlacementId = placement.id
-        repo.getWorkpacesByPlacement(placement.id,
+        repo.getWorkplacesByPlacement(placement.id,
             onSuccess = {
                 val s = placement.length * placement.width
                 val s1Now = s.toDouble() / it.toDouble()

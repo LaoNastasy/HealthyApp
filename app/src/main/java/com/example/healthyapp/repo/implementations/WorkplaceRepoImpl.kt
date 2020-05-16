@@ -31,7 +31,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             tableHeight = table,
             chairHeight = chair,
             standHeight = chair - user.legsHeight,
-            monitorHeight = chair + (user.sitHeight * 0.86F).roundToInt(),
+            monitorHeight = chair + (user.sitHeight * 0.86F).roundToInt() - table,
             roomNumber = placementId
         )
 
@@ -171,7 +171,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             .addOnFailureListener { onError.invoke(R.string.common_error) }
     }
 
-    override fun getWorkpacesByPlacement(
+    override fun getWorkplacesByPlacement(
         placementId: String,
         onSuccess: (Int) -> Unit,
         onError: (Int) -> Unit

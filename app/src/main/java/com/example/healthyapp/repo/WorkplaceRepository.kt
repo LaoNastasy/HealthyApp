@@ -56,12 +56,10 @@ interface WorkplaceRepository {
     /**
      * получение количества рабочих мест в рабочем помещении
      */
-    fun getWorkpacesByPlacement(
+    fun getWorkplacesByPlacement(
         placementId: String,
         onSuccess: (Int) -> Unit,
         onError: (Int) -> Unit
-    ) {
-
-    }
+    )
 
 }
