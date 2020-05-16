@@ -1,5 +1,6 @@
 package com.example.healthyapp.features.auth
 
+import com.example.healthyapp.R
 import com.example.healthyapp.repo.UserRepository
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
@@ -22,9 +23,9 @@ class AuthenticationPresenter @Inject constructor(private val userRepository: Us
                         { view?.goToMainScreen() },
                         { view?.showError() })
                 else
-                    view?.showError()
+                    view?.showError(R.string.wrong_password)
             },
-            { view?.showError() }
+            { view?.showError(it) }
         )
     }
 

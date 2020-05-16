@@ -11,7 +11,7 @@ interface UserRepository {
     fun getUserByLogin(
         login: String,
         onSuccess: (user: User) -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     )
 
     /**
