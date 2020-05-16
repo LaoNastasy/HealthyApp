@@ -3,7 +3,7 @@ package com.example.healthyapp.features.person
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 import com.example.healthyapp.db.model.entity.Workplace
-import com.example.healthyapp.repo.WorkplaceRepo
+import com.example.healthyapp.repo.WorkplaceRepository
 import javax.inject.Inject
 
 interface WorkplaceView : BaseView {
@@ -12,7 +12,7 @@ interface WorkplaceView : BaseView {
     fun showSuccessSaveDialog()
 }
 
-class WorkplacePresenter @Inject constructor(private val workplaceRepo: WorkplaceRepo) :
+class WorkplacePresenter @Inject constructor(private val workplaceRepo: WorkplaceRepository) :
     BasePresenter<WorkplaceView>() {
 
     fun getCurrentWorkplace() {

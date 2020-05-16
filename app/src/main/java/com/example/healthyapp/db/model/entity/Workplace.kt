@@ -7,5 +7,5 @@ data class Workplace(
     val monitorHeight: Int,
     val chairHeight: Int,
     val standHeight: Int,
-    val roomNumber: Int
+    val roomNumber: String
 )

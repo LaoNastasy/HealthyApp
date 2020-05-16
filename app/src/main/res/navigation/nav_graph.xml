@@ -1,73 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.healthyapp.features.main_screen.MainFragment"
-        android:label="MainFragment">
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
         <action
-            android:id="@+id/action_mainFragment_to_personFragment2"
-            app:destination="@id/personFragment" />
+            android:id="@+id/action_mainFragment_to_roomNumberFragment"
+            app:destination="@id/roomNumberFragment" />
         <action
             android:id="@+id/action_mainFragment_to_roomEditFragment"
-            app:destination="@id/roomEditFragment" />
+            app:destination="@id/placementFragment" />
         <action
             android:id="@+id/action_mainFragment_to_statisticFragment"
             app:destination="@id/statisticFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/personFragment"
         android:name="com.example.healthyapp.features.person.PersonFragment"
-        android:label="PersonFragment">
+        android:label="PersonFragment"
+        tools:layout="@layout/fragment_person">
+        <argument
+            android:name="placementId"
+            app:argType="string" />
         <action
-            android:id="@+id/action_personFragment_to_workplaceBottomFragment"
-            app:destination="@id/workplaceBottomFragment" />
+            android:id="@+id/action_personFragment_to_workplaceFragment"
+            app:destination="@id/workplaceFragment"
+            app:popUpTo="@id/mainFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/workplaceBottomFragment"
+        android:id="@+id/workplaceFragment"
         android:name="com.example.healthyapp.features.person.WorkplaceFragment"
-        android:label="WorkplaceBottomFragment" />
+        android:label="WorkplaceBottomFragment"
+        tools:layout="@layout/bottom_fragment_new_workplace" />
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.healthyapp.features.auth.AuthenticationFragment"
-        android:label="loginFragment">
+        android:label="loginFragment"
+        tools:layout="@layout/fragment_authentification">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.healthyapp.features.registration.RegistrationFragment"
-        android:label="RegistrationFragment">
-        <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+        android:label="RegistrationFragment"
+        tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registerFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
-        android:id="@+id/roomEditFragment"
-        android:name="com.example.healthyapp.features.roomEdit.RoomEditFragment"
-        android:label="RoomEditFragment" >
+        android:id="@+id/placementFragment"
+        android:name="com.example.healthyapp.features.roomEdit.PlacementFragment"
+        android:label="PlacementFragment"
+        tools:layout="@layout/fragment_placement">
         <action
-            android:id="@+id/action_roomEditFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_placementFragment_to_personFragment"
+            app:destination="@id/personFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/statisticFragment"
         android:name="com.example.healthyapp.features.statistic.StatisticFragment"
-        android:label="StatisticFragment" />
+        android:label="StatisticFragment"
+        tools:layout="@layout/fragment_statistic" />
+
+    <fragment
+        android:id="@+id/roomNumberFragment"
+        android:name="com.example.healthyapp.features.person.RoomNumberFragment"
+        android:label="RoomNumberFragment"
+        tools:layout="@layout/fragment_room_number">
+        <action
+            android:id="@+id/action_roomNumber_to_PersonFragment"
+            app:destination="@id/personFragment" />
+    </fragment>
 </navigation>

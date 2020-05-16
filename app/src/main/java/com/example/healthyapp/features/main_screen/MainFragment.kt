@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
@@ -31,22 +31,23 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
     }
 
     override fun goToPersonScreen() {
-        Navigation.findNavController(view?:return).navigate(R.id.personFragment)
+        val action = MainFragmentDirections.actionMainFragmentToRoomNumberFragment()
+        findNavController().navigate(action)
     }
 
     override fun goToStatisticScreen() {
-        Navigation.findNavController(view?:return).navigate(R.id.statisticFragment)
+        val action = MainFragmentDirections.actionMainFragmentToStatisticFragment()
+        findNavController().navigate(action)
     }
 
     override fun goToNewRoomScreen() {
-        Navigation.findNavController(view?:return).navigate(R.id.roomEditFragment)
+        val action = MainFragmentDirections.actionMainFragmentToRoomEditFragment()
+        findNavController().navigate(action)
     }
 
     override fun logOut() {
-        Navigation.findNavController(view?:return).navigate(R.id.loginFragment)
+        val action = MainFragmentDirections.actionMainFragmentToLoginFragment()
+        findNavController().navigate(action)
     }
 
-    override fun showError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 }

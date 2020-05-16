@@ -3,13 +3,13 @@ package com.example.healthyapp.features.roomEdit
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 import com.example.healthyapp.db.model.entity.Placement
-import com.example.healthyapp.repo.WorkplaceRepo
+import com.example.healthyapp.repo.WorkplaceRepository
 
 interface RoomEditView : BaseView {
     fun showAddWorkplaceDialog()
 }
 
-class RoomEditPresenter(private val workplaceRepo: WorkplaceRepo) : BasePresenter<RoomEditView>() {
+class RoomEditPresenter(private val workplaceRepo: WorkplaceRepository) : BasePresenter<RoomEditView>() {
 
     private var currentRoom: Placement? = null
 
@@ -21,10 +21,10 @@ class RoomEditPresenter(private val workplaceRepo: WorkplaceRepo) : BasePresente
                 view?.showAddWorkplaceDialog()
             },
             onError = {
-                view?.showError()
+                view?.showError(it)
             }
         )
     }
 
-    fun getRoomNumber() = currentRoom?.number
+    fun getPlacementId() = currentRoom?.id ?:""
 }

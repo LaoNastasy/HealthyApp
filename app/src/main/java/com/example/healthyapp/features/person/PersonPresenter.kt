@@ -1,17 +1,19 @@
 package com.example.healthyapp.features.person
 
+import androidx.annotation.StringRes
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 import com.example.healthyapp.db.model.entity.WorkplaceUser
-import com.example.healthyapp.repo.WorkplaceRepo
+import com.example.healthyapp.repo.WorkplaceRepository
 import javax.inject.Inject
 
 interface PersonView : BaseView {
     fun goBack()
     fun showWorkplace()
+    fun showErrorAlert(@StringRes message: Int)
 }
 
-class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRepo) :
+class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRepository) :
     BasePresenter<PersonView>() {
 
     fun onBackClick() {
@@ -20,11 +22,12 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
 
     fun onSaveClick(
         height: String,
-        sitHeight:String,
+        sitHeight: String,
         backHeight: String,
         legsHeight: String,
         shoulderHeight: String,
-        roomNumber: Int
+        name: String,
+        placementId: String
     ) {
         val heightInt = height.toInt()
         val sitHeightInt = sitHeight.toInt()
@@ -32,7 +35,11 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
         val legsHeightInt = legsHeight.toInt()
         val shoulderHeightInt = shoulderHeight.toInt()
 
-        if (heightInt <= 0 || backHeightInt <= 0 || legsHeightInt <= 0 || shoulderHeightInt <= 0 || sitHeightInt<=0) {
+        if (heightInt <= 0
+            || backHeightInt <= 0
+            || legsHeightInt <= 0
+            || shoulderHeightInt <= 0
+            || sitHeightInt <= 0) {
             view?.showError()
             return
         }
@@ -45,11 +52,11 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
                 legsHeight = legsHeightInt,
                 shoulder = shoulderHeightInt,
                 back = backHeightInt,
-                name = ""
+                name = name
             ),
-            roomNumber
+            placementId
             , onSuccess = { view?.showWorkplace() },
-            onError = { view?.showError() }
+            onError = { view?.showErrorAlert(it) }
         )
 
     }

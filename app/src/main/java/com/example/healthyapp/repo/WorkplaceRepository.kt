@@ -4,19 +4,18 @@ import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
 
-interface WorkplaceRepo {
+interface WorkplaceRepository {
 
     /**
      * сохранение информации о пользователе, для которого создается рабочее место
-     *
      * @param user - данные о пользователе
-     * @param roomNumber -  помещение, выбранное для пользователя и рабочего места
+     * @param placementId -  помещение, выбранное для пользователя и рабочего места
      */
     fun saveWorkplaceUserInformation(
         user: WorkplaceUser,
-        roomNumber: Int,
+        placementId: String,
         onSuccess: (workplace: Workplace) -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     )
 
     /**
@@ -24,7 +23,7 @@ interface WorkplaceRepo {
      */
     fun getCurrentWorkplace(
         onSuccess: (workplace: Workplace) -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     )
 
     /**
@@ -32,7 +31,7 @@ interface WorkplaceRepo {
      */
     fun saveWorkplace(
         onSuccess: () -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     )
 
     /**
@@ -42,7 +41,25 @@ interface WorkplaceRepo {
     fun saveRoom(
         placement: Placement,
         onSuccess: () -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
+    )
+
+    /**
+     * получение всех помещений из бд
+     */
+
+    fun getPlacements(
+        onSuccess: (placements: List<Placement>) -> Unit,
+        onError: (Int) -> Unit
+    )
+
+    /**
+     * получение количества рабочих мест в рабочем помещении
+     */
+    fun getWorkplacesByPlacement(
+        placementId: String,
+        onSuccess: (Int) -> Unit,
+        onError: (Int) -> Unit
     )
 
 }

@@ -55,23 +55,13 @@ class WorkplaceFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
             .setMessage(R.string.success_save_workplace)
             .setPositiveButton(R.string.yes) { dialogInterface, _ ->
                 dialogInterface.dismiss()
-                val bundle = Bundle()
-                bundle.putInt(this::class.simpleName, workplace.roomNumber)
-                navController.navigate(R.id.roomEditFragment, bundle)
-
+                navController.popBackStack()
             }
-            .setNegativeButton(R.string.no) { dialogInterface, _ ->
-                dialogInterface.dismiss()
-                navController.navigate(R.id.mainFragment)
 
-            }
             .setOnDismissListener {
                 navController.popBackStack()
             }
             .show()
     }
 
-    override fun showError() {
-        showError(getString(R.string.common_error))
-    }
 }

@@ -36,20 +36,33 @@
     <string name="base_edit_width">Ширина помещения</string>
     <string name="base_edit_length">Длина помещения</string>
     <string name="base_edit_number_workplace">Количество рабочих мест</string>
+    <string name="room_error_validate">Введены некорректные данные - помещение непригодно для работы</string>
+    <string name="room_number_exist">Помещение с таким номером уже было зарегистрировано</string>
 
     <string name="alert_need_add_workplace">Хотите добавить в данное помещение рабочее место?</string>
     <string name="add">Добавить</string>
     <string name="exist_workplace">Существующее рабочее место</string>
     <string name="new_workplace">Место для нового сотрудника</string>
 
+    //выбор помещения
+    <string name="room_number_title">Выбор помещения</string>
+    <string name="room_number_choice">Выберите помещение из списка</string>
+    <string name="room_number_add">Или добавьте новое</string>
+    <string name="ready">Готово</string>
+    <string name="room_warning_important">Данное помещение уже не удовлетворяет нормам СанПиН. Все равно добавить рабочее место?</string>
+    <string name="room_warning">При добавлении в помещение нового рабочего места оно не будет соответствовать нормам СанПиН. Все равно продолжить?</string>
+    <string name="room_continue">Продолжить</string>
+
 
     //экран внесения данных о пользователе
     <string name="person_title">Параметры пользователя</string>
+    <string name="person_name">Введите имя пользователя для возможности идентифицировать рабочее место</string>
     <string name="person_height">Рост (см)</string>
     <string name="person_height_sit">Рост сидя (см)</string>
     <string name="person_back_height">Длина спины (см)</string>
     <string name="person_legs_height">Длина голени (см)</string>
     <string name="person_shoulder_height">Длина плеча (см)</string>
+    <string name="person_incorrect_data">Для данных невозможно рассчитать параметры рабочего места. Пожалуйста, убедитесь в корректности введенных данных.</string>
 
     //экран рабочего места
     <string name="workplace_title">Рабочее место</string>
@@ -59,7 +72,7 @@
     <string name="workplace_monitor_height">Высота монитора</string>
     <string name="workplace_stand_height">Высота подставки для ног</string>
     <string name="success_save_workplace">Новое рабочее место успешно добавлено. Повторно посмотреть его параметры
-    Вы можете в соответствующем разделе приложения. Хотите добавить еще одно рабочее место в выбранное помещение?</string>
+    Вы можете в соответствующем разделе приложения.</string>
 
 
 </resources>
