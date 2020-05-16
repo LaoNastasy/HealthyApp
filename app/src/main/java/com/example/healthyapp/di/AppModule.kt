@@ -12,7 +12,7 @@ import com.example.healthyapp.features.registration.RegistrationPresenter
 import com.example.healthyapp.features.roomEdit.RoomEditPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
-import com.example.healthyapp.repo.WorkplaceRepo
+import com.example.healthyapp.repo.WorkplaceRepository
 import com.example.healthyapp.repo.implementations.WorkplaceRepoImpl
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -43,7 +43,7 @@ class AppModule(private val context: Context) {
 
     @Singleton
     @Provides
-    fun logicRepo(database: FirebaseFirestore): WorkplaceRepo = WorkplaceRepoImpl(database)
+    fun logicRepo(database: FirebaseFirestore): WorkplaceRepository = WorkplaceRepoImpl(database)
 
     @Provides
     fun mainPresenter(userRepository: UserRepository): MainPresenter = MainPresenter(userRepository)
@@ -64,17 +64,17 @@ class AppModule(private val context: Context) {
     fun statisticPresenter(): StatisticPresenter = StatisticPresenter()
 
     @Provides
-    fun personPresenter(workplaceRepo: WorkplaceRepo): PersonPresenter =
+    fun personPresenter(workplaceRepo: WorkplaceRepository): PersonPresenter =
         PersonPresenter(workplaceRepo)
 
     @Provides
-    fun workplacePresenter(workplaceRepo: WorkplaceRepo): WorkplacePresenter =
+    fun workplacePresenter(workplaceRepo: WorkplaceRepository): WorkplacePresenter =
         WorkplacePresenter(workplaceRepo)
 
     @Provides
-    fun roomEditPresenter(workplaceRepo: WorkplaceRepo): RoomEditPresenter =
+    fun roomEditPresenter(workplaceRepo: WorkplaceRepository): RoomEditPresenter =
         RoomEditPresenter(workplaceRepo)
 
     @Provides
-    fun roomNumberPresenter(workplaceRepo: WorkplaceRepo): RoomNumberPresenter = RoomNumberPresenter(workplaceRepo)
+    fun roomNumberPresenter(workplaceRepo: WorkplaceRepository): RoomNumberPresenter = RoomNumberPresenter(workplaceRepo)
 }

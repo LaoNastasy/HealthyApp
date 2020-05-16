@@ -4,8 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
@@ -32,14 +31,15 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
             )
         }
         view.back.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.loginFragment)
+            findNavController().popBackStack()
         }
 
         return view
     }
 
     override fun goToMainScreen() {
-        Navigation.findNavController(view?:return).navigate(R.id.mainFragment)
+        val action = RegistrationFragmentDirections.actionRegisterFragmentToMainFragment()
+        findNavController().navigate(action)
     }
 
 }

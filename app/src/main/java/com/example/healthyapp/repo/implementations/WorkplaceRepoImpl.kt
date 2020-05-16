@@ -5,18 +5,18 @@ import com.example.healthyapp.R
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
-import com.example.healthyapp.repo.WorkplaceRepo
+import com.example.healthyapp.repo.WorkplaceRepository
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.math.roundToInt
 
-class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
+class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository {
 
     private var currentWorkplace: Workplace? = null
     private var currentUser: WorkplaceUser? = null
 
     override fun saveWorkplaceUserInformation(
         user: WorkplaceUser,
-        roomNumber: Long,
+        placementId: String,
         onSuccess: (workplace: Workplace) -> Unit,
         onError: (Int) -> Unit
     ) {
@@ -32,7 +32,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepo {
             chairHeight = chair,
             standHeight = chair - user.legsHeight,
             monitorHeight = chair + (user.sitHeight * 0.86F).roundToInt(),
-            roomNumber = roomNumber
+            roomNumber = placementId
         )
 
         if (wp.tableHeight < 60

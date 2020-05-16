@@ -69,7 +69,7 @@ class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(), 
     override fun showWarning(res: Int) {
         AlertDialog.Builder(requireContext())
             .setPositiveButton(R.string.room_continue) { _, _ ->
-                goNext()
+                presenter.onSubmitWarning()
             }
             .setNegativeButton(R.string.cancel) { dialog: DialogInterface?, _ ->
                 dialog?.dismiss()
@@ -78,7 +78,8 @@ class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(), 
             .show()
     }
 
-    override fun goNext() {
-        findNavController().navigate(R.id.personFragment)
+    override fun goNext(placementId: String) {
+        val action = RoomNumberFragmentDirections.actionRoomNumberToPersonFragment(placementId)
+        findNavController().navigate(action)
     }
 }

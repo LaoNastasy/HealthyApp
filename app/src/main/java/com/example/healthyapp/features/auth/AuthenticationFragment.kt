@@ -37,12 +37,14 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
         }
 
         view.registrate.setOnClickListener {
-            findNavController().navigate(R.id.registerFragment)
+            val action = AuthenticationFragmentDirections.actionLoginFragmentToRegisterFragment()
+            findNavController().navigate(action)
         }
     }
 
     override fun goToMainScreen() {
-        findNavController().navigate(R.id.mainFragment)
+        val action = AuthenticationFragmentDirections.actionLoginFragmentToMainFragment()
+        findNavController().navigate(action)
     }
 
 }

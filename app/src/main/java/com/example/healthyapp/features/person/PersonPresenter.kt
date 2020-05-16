@@ -4,7 +4,7 @@ import androidx.annotation.StringRes
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView
 import com.example.healthyapp.db.model.entity.WorkplaceUser
-import com.example.healthyapp.repo.WorkplaceRepo
+import com.example.healthyapp.repo.WorkplaceRepository
 import javax.inject.Inject
 
 interface PersonView : BaseView {
@@ -13,7 +13,7 @@ interface PersonView : BaseView {
     fun showErrorAlert(@StringRes message: Int)
 }
 
-class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRepo) :
+class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRepository) :
     BasePresenter<PersonView>() {
 
     fun onBackClick() {
@@ -27,7 +27,7 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
         legsHeight: String,
         shoulderHeight: String,
         name: String,
-        roomNumber: Long
+        placementId: String
     ) {
         val heightInt = height.toInt()
         val sitHeightInt = sitHeight.toInt()
@@ -54,7 +54,7 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
                 back = backHeightInt,
                 name = name
             ),
-            roomNumber
+            placementId
             , onSuccess = { view?.showWorkplace() },
             onError = { view?.showErrorAlert(it) }
         )

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
@@ -32,19 +31,23 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
     }
 
     override fun goToPersonScreen() {
-        findNavController().navigate(R.id.roomNumberFragment)
+        val action = MainFragmentDirections.actionMainFragmentToRoomNumberFragment()
+        findNavController().navigate(action)
     }
 
     override fun goToStatisticScreen() {
-        findNavController().navigate(R.id.statisticFragment)
+        val action = MainFragmentDirections.actionMainFragmentToStatisticFragment()
+        findNavController().navigate(action)
     }
 
     override fun goToNewRoomScreen() {
-        findNavController().navigate(R.id.roomEditFragment)
+        val action = MainFragmentDirections.actionMainFragmentToRoomEditFragment()
+        findNavController().navigate(action)
     }
 
     override fun logOut() {
-        findNavController().navigate(R.id.loginFragment)
+        val action = MainFragmentDirections.actionMainFragmentToLoginFragment()
+        findNavController().navigate(action)
     }
 
 }

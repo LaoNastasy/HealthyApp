@@ -24,7 +24,7 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_person, container, false)
-        val roomNumber = arguments?.getLong(PersonFragment::class.simpleName) ?: 0
+        val roomNumber = arguments?.getString("placementId") ?: ""
 
         view.back.setOnClickListener { presenter.onBackClick() }
 
@@ -45,7 +45,7 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
                 backHeight = person_back_height.text.toString(),
                 legsHeight = person_legs_height.text.toString(),
                 shoulderHeight = person_shoulder_height.text.toString(),
-                roomNumber = roomNumber
+                placementId = roomNumber
             )
         }
 
@@ -58,7 +58,8 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
     }
 
     override fun showWorkplace() {
-        findNavController().navigate(R.id.workplaceBottomFragment)
+        val action = PersonFragmentDirections.actionPersonFragmentToWorkplaceFragment()
+        findNavController().navigate(action)
     }
 
     override fun showErrorAlert(message: Int) {

@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.di.DI
-import kotlinx.android.synthetic.main.fragment_base_edit.view.*
+import kotlinx.android.synthetic.main.fragment_placement.view.*
 
-class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEditView {
+class PlacementFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEditView {
 
     override fun initPresenter() = DI.component.roomEditPresenter()
 
@@ -23,7 +23,7 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_base_edit, container, false)
+        val view = inflater.inflate(R.layout.fragment_placement, container, false)
 
         view.base_edit_save.setOnClickListener {
             presenter.saveRoom(
@@ -43,8 +43,10 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
     override fun showAddWorkplaceDialog() {
         val dialog = AlertDialog.Builder(context ?: return)
             .setMessage(R.string.alert_need_add_workplace)
-            .setNegativeButton(R.string.no) { dialog, _ -> dialog.dismiss()
-                Navigation.findNavController(view ?: return@setNegativeButton).popBackStack()}
+            .setNegativeButton(R.string.no) { dialog, _ ->
+                dialog.dismiss()
+                findNavController().popBackStack()
+            }
             .setPositiveButton(R.string.yes) { dialog, _ ->
                 dialog.dismiss()
                 showChooseDialog()
@@ -68,11 +70,11 @@ class RoomEditFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEd
                     0 -> dialogInterface.dismiss()
                     1 -> {
                         dialogInterface.dismiss()
-                        val bundle = Bundle()
-                        bundle.putLong(this::class.simpleName, presenter.getRoomNumber()
-                            ?: return@setPositiveButton)
-                        Navigation.findNavController(view
-                            ?: return@setPositiveButton).navigate(R.id.personFragment, bundle)
+                        val action =
+                            PlacementFragmentDirections.actionPlacementFragmentToPersonFragment(
+                                presenter.getPlacementId()
+                            )
+                        findNavController().navigate(action)
                     }
                 }
             }

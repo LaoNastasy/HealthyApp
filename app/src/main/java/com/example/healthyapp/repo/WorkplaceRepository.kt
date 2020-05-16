@@ -4,17 +4,16 @@ import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
 
-interface WorkplaceRepo {
+interface WorkplaceRepository {
 
     /**
      * сохранение информации о пользователе, для которого создается рабочее место
-     *
      * @param user - данные о пользователе
-     * @param roomNumber -  помещение, выбранное для пользователя и рабочего места
+     * @param placementId -  помещение, выбранное для пользователя и рабочего места
      */
     fun saveWorkplaceUserInformation(
         user: WorkplaceUser,
-        roomNumber: Long,
+        placementId: String,
         onSuccess: (workplace: Workplace) -> Unit,
         onError: (Int) -> Unit
     )
