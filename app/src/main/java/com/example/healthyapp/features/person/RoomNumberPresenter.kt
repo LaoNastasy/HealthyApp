@@ -43,10 +43,10 @@ class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter
                 val s = placement.length * placement.width
                 val s1Now = s.toDouble() / it.toDouble()
                 val s1After = s.toDouble() / (it + 1).toDouble()
-                if (s1After > 4500)
+                if (s1After > MIN_SPACE)
                     view?.goNext(placement.id)
                 else {
-                    if (s1Now > 4500) view?.showWarning(R.string.room_warning)
+                    if (s1Now > MIN_SPACE) view?.showWarning(R.string.room_warning)
                     else view?.showWarning(R.string.room_warning_important)
                 }
             },
@@ -56,5 +56,9 @@ class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter
 
     fun onSubmitWarning() {
         view?.goNext(chosenPlacementId)
+    }
+
+    companion object{
+        private const val MIN_SPACE = 45000
     }
 }
