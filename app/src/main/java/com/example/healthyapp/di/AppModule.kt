@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.healthyapp.repo.UserRepository
 import com.example.healthyapp.repo.implementations.UserRepositoryImpl
 import com.example.healthyapp.features.auth.AuthenticationPresenter
+import com.example.healthyapp.features.information.InfoPresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.person.RoomNumberPresenter
@@ -76,5 +77,9 @@ class AppModule(private val context: Context) {
         RoomEditPresenter(workplaceRepo)
 
     @Provides
-    fun roomNumberPresenter(workplaceRepo: WorkplaceRepository): RoomNumberPresenter = RoomNumberPresenter(workplaceRepo)
+    fun roomNumberPresenter(workplaceRepo: WorkplaceRepository): RoomNumberPresenter =
+        RoomNumberPresenter(workplaceRepo)
+
+    @Provides
+    fun infoPresenter(): InfoPresenter = InfoPresenter()
 }

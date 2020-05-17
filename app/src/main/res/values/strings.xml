@@ -26,7 +26,7 @@
     //главное меню
     <string name="person_screen">Добавить \nрабочее место</string>
     <string name="statistic_screen">Статистика</string>
-    <string name="climate_screen">Климат\nв помещении</string>
+    <string name="info_screen">Информация</string>
     <string name="new_room_screen">Добавить\nпомещение</string>
 
     //экран добавления помещения
@@ -73,6 +73,13 @@
     <string name="workplace_stand_height">Высота подставки для ног</string>
     <string name="success_save_workplace">Новое рабочее место успешно добавлено. Повторно посмотреть его параметры
     Вы можете в соответствующем разделе приложения.</string>
+
+    //экран информации
+    <string name="info_title">Список помещений</string>
+    <string name="placement_number">Помещение № %1$d</string>
+    <string name="placement_space">Площадь помещения: %1$d</string>
+    <string name="placement_wp_number">Количество рабочих мест: %1$d</string>
+    <string name="placement_go_to_wps">Рабочие места</string>
 
 
 </resources>

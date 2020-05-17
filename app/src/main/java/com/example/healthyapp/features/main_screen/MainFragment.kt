@@ -25,6 +25,7 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
         view.person.setOnClickListener { presenter.onPersonClick() }
         view.statistic.setOnClickListener { presenter.onStatisticClick() }
         view.kabinet.setOnClickListener { presenter.onNewRoomClick() }
+        view.info.setOnClickListener { presenter.onInfoClick() }
         view.exit.setOnClickListener { presenter.logOut() }
 
         return view
@@ -47,6 +48,11 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
 
     override fun logOut() {
         val action = MainFragmentDirections.actionMainFragmentToLoginFragment()
+        findNavController().navigate(action)
+    }
+
+    override fun goToInfoScreen() {
+        val action = MainFragmentDirections.actionMainFragmentToInfoFragment()
         findNavController().navigate(action)
     }
 

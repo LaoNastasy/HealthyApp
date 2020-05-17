@@ -11,6 +11,7 @@ interface MainScreenView : BaseView {
     fun goToPersonScreen()
     fun goToStatisticScreen()
     fun goToNewRoomScreen()
+    fun goToInfoScreen()
     fun logOut()
 }
 
@@ -25,6 +26,8 @@ class MainScreenPresenter @Inject constructor(
     fun onStatisticClick() = view?.goToStatisticScreen()
 
     fun onNewRoomClick() = view?.goToNewRoomScreen()
+
+    fun onInfoClick() = view?.goToInfoScreen()
 
     fun logOut() {
         userRepository.logout(

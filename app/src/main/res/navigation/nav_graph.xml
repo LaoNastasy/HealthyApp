@@ -23,6 +23,9 @@
             android:id="@+id/action_mainFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
     </fragment>
 
     <fragment
@@ -95,4 +98,13 @@
             android:id="@+id/action_roomNumber_to_PersonFragment"
             app:destination="@id/personFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.healthyapp.features.information.InfoFragment"
+        android:label="InfoFragment"
+        tools:layout="@layout/fragment_info">
+
+    </fragment>
+
 </navigation>
