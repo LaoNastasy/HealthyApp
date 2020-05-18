@@ -105,6 +105,20 @@
         android:label="InfoFragment"
         tools:layout="@layout/fragment_info">
 
+        <action
+            android:id="@+id/action_infoFragment_to_placementInfoFragment"
+            app:destination="@id/placementInfoFragment" />
+
     </fragment>
+
+    <fragment
+        android:id="@+id/placementInfoFragment"
+        android:name="com.example.healthyapp.features.information.PlacementInfoFragment"
+        android:label="PlacementInfoFragment">
+        <argument
+            android:name="placementId"
+            app:argType="string" />
+    </fragment>
+
 
 </navigation>

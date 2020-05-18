@@ -77,7 +77,7 @@
     //экран информации
     <string name="info_title">Список помещений</string>
     <string name="placement_number">Помещение № %1$d</string>
-    <string name="placement_space">Площадь помещения: %1$d</string>
+    <string name="placement_space">Площадь помещения: %1$s</string>
     <string name="placement_wp_number">Количество рабочих мест: %1$d</string>
     <string name="placement_go_to_wps">Рабочие места</string>
 
