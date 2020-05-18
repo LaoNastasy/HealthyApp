@@ -10,7 +10,7 @@ import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.person.RoomNumberPresenter
 import com.example.healthyapp.features.person.WorkplacePresenter
 import com.example.healthyapp.features.registration.RegistrationPresenter
-import com.example.healthyapp.features.roomEdit.RoomEditPresenter
+import com.example.healthyapp.features.roomEdit.NewPlacementPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
 import com.example.healthyapp.repo.WorkplaceRepository
@@ -73,8 +73,8 @@ class AppModule(private val context: Context) {
         WorkplacePresenter(workplaceRepo)
 
     @Provides
-    fun roomEditPresenter(workplaceRepo: WorkplaceRepository): RoomEditPresenter =
-        RoomEditPresenter(workplaceRepo)
+    fun roomEditPresenter(workplaceRepo: WorkplaceRepository): NewPlacementPresenter =
+        NewPlacementPresenter(workplaceRepo)
 
     @Provides
     fun roomNumberPresenter(workplaceRepo: WorkplaceRepository): RoomNumberPresenter =

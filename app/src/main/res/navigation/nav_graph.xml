@@ -15,7 +15,7 @@
             app:destination="@id/roomNumberFragment" />
         <action
             android:id="@+id/action_mainFragment_to_roomEditFragment"
-            app:destination="@id/placementFragment" />
+            app:destination="@id/newPlacementFragment" />
         <action
             android:id="@+id/action_mainFragment_to_statisticFragment"
             app:destination="@id/statisticFragment" />
@@ -74,12 +74,12 @@
     </fragment>
 
     <fragment
-        android:id="@+id/placementFragment"
-        android:name="com.example.healthyapp.features.roomEdit.PlacementFragment"
-        android:label="PlacementFragment"
-        tools:layout="@layout/fragment_placement">
+        android:id="@+id/newPlacementFragment"
+        android:name="com.example.healthyapp.features.roomEdit.NewPlacementFragment"
+        android:label="NewPlacementFragment"
+        tools:layout="@layout/fragment_new_placement">
         <action
-            android:id="@+id/action_placementFragment_to_personFragment"
+            android:id="@+id/action_newPlacementFragment_to_personFragment"
             app:destination="@id/personFragment" />
     </fragment>
 

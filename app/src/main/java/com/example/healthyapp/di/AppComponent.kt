@@ -8,7 +8,7 @@ import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.person.RoomNumberPresenter
 import com.example.healthyapp.features.person.WorkplacePresenter
 import com.example.healthyapp.features.registration.RegistrationPresenter
-import com.example.healthyapp.features.roomEdit.RoomEditPresenter
+import com.example.healthyapp.features.roomEdit.NewPlacementPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
 import dagger.Component
@@ -32,7 +32,7 @@ interface AppComponent {
 
     fun authenticationPresenter(): AuthenticationPresenter
 
-    fun roomEditPresenter(): RoomEditPresenter
+    fun newPlacementPresenter(): NewPlacementPresenter
 
     fun registrationPresenter(): RegistrationPresenter
 

@@ -5,11 +5,13 @@ import com.example.healthyapp.base.BaseView
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.repo.WorkplaceRepository
 
-interface RoomEditView : BaseView {
+interface NewPlacementView : BaseView {
     fun showAddWorkplaceDialog()
 }
 
-class RoomEditPresenter(private val workplaceRepo: WorkplaceRepository) : BasePresenter<RoomEditView>() {
+class NewPlacementPresenter(
+    private val workplaceRepo: WorkplaceRepository
+) : BasePresenter<NewPlacementView>() {
 
     private var currentRoom: Placement? = null
 
@@ -26,5 +28,5 @@ class RoomEditPresenter(private val workplaceRepo: WorkplaceRepository) : BasePr
         )
     }
 
-    fun getPlacementId() = currentRoom?.id ?:""
+    fun getPlacementId() = currentRoom?.id ?: ""
 }
