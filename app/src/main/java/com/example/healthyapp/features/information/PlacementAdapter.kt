@@ -42,7 +42,8 @@ class PlacementAdapter(
                 context.getString(R.string.placement_number, placement.number)
             val space = (placement.width.toDouble() / 100) * ((placement.length).toDouble() / 100)
             val space1 = BigDecimal.valueOf(space).setScale(2).toString()
-            itemView.placement_space.text = context.getString(R.string.placement_space, space1)
+            itemView.placement_space.text =
+                context.getString(R.string.placement_space, placement.getSpace())
 //            itemView.placement_wp_number.text =
 //                context.getString(R.string.placement_wp_number, item.second)
         }

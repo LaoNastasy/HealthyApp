@@ -86,5 +86,6 @@ class AppModule(private val context: Context) {
         InfoPresenter(workplaceRepo)
 
     @Provides
-    fun placementInfoPresenter(): PlacementInfoPresenter = PlacementInfoPresenter()
+    fun placementInfoPresenter(workplaceRepo: WorkplaceRepository): PlacementInfoPresenter =
+        PlacementInfoPresenter(workplaceRepo)
 }

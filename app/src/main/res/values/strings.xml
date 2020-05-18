@@ -80,6 +80,11 @@
     <string name="placement_space">Площадь помещения: %1$s</string>
     <string name="placement_wp_number">Количество рабочих мест: %1$d</string>
     <string name="placement_go_to_wps">Рабочие места</string>
+    <string name="placement_height">Высота помещения: %1$d</string>
+
+    //экран подробной информации
+    <string name="worplace_for_user">Рабочее место пользователя %1$s</string>
+
 
 
 </resources>

@@ -53,12 +53,18 @@ interface WorkplaceRepository {
         onError: (Int) -> Unit
     )
 
+    fun getPlacementById(
+        id: String,
+        onSuccess: (Placement) -> Unit,
+        onError: (Int) -> Unit
+    )
+
     /**
      * получение количества рабочих мест в рабочем помещении
      */
     fun getWorkplacesByPlacement(
         placementId: String,
-        onSuccess: (Int) -> Unit,
+        onSuccess: (List<Workplace>) -> Unit,
         onError: (Int) -> Unit
     )
 

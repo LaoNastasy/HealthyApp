@@ -6,6 +6,7 @@ import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
 import com.example.healthyapp.repo.WorkplaceRepository
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.math.roundToInt
 
@@ -28,10 +29,10 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
         val wp = Workplace(
             id = "",
             userId = user.id,
-            tableHeight = table,
-            chairHeight = chair,
-            standHeight = chair - user.legsHeight,
-            monitorHeight = chair + (user.sitHeight * COEFFICIENT).roundToInt() - table,
+            tableHeight = table.toLong(),
+            chairHeight = chair.toLong(),
+            standHeight = (chair - user.legsHeight).toLong(),
+            monitorHeight = (chair + (user.sitHeight * COEFFICIENT).roundToInt() - table).toLong(),
             roomNumber = placementId
         )
 
@@ -171,16 +172,61 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             .addOnFailureListener { onError.invoke(R.string.common_error) }
     }
 
-    override fun getWorkplacesByPlacement(
-        placementId: String,
-        onSuccess: (Int) -> Unit,
+    override fun getPlacementById(
+        id: String,
+        onSuccess: (Placement) -> Unit,
         onError: (Int) -> Unit
     ) {
+        db.document("/placement/$id")
+            .get()
+            .addOnSuccessListener {
+                val data = it.data
+                if (data == null) onError.invoke(R.string.common_error)
+                else {
+                    onSuccess.invoke(
+                        Placement(
+                            id = it.id,
+                            height = data["height"] as Long,
+                            width = data["width"] as Long,
+                            number = data["number"] as Long,
+                            length = data["length"] as Long
+                        )
+                    )
+                }
+            }
+            .addOnFailureListener {
+                onError.invoke(R.string.common_error)
+            }
+    }
+
+    override fun getWorkplacesByPlacement(
+        placementId: String,
+        onSuccess: (List<Workplace>) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+
+
         db.collection("workplace")
             .whereEqualTo("room_number", placementId)
             .get()
             .addOnSuccessListener {
-                onSuccess.invoke(it.size())
+                val workplaces = arrayListOf<Workplace>()
+                for (document in it.documents) {
+
+                    workplaces.add(
+                        Workplace(
+                            id = document.id,
+                            userId = document["user_id"] as String,
+                            tableHeight = document["table"] as Long,
+                            standHeight = document["stand"] as Long,
+                            chairHeight = document["chair"] as Long,
+                            monitorHeight = document["monitor"] as Long,
+                            roomNumber = document["room_number"] as String
+                        )
+                    )
+
+                }
+                onSuccess.invoke(workplaces)
             }
             .addOnFailureListener { onError.invoke(R.string.common_error) }
     }

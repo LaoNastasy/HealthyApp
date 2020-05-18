@@ -40,9 +40,10 @@ class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter
         chosenPlacementId = placement.id
         repo.getWorkplacesByPlacement(placement.id,
             onSuccess = {
+                val count = it.count()
                 val s = placement.length * placement.width
-                val s1Now = s.toDouble() / it.toDouble()
-                val s1After = s.toDouble() / (it + 1).toDouble()
+                val s1Now = s.toDouble() / count.toDouble()
+                val s1After = s.toDouble() / (count + 1).toDouble()
                 if (s1After > MIN_SPACE)
                     view?.goNext(placement.id)
                 else {
@@ -58,7 +59,7 @@ class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter
         view?.goNext(chosenPlacementId)
     }
 
-    companion object{
+    companion object {
         private const val MIN_SPACE = 45000
     }
 }
