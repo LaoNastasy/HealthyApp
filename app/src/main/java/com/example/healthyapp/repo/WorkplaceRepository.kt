@@ -34,6 +34,18 @@ interface WorkplaceRepository {
         onError: (Int) -> Unit
     )
 
+    fun getWorkplaceById(
+        id: String,
+        onSuccess: (Workplace) -> Unit,
+        onError: (Int) -> Unit
+    )
+
+    fun getWorkplaceUserById(
+        id: String,
+        onSuccess: (WorkplaceUser) -> Unit,
+        onError: (Int) -> Unit
+    )
+
     /**
      * сохранение помещения в бд
      */
@@ -53,12 +65,18 @@ interface WorkplaceRepository {
         onError: (Int) -> Unit
     )
 
+    fun getPlacementById(
+        id: String,
+        onSuccess: (Placement) -> Unit,
+        onError: (Int) -> Unit
+    )
+
     /**
      * получение количества рабочих мест в рабочем помещении
      */
     fun getWorkplacesByPlacement(
         placementId: String,
-        onSuccess: (Int) -> Unit,
+        onSuccess: (List<Workplace>) -> Unit,
         onError: (Int) -> Unit
     )
 

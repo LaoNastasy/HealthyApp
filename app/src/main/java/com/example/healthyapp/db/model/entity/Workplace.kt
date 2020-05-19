@@ -3,9 +3,9 @@ package com.example.healthyapp.db.model.entity
 data class Workplace(
     val id: String,
     val userId: String,
-    val tableHeight: Int,
-    val monitorHeight: Int,
-    val chairHeight: Int,
-    val standHeight: Int,
+    val tableHeight: Long,
+    val monitorHeight: Long,
+    val chairHeight: Long,
+    val standHeight: Long,
     val roomNumber: String
 )

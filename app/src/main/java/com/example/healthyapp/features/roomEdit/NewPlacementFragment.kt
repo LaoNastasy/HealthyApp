@@ -10,11 +10,12 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.di.DI
-import kotlinx.android.synthetic.main.fragment_placement.view.*
+import kotlinx.android.synthetic.main.fragment_new_placement.view.*
 
-class PlacementFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomEditView {
+class NewPlacementFragment : BaseFragment<NewPlacementPresenter, NewPlacementView>(),
+    NewPlacementView {
 
-    override fun initPresenter() = DI.component.roomEditPresenter()
+    override fun initPresenter() = DI.component.newPlacementPresenter()
 
     override fun getMvpView() = this
 
@@ -23,7 +24,7 @@ class PlacementFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomE
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_placement, container, false)
+        val view = inflater.inflate(R.layout.fragment_new_placement, container, false)
 
         view.base_edit_save.setOnClickListener {
             presenter.saveRoom(
@@ -71,7 +72,7 @@ class PlacementFragment : BaseFragment<RoomEditPresenter, RoomEditView>(), RoomE
                     1 -> {
                         dialogInterface.dismiss()
                         val action =
-                            PlacementFragmentDirections.actionPlacementFragmentToPersonFragment(
+                            NewPlacementFragmentDirections.actionNewPlacementFragmentToPersonFragment(
                                 presenter.getPlacementId()
                             )
                         findNavController().navigate(action)

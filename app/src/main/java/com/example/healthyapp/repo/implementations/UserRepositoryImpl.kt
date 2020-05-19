@@ -3,6 +3,7 @@ package com.example.healthyapp.repo.implementations
 import android.content.Context
 import android.util.Log
 import com.example.healthyapp.PreferenceUtils
+import com.example.healthyapp.R
 import com.example.healthyapp.db.model.entity.User
 import com.example.healthyapp.repo.UserRepository
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,29 +19,30 @@ open class UserRepositoryImpl @Inject constructor(val db: FirebaseFirestore, val
     override fun getUserByLogin(
         login: String,
         onSuccess: (user: User) -> Unit,
-        onError: () -> Unit
+        onError: (Int) -> Unit
     ) {
 
         db.collection("users")
             .get()
             .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                    if (document.data["login"] == login)
-                        onSuccess(
-                            User(
-                                id = document.id,
-                                login = document.data["login"] as String? ?: "",
-                                password = document.data["password"] as String? ?: "",
-                                firstName = document.data["firstName"] as String? ?: "",
-                                secondName = document.data["secondName"] as String? ?: ""
-                            )
+                val document = result.find { it.data["login"] == login }
+                if (document == null)
+                    onError.invoke(R.string.auth_no_login)
+                else {
+                    onSuccess(
+                        User(
+                            id = document.id,
+                            login = document.data["login"] as String? ?: "",
+                            password = document.data["password"] as String? ?: "",
+                            firstName = document.data["firstName"] as String? ?: "",
+                            secondName = document.data["secondName"] as String? ?: ""
                         )
+                    )
                     return@addOnSuccessListener
                 }
             }
             .addOnFailureListener { exception ->
-                onError.invoke()
+                onError.invoke(R.string.common_error)
             }
 
 

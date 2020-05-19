@@ -30,18 +30,18 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             userId = user.id,
             tableHeight = table,
             chairHeight = chair,
-            standHeight = chair - user.legsHeight,
-            monitorHeight = chair + (user.sitHeight * 0.86F).roundToInt() - table,
+            standHeight = (chair - user.legsHeight),
+            monitorHeight = (chair + (user.sitHeight * COEFFICIENT).roundToInt() - table),
             roomNumber = placementId
         )
 
-        if (wp.tableHeight < 60
-            || wp.tableHeight > 80
-            || wp.chairHeight < 44
-            || wp.chairHeight > 64
-            || wp.standHeight < 0
-            || wp.monitorHeight > 100
-            || wp.monitorHeight < 30
+        if (wp.tableHeight < MIN_TABLE_HEIGHT
+            || wp.tableHeight > MAX_TABLE_HEIGHT
+            || wp.chairHeight < MIN_CHAIR_HEIGHT
+            || wp.chairHeight > MAX_CHAIR_HEIGHT
+            || wp.standHeight < MIN_STAND_HEIGHT
+            || wp.monitorHeight > MAX_MONITOR_HEIGHT
+            || wp.monitorHeight < MIN_MONITOR_HEIGHT
         ) {
             onError(R.string.person_incorrect_data)
             return
@@ -102,15 +102,72 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
     }
 
 
+    override fun getWorkplaceById(
+        id: String,
+        onSuccess: (Workplace) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+        db.document("/workplace/$id")
+            .get()
+            .addOnSuccessListener {
+                val document = it.data
+                if (document == null) onError.invoke(R.string.common_error)
+                else {
+                    val wp = Workplace(
+                        id = it.id,
+                        userId = document["user_id"] as String,
+                        tableHeight = document["table"] as Long,
+                        standHeight = document["stand"] as Long,
+                        chairHeight = document["chair"] as Long,
+                        monitorHeight = document["monitor"] as Long,
+                        roomNumber = document["room_number"] as String
+                    )
+                    onSuccess.invoke(wp)
+                }
+            }
+            .addOnFailureListener {
+                onError.invoke(R.string.common_error)
+            }
+    }
+
+    override fun getWorkplaceUserById(
+        id: String,
+        onSuccess: (WorkplaceUser) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+        db.document(id)
+            .get()
+            .addOnSuccessListener {
+                val document = it.data
+                if (document == null) onError.invoke(R.string.common_error)
+                else {
+                    val wp = WorkplaceUser(
+                        id = it.id,
+                        height = document["height"] as Long,
+                        sitHeight = document["sit_eyes_height"] as Long,
+                        legsHeight = document["leg"] as Long,
+                        eyesHeight = document["sit_eyes_height"] as Long,
+                        shoulder = document["shoulder"] as Long,
+                        back = document["back"] as Long,
+                        name = document["name"] as String
+                    )
+                    onSuccess.invoke(wp)
+                }
+            }
+            .addOnFailureListener {
+                onError.invoke(R.string.common_error)
+            }
+    }
+
     override fun saveRoom(
         placement: Placement,
         onSuccess: () -> Unit,
         onError: (Int) -> Unit
     ) {
 
-        if (placement.height < 180
-            || placement.length < 200
-            || placement.width < 200
+        if (placement.height < MIN_ROOM_HEIGHT
+            || placement.length < MIN_ROOM_LENGTH
+            || placement.width < MIN_ROOM_WIDTH
         ) {
             onError.invoke(R.string.room_error_validate)
             return
@@ -171,18 +228,80 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             .addOnFailureListener { onError.invoke(R.string.common_error) }
     }
 
-    override fun getWorkplacesByPlacement(
-        placementId: String,
-        onSuccess: (Int) -> Unit,
+    override fun getPlacementById(
+        id: String,
+        onSuccess: (Placement) -> Unit,
         onError: (Int) -> Unit
     ) {
+        db.document("/placement/$id")
+            .get()
+            .addOnSuccessListener {
+                val data = it.data
+                if (data == null) onError.invoke(R.string.common_error)
+                else {
+                    onSuccess.invoke(
+                        Placement(
+                            id = it.id,
+                            height = data["height"] as Long,
+                            width = data["width"] as Long,
+                            number = data["number"] as Long,
+                            length = data["length"] as Long
+                        )
+                    )
+                }
+            }
+            .addOnFailureListener {
+                onError.invoke(R.string.common_error)
+            }
+    }
+
+    override fun getWorkplacesByPlacement(
+        placementId: String,
+        onSuccess: (List<Workplace>) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+
+
         db.collection("workplace")
             .whereEqualTo("room_number", placementId)
             .get()
             .addOnSuccessListener {
-                onSuccess.invoke(it.size())
+                val workplaces = arrayListOf<Workplace>()
+                for (document in it.documents) {
+
+                    workplaces.add(
+                        Workplace(
+                            id = document.id,
+                            userId = document["user_id"] as String,
+                            tableHeight = document["table"] as Long,
+                            standHeight = document["stand"] as Long,
+                            chairHeight = document["chair"] as Long,
+                            monitorHeight = document["monitor"] as Long,
+                            roomNumber = document["room_number"] as String
+                        )
+                    )
+
+                }
+                onSuccess.invoke(workplaces)
             }
             .addOnFailureListener { onError.invoke(R.string.common_error) }
     }
 
+
+    companion object {
+        private const val MIN_TABLE_HEIGHT = 60
+        private const val MAX_TABLE_HEIGHT = 80
+        private const val MIN_CHAIR_HEIGHT = 44
+        private const val MAX_CHAIR_HEIGHT = 64
+        private const val MIN_STAND_HEIGHT = 0
+        private const val MIN_MONITOR_HEIGHT = 30
+        private const val MAX_MONITOR_HEIGHT = 100
+
+        private const val COEFFICIENT = 0.86F
+
+        private const val MIN_ROOM_HEIGHT = 270
+        private const val MIN_ROOM_WIDTH = 200
+        private const val MIN_ROOM_LENGTH = 200
+
+    }
 }

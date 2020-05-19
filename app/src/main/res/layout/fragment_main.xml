@@ -34,7 +34,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/person"
-        app:layout_constraintBottom_toTopOf="@id/climate"
+        app:layout_constraintBottom_toTopOf="@id/info"
         app:layout_constraintEnd_toStartOf="@id/statistic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,6 +57,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/statistic"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/person"
         app:layout_constraintTop_toTopOf="@id/person" />
@@ -69,17 +70,17 @@
         android:text="@string/statistic_screen"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@id/statistic"
         app:layout_constraintStart_toStartOf="@id/statistic"
         app:layout_constraintTop_toBottomOf="@id/statistic" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/climate"
+        android:id="@+id/info"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/climate"
-        android:visibility="invisible"
+        android:src="@drawable/statistic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/person"
         app:layout_constraintTop_toBottomOf="@id/person" />
@@ -89,13 +90,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="@string/climate_screen"
+        android:text="@string/info_screen"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@id/climate"
-        app:layout_constraintStart_toStartOf="@id/climate"
-        app:layout_constraintTop_toBottomOf="@id/climate" />
+        app:layout_constraintEnd_toEndOf="@id/info"
+        app:layout_constraintStart_toStartOf="@id/info"
+        app:layout_constraintTop_toBottomOf="@id/info" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/kabinet"
@@ -104,7 +104,7 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/kabinets"
         app:layout_constraintStart_toStartOf="@id/statistic"
-        app:layout_constraintTop_toTopOf="@id/climate" />
+        app:layout_constraintTop_toTopOf="@id/info" />
 
     <TextView
         android:layout_width="wrap_content"

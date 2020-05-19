@@ -4,12 +4,15 @@ import android.content.Context
 import com.example.healthyapp.repo.UserRepository
 import com.example.healthyapp.repo.implementations.UserRepositoryImpl
 import com.example.healthyapp.features.auth.AuthenticationPresenter
+import com.example.healthyapp.features.information.placementList.InfoPresenter
+import com.example.healthyapp.features.information.placementInfo.PlacementInfoPresenter
+import com.example.healthyapp.features.information.workplaceInfo.WorkplaceInfoPresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.person.RoomNumberPresenter
 import com.example.healthyapp.features.person.WorkplacePresenter
 import com.example.healthyapp.features.registration.RegistrationPresenter
-import com.example.healthyapp.features.roomEdit.RoomEditPresenter
+import com.example.healthyapp.features.roomEdit.NewPlacementPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter
 import com.example.healthyapp.main.MainPresenter
 import com.example.healthyapp.repo.WorkplaceRepository
@@ -72,9 +75,26 @@ class AppModule(private val context: Context) {
         WorkplacePresenter(workplaceRepo)
 
     @Provides
-    fun roomEditPresenter(workplaceRepo: WorkplaceRepository): RoomEditPresenter =
-        RoomEditPresenter(workplaceRepo)
+    fun roomEditPresenter(workplaceRepo: WorkplaceRepository): NewPlacementPresenter =
+        NewPlacementPresenter(workplaceRepo)
 
     @Provides
-    fun roomNumberPresenter(workplaceRepo: WorkplaceRepository): RoomNumberPresenter = RoomNumberPresenter(workplaceRepo)
+    fun roomNumberPresenter(workplaceRepo: WorkplaceRepository): RoomNumberPresenter =
+        RoomNumberPresenter(workplaceRepo)
+
+    @Provides
+    fun infoPresenter(workplaceRepo: WorkplaceRepository): InfoPresenter =
+        InfoPresenter(
+            workplaceRepo
+        )
+
+    @Provides
+    fun placementInfoPresenter(workplaceRepo: WorkplaceRepository): PlacementInfoPresenter =
+        PlacementInfoPresenter(
+            workplaceRepo
+        )
+
+    @Provides
+    fun workplaceInfoPresenter(workplaceRepo: WorkplaceRepository): WorkplaceInfoPresenter =
+        WorkplaceInfoPresenter(workplaceRepo)
 }

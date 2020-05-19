@@ -29,11 +29,11 @@ class PersonPresenter @Inject constructor(private val workplaceRepo: WorkplaceRe
         name: String,
         placementId: String
     ) {
-        val heightInt = height.toInt()
-        val sitHeightInt = sitHeight.toInt()
-        val backHeightInt = backHeight.toInt()
-        val legsHeightInt = legsHeight.toInt()
-        val shoulderHeightInt = shoulderHeight.toInt()
+        val heightInt = height.toLong()
+        val sitHeightInt = sitHeight.toLong()
+        val backHeightInt = backHeight.toLong()
+        val legsHeightInt = legsHeight.toLong()
+        val shoulderHeightInt = shoulderHeight.toLong()
 
         if (heightInt <= 0
             || backHeightInt <= 0
