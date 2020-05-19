@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.information
+package com.example.healthyapp.features.information.placementInfo
 
 import android.view.LayoutInflater
 import android.view.View

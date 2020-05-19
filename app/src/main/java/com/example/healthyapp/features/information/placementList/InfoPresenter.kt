@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.information
+package com.example.healthyapp.features.information.placementList
 
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView

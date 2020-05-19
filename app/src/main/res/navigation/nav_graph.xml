@@ -101,7 +101,7 @@
 
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.example.healthyapp.features.information.InfoFragment"
+        android:name="com.example.healthyapp.features.information.placementList.InfoFragment"
         android:label="InfoFragment"
         tools:layout="@layout/fragment_info">
 
@@ -113,7 +113,7 @@
 
     <fragment
         android:id="@+id/placementInfoFragment"
-        android:name="com.example.healthyapp.features.information.PlacementInfoFragment"
+        android:name="com.example.healthyapp.features.information.placementInfo.PlacementInfoFragment"
         android:label="PlacementInfoFragment">
         <argument
             android:name="placementId"

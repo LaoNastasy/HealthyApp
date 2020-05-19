@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.information
+package com.example.healthyapp.features.information.placementList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,11 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.di.DI
+import com.example.healthyapp.features.information.InfoFragmentDirections
 import kotlinx.android.synthetic.main.fragment_info.view.*
 
-class InfoFragment : BaseFragment<InfoPresenter, InfoView>(), InfoView {
+class InfoFragment : BaseFragment<InfoPresenter, InfoView>(),
+    InfoView {
 
     override fun initPresenter() = DI.component.infoPresenter()
 
@@ -27,7 +29,10 @@ class InfoFragment : BaseFragment<InfoPresenter, InfoView>(), InfoView {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_info, container, false)
-        adapter = PlacementAdapter { goToPlacementInfo(it) }
+        adapter =
+            PlacementAdapter {
+                goToPlacementInfo(it)
+            }
         view.placement_list.layoutManager = LinearLayoutManager(requireContext())
         view.placement_list.adapter = adapter
         presenter.getPlacementList()
@@ -36,7 +41,10 @@ class InfoFragment : BaseFragment<InfoPresenter, InfoView>(), InfoView {
     }
 
     private fun goToPlacementInfo(placement: Placement) {
-        val action = InfoFragmentDirections.actionInfoFragmentToPlacementInfoFragment(placement.id)
+        val action =
+            InfoFragmentDirections.actionInfoFragmentToPlacementInfoFragment(
+                placement.id
+            )
         findNavController().navigate(action)
     }
 

@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.information
+package com.example.healthyapp.features.information.placementInfo
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +13,6 @@ import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_placement_info.*
 import kotlinx.android.synthetic.main.fragment_placement_info.view.*
-import kotlinx.android.synthetic.main.fragment_placement_info.view.placement_workplace_count
 
 class PlacementInfoFragment : BaseFragment<PlacementInfoPresenter, PlacementInfoView>(),
     PlacementInfoView {
@@ -32,7 +31,8 @@ class PlacementInfoFragment : BaseFragment<PlacementInfoPresenter, PlacementInfo
     ): View? {
         val view = inflater.inflate(R.layout.fragment_placement_info, container, false)
         placementId = arguments?.getString("placementId") ?: ""
-        adapter = WorkplaceAdapter {}
+        adapter =
+            WorkplaceAdapter {}
         view.back.setOnClickListener { findNavController().popBackStack() }
         view.placement_workplace_list.layoutManager = LinearLayoutManager(requireContext())
         view.placement_workplace_list.adapter = adapter
