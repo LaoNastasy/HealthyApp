@@ -1,6 +1,394 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/placement_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:text="@string/workplace_title"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/workplace_placement_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/placement_number"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/workplace_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/workplace_table_height"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_placement_number" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_table"
+        app:layout_constraintEnd_toStartOf="@id/workplace_table_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_table" />
+
+    <TextView
+        android:id="@+id/workplace_table_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_table"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/workplace_chair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/workplace_chair_height"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_table" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_chair"
+        app:layout_constraintEnd_toStartOf="@id/workplace_chair_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_chair" />
+
+    <TextView
+        android:id="@+id/workplace_chair_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_chair"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/workplace_stand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/workplace_stand_height"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_chair" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_stand"
+        app:layout_constraintEnd_toStartOf="@id/workplace_stand_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_stand" />
+
+    <TextView
+        android:id="@+id/workplace_stand_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_stand"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/workplace_monitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/workplace_monitor_height"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_stand" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_monitor"
+        app:layout_constraintEnd_toStartOf="@id/workplace_monitor_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_monitor" />
+
+    <TextView
+        android:id="@+id/workplace_monitor_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_monitor"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/workplace_user_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/workplace_user_info"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_monitor" />
+
+    <TextView
+        android:id="@+id/workplace_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/workplace_user_name"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_user_info" />
+
+    <TextView
+        android:id="@+id/workplace_user_name_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/workplace_user_name"
+        app:layout_constraintTop_toBottomOf="@id/workplace_user_name" />
+
+
+    <TextView
+        android:id="@+id/workplace_user_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/person_height"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_user_name_value" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_height"
+        app:layout_constraintEnd_toStartOf="@id/workplace_user_height_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_user_height" />
+
+    <TextView
+        android:id="@+id/workplace_user_height_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/workplace_user_sit_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/person_height_sit"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_user_height" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_sit_height"
+        app:layout_constraintEnd_toStartOf="@id/workplace_user_sit_height_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_user_sit_height" />
+
+    <TextView
+        android:id="@+id/workplace_user_sit_height_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_sit_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/workplace_user_shoulder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/person_shoulder_height"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_user_sit_height" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_shoulder"
+        app:layout_constraintEnd_toStartOf="@id/workplace_user_shoulder_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_user_shoulder" />
+
+    <TextView
+        android:id="@+id/workplace_user_shoulder_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_shoulder"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/workplace_user_leg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/person_legs_height"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_user_shoulder" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_leg"
+        app:layout_constraintEnd_toStartOf="@id/workplace_user_leg_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_user_leg" />
+
+    <TextView
+        android:id="@+id/workplace_user_leg_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_leg"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/workplace_user_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/person_back_height"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/workplace_placement_number"
+        app:layout_constraintTop_toBottomOf="@id/workplace_user_leg" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="@string/points"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_back"
+        app:layout_constraintEnd_toStartOf="@id/workplace_user_back_value"
+        app:layout_constraintStart_toEndOf="@id/workplace_user_back" />
+
+    <TextView
+        android:id="@+id/workplace_user_back_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/workplace_user_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="56" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

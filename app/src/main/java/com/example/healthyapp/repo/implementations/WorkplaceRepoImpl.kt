@@ -135,7 +135,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
         onSuccess: (WorkplaceUser) -> Unit,
         onError: (Int) -> Unit
     ) {
-        db.document("/workplace_user/$id")
+        db.document(id)
             .get()
             .addOnSuccessListener {
                 val document = it.data
@@ -144,7 +144,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
                     val wp = WorkplaceUser(
                         id = it.id,
                         height = document["height"] as Long,
-                        sitHeight = document["sit_height"] as Long,
+                        sitHeight = document["sit_eyes_height"] as Long,
                         legsHeight = document["leg"] as Long,
                         eyesHeight = document["sit_eyes_height"] as Long,
                         shoulder = document["shoulder"] as Long,

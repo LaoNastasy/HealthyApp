@@ -84,6 +84,11 @@
     //экран подробной информации
     <string name="workplace_id">Рабочее место № %1$s</string>
 
+    <string name="workplace_user_info">Сведения о пользователе</string>
+    <string name="workplace_user_name">Имя пользователя</string>
+
+    <string name="points">....................................................................................</string>
+
 
 
 </resources>
