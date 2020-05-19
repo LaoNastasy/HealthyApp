@@ -32,7 +32,13 @@ class PlacementInfoFragment : BaseFragment<PlacementInfoPresenter, PlacementInfo
         val view = inflater.inflate(R.layout.fragment_placement_info, container, false)
         placementId = arguments?.getString("placementId") ?: ""
         adapter =
-            WorkplaceAdapter {}
+            WorkplaceAdapter {
+                val action =
+                    PlacementInfoFragmentDirections.actionPlacementInfoFragmentToWorkplaceInfoFragment(
+                        it.id
+                    )
+                findNavController().navigate(action)
+            }
         view.back.setOnClickListener { findNavController().popBackStack() }
         view.placement_workplace_list.layoutManager = LinearLayoutManager(requireContext())
         view.placement_workplace_list.adapter = adapter

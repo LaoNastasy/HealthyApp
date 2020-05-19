@@ -6,7 +6,6 @@ import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.db.model.entity.WorkplaceUser
 import com.example.healthyapp.repo.WorkplaceRepository
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.math.roundToInt
 
@@ -29,10 +28,10 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
         val wp = Workplace(
             id = "",
             userId = user.id,
-            tableHeight = table.toLong(),
-            chairHeight = chair.toLong(),
-            standHeight = (chair - user.legsHeight).toLong(),
-            monitorHeight = (chair + (user.sitHeight * COEFFICIENT).roundToInt() - table).toLong(),
+            tableHeight = table,
+            chairHeight = chair,
+            standHeight = (chair - user.legsHeight),
+            monitorHeight = (chair + (user.sitHeight * COEFFICIENT).roundToInt() - table),
             roomNumber = placementId
         )
 
@@ -102,6 +101,63 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
 
     }
 
+
+    override fun getWorkplaceById(
+        id: String,
+        onSuccess: (Workplace) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+        db.document("/workplace/$id")
+            .get()
+            .addOnSuccessListener {
+                val document = it.data
+                if (document == null) onError.invoke(R.string.common_error)
+                else {
+                    val wp = Workplace(
+                        id = it.id,
+                        userId = document["user_id"] as String,
+                        tableHeight = document["table"] as Long,
+                        standHeight = document["stand"] as Long,
+                        chairHeight = document["chair"] as Long,
+                        monitorHeight = document["monitor"] as Long,
+                        roomNumber = document["room_number"] as String
+                    )
+                    onSuccess.invoke(wp)
+                }
+            }
+            .addOnFailureListener {
+                onError.invoke(R.string.common_error)
+            }
+    }
+
+    override fun getWorkplaceUserById(
+        id: String,
+        onSuccess: (WorkplaceUser) -> Unit,
+        onError: (Int) -> Unit
+    ) {
+        db.document("/workplace_user/$id")
+            .get()
+            .addOnSuccessListener {
+                val document = it.data
+                if (document == null) onError.invoke(R.string.common_error)
+                else {
+                    val wp = WorkplaceUser(
+                        id = it.id,
+                        height = document["height"] as Long,
+                        sitHeight = document["sit_height"] as Long,
+                        legsHeight = document["leg"] as Long,
+                        eyesHeight = document["sit_eyes_height"] as Long,
+                        shoulder = document["shoulder"] as Long,
+                        back = document["back"] as Long,
+                        name = document["name"] as String
+                    )
+                    onSuccess.invoke(wp)
+                }
+            }
+            .addOnFailureListener {
+                onError.invoke(R.string.common_error)
+            }
+    }
 
     override fun saveRoom(
         placement: Placement,

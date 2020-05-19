@@ -10,7 +10,6 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.di.DI
-import com.example.healthyapp.features.information.InfoFragmentDirections
 import kotlinx.android.synthetic.main.fragment_info.view.*
 
 class InfoFragment : BaseFragment<InfoPresenter, InfoView>(),

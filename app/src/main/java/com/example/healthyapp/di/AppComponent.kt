@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.healthyapp.features.auth.AuthenticationPresenter
 import com.example.healthyapp.features.information.placementList.InfoPresenter
 import com.example.healthyapp.features.information.placementInfo.PlacementInfoPresenter
+import com.example.healthyapp.features.information.workplaceInfo.WorkplaceInfoPresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
 import com.example.healthyapp.features.person.PersonPresenter
 import com.example.healthyapp.features.person.RoomNumberPresenter
@@ -43,4 +44,5 @@ interface AppComponent {
 
     fun placementInfoPresenter(): PlacementInfoPresenter
 
+    fun workplaceInfoPresenter(): WorkplaceInfoPresenter
 }

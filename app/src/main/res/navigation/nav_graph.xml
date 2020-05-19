@@ -118,7 +118,18 @@
         <argument
             android:name="placementId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_placementInfoFragment_to_WorkplaceInfoFragment"
+            app:destination="@id/workplaceInfoFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/workplaceInfoFragment"
+        android:name="com.example.healthyapp.features.information.workplaceInfo.WorkplaceInfoFragment"
+        android:label="WorkplaceInfoFragment">
+        <argument
+            android:name="workplaceId"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
