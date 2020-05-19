@@ -13,7 +13,7 @@
         android:id="@+id/workplace_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/worplace_for_user"
+        android:text="@string/workplace_id"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

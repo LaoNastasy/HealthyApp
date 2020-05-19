@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
@@ -31,7 +32,8 @@ class PlacementInfoFragment : BaseFragment<PlacementInfoPresenter, PlacementInfo
     ): View? {
         val view = inflater.inflate(R.layout.fragment_placement_info, container, false)
         placementId = arguments?.getString("placementId") ?: ""
-        adapter = WorkplaceAdapter()
+        adapter = WorkplaceAdapter {}
+        view.back.setOnClickListener { findNavController().popBackStack() }
         view.placement_workplace_list.layoutManager = LinearLayoutManager(requireContext())
         view.placement_workplace_list.adapter = adapter
         presenter.getWorkplaces(placementId)
@@ -50,5 +52,6 @@ class PlacementInfoFragment : BaseFragment<PlacementInfoPresenter, PlacementInfo
     override fun showPlacementInfo(placement: Placement) {
         placement_height.text = getString(R.string.placement_height, placement.height)
         placement_space.text = getString(R.string.placement_space, placement.getSpace())
+        placement_toolbar.text = getString(R.string.placement_number, placement.number)
     }
 }

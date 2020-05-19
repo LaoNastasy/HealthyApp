@@ -8,7 +8,9 @@ import com.example.healthyapp.R
 import com.example.healthyapp.db.model.entity.Workplace
 import kotlinx.android.synthetic.main.item_workplace.view.*
 
-class WorkplaceAdapter : RecyclerView.Adapter<WorkplaceAdapter.WorkplaceVH>() {
+class WorkplaceAdapter(
+    private val onClick: (Workplace) -> Unit
+) : RecyclerView.Adapter<WorkplaceAdapter.WorkplaceVH>() {
 
     private val dataSet = arrayListOf<Workplace>()
 
@@ -28,17 +30,18 @@ class WorkplaceAdapter : RecyclerView.Adapter<WorkplaceAdapter.WorkplaceVH>() {
         holder.bind(dataSet[position])
     }
 
-    fun setList(list: List<Workplace>){
+    fun setList(list: List<Workplace>) {
         dataSet.clear()
         dataSet.addAll(list)
         notifyDataSetChanged()
     }
 
 
-    class WorkplaceVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class WorkplaceVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Workplace) {
-            itemView.workplace_id.text = item.id
+            itemView.workplace_id.text = itemView.context.getString(R.string.workplace_id, item.id)
+            itemView.setOnClickListener { onClick.invoke(item) }
         }
     }
 

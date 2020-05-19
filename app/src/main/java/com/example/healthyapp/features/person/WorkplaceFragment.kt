@@ -11,7 +11,7 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Workplace
 import com.example.healthyapp.di.DI
-import kotlinx.android.synthetic.main.bottom_fragment_new_workplace.view.*
+import kotlinx.android.synthetic.main.fragment_new_workplace.view.*
 
 class WorkplaceFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
     WorkplaceView {
@@ -30,7 +30,7 @@ class WorkplaceFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        rootView = inflater.inflate(R.layout.bottom_fragment_new_workplace, container, false)
+        rootView = inflater.inflate(R.layout.fragment_new_workplace, container, false)
         rootView.workplace_save.setOnClickListener { presenter.saveWorkplace() }
         return rootView
     }

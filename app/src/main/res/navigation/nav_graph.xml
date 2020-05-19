@@ -46,7 +46,7 @@
         android:id="@+id/workplaceFragment"
         android:name="com.example.healthyapp.features.person.WorkplaceFragment"
         android:label="WorkplaceBottomFragment"
-        tools:layout="@layout/bottom_fragment_new_workplace" />
+        tools:layout="@layout/fragment_new_workplace" />
 
     <fragment
         android:id="@+id/loginFragment"

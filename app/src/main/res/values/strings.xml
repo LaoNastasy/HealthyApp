@@ -67,7 +67,6 @@
     //экран рабочего места
     <string name="workplace_title">Рабочее место</string>
     <string name="workplace_table_height">Высота стола</string>
-    <string name="workplace_keyboard_height">Высота расположения клавитуры над полом</string>
     <string name="workplace_chair_height">Высота сиденья кресла</string>
     <string name="workplace_monitor_height">Высота монитора</string>
     <string name="workplace_stand_height">Высота подставки для ног</string>
@@ -77,13 +76,13 @@
     //экран информации
     <string name="info_title">Список помещений</string>
     <string name="placement_number">Помещение № %1$d</string>
-    <string name="placement_space">Площадь помещения: %1$s</string>
+    <string name="placement_space">Площадь помещения: %1$s кв.м</string>
     <string name="placement_wp_number">Количество рабочих мест: %1$d</string>
     <string name="placement_go_to_wps">Рабочие места</string>
-    <string name="placement_height">Высота помещения: %1$d</string>
+    <string name="placement_height">Высота помещения: %1$d м</string>
 
     //экран подробной информации
-    <string name="worplace_for_user">Рабочее место пользователя %1$s</string>
+    <string name="workplace_id">Рабочее место № %1$s</string>
 
 
 
