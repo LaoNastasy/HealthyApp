@@ -80,6 +80,8 @@
     <string name="placement_wp_number">Количество рабочих мест: %1$d</string>
     <string name="placement_go_to_wps">Рабочие места</string>
     <string name="placement_height">Высота помещения: %1$d м</string>
+    
+    <string name="placement_warn">Помещение не соответствует требованиям СанПиН. На каждое рабочее место приходится менее 4,5 кв.м. площади. Для соответствия требованиям необходимо уменьшить количество мест на %1$d</string>
 
     //экран подробной информации
     <string name="workplace_id">Рабочее место № %1$s</string>

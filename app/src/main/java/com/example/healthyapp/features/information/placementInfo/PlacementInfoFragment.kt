@@ -42,7 +42,6 @@ class PlacementInfoFragment : BaseFragment<PlacementInfoPresenter, PlacementInfo
         view.back.setOnClickListener { findNavController().popBackStack() }
         view.placement_workplace_list.layoutManager = LinearLayoutManager(requireContext())
         view.placement_workplace_list.adapter = adapter
-        presenter.getWorkplaces(placementId)
         presenter.getPlacementInfo(placementId)
 
 
@@ -59,5 +58,10 @@ class PlacementInfoFragment : BaseFragment<PlacementInfoPresenter, PlacementInfo
         placement_height.text = getString(R.string.placement_height, placement.height)
         placement_space.text = getString(R.string.placement_space, placement.getSpace())
         placement_toolbar.text = getString(R.string.placement_number, placement.number)
+    }
+
+    override fun showWarning(number: Long) {
+        placement_warning.text = getString(R.string.placement_warn, number)
+        placement_warning.visibility = View.VISIBLE
     }
 }
