@@ -49,4 +49,8 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
         findNavController().navigate(action)
     }
 
+    override fun showLoading(show: Boolean) {
+        loader.visibility = if (show) View.VISIBLE else View.GONE
+    }
+
 }

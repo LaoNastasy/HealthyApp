@@ -46,6 +46,7 @@
         app:layout_constraintTop_toTopOf="@id/big_image" />
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -150,5 +151,15 @@
             android:layout_gravity="center"
             android:src="@drawable/right_arrow" />
     </FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
