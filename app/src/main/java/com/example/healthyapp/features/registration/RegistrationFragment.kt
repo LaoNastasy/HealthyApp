@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
@@ -23,6 +24,8 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_registration, container, false)
+        activity?.window?.navigationBarColor =
+            ContextCompat.getColor(requireContext(), R.color.colorAccent)
 
         view.registrate.setOnClickListener {
             presenter.registrate(

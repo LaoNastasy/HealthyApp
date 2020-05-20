@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
@@ -35,7 +36,8 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
                 password.text.toString()
             )
         }
-
+        activity?.window?.navigationBarColor =
+            ContextCompat.getColor(requireContext(), R.color.colorAccent)
         view.registrate.setOnClickListener {
             val action = AuthenticationFragmentDirections.actionLoginFragmentToRegisterFragment()
             findNavController().navigate(action)

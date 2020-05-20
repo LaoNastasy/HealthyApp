@@ -24,10 +24,10 @@
     <string name="registration_error">Проблемы при регистрации</string>
 
     //главное меню
-    <string name="person_screen">Добавить \nрабочее место</string>
+    <string name="person_screen">Добавить рабочее место</string>
     <string name="statistic_screen">Статистика</string>
     <string name="info_screen">Информация</string>
-    <string name="new_room_screen">Добавить\nпомещение</string>
+    <string name="new_room_screen">Добавить помещение</string>
 
     //экран добавления помещения
     <string name="base_edit_title">Новое помещение</string>
