@@ -30,15 +30,17 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.ok.setOnClickListener {
+        activity?.window?.navigationBarColor =
+            ContextCompat.getColor(requireContext(), R.color.colorAccent)
+
+        ok.setOnClickListener {
             presenter.login(
                 login.text.toString(),
                 password.text.toString()
             )
         }
-        activity?.window?.navigationBarColor =
-            ContextCompat.getColor(requireContext(), R.color.colorAccent)
-        view.registrate.setOnClickListener {
+
+        registrate.setOnClickListener {
             val action = AuthenticationFragmentDirections.actionLoginFragmentToRegisterFragment()
             findNavController().navigate(action)
         }
@@ -51,6 +53,7 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
 
     override fun showLoading(show: Boolean) {
         loader.visibility = if (show) View.VISIBLE else View.GONE
+        ok.isEnabled = !show
     }
 
 }

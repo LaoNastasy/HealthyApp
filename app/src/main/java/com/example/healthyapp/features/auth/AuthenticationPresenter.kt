@@ -22,12 +22,7 @@ class AuthenticationPresenter @Inject constructor(private val userRepository: Us
             {
                 if (it.password == password)
                     userRepository.signIn(login,
-                        {
-                            view?.apply {
-                                showLoading(false)
-                                goToMainScreen()
-                            }
-                        },
+                        { view?.goToMainScreen() },
                         {
                             view?.apply {
                                 showLoading(false)

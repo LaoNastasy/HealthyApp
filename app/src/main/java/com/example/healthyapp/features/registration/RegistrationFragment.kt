@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
+import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_registration.view.*
 
 class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationView>(),
@@ -28,9 +29,10 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
             ContextCompat.getColor(requireContext(), R.color.colorAccent)
 
         view.registrate.setOnClickListener {
-            presenter.registrate(
+            presenter.register(
                 view.login.text.toString(),
-                view.password.text.toString()
+                view.password.text.toString(),
+                view.password_repeated.text.toString()
             )
         }
         view.back.setOnClickListener {
@@ -43,6 +45,11 @@ class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationVie
     override fun goToMainScreen() {
         val action = RegistrationFragmentDirections.actionRegisterFragmentToMainFragment()
         findNavController().navigate(action)
+    }
+
+    override fun showLoading(show: Boolean) {
+        loader.visibility = if (show) View.VISIBLE else View.GONE
+        registrate.isEnabled = !show
     }
 
 }

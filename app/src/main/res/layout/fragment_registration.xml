@@ -1,59 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imghexagon"
         android:layout_width="140dp"
         android:layout_height="212dp"
-        android:layout_gravity="end"
-        android:src="@drawable/hexagone1" />
+        android:src="@drawable/hexagone1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/big_image"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="120dp"
         android:scaleType="fitXY"
-        android:src="@drawable/hexagone2" />
+        android:src="@drawable/hexagone2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:gravity="start"
+        android:text="@string/registration_title"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/big_image" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:id="@+id/linear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginBottom="90dp"
-        android:gravity="center"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"
-        android:paddingTop="125dp">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:gravity="start"
-            android:text="@string/registration_title"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
+        app:layout_constraintEnd_toEndOf="@id/guidline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="52dp"
             android:text="@string/auth_login"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="20sp" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
             android:inputType="textEmailAddress"
             android:maxLines="1"
@@ -62,82 +77,62 @@
             android:textSize="15sp" />
 
         <View
-            android:layout_width="264dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_gravity="start"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white" />
-
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:text="@string/auth_password"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="20sp" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:inputType="textPassword"
-                android:maxLength="10"
-                android:maxLines="1"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="15sp" />
-
-        </LinearLayout>
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:inputType="textPassword"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
 
         <View
-            android:layout_width="264dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_gravity="start"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:text="@string/password_repeat"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="20sp" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/password_repeated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/password_repeated"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:inputType="textPassword"
-                android:maxLength="10"
-                android:maxLines="1"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="15sp" />
-
-        </LinearLayout>
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:inputType="textPassword"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
 
         <View
-            android:layout_width="264dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_gravity="start"
             android:layout_marginTop="6dp"
             android:background="@color/white" />
 
@@ -147,22 +142,30 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
         android:layout_marginStart="28dp"
         android:layout_marginBottom="44dp"
+        android:background="@color/white"
+        android:elevation="4dp"
         android:padding="8dp"
         android:text="@string/back"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:translationZ="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
         android:id="@+id/registrate"
         android:layout_width="40dp"
         android:layout_height="44dp"
-        android:layout_gravity="bottom|end"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="44dp"
-        android:background="@drawable/white_hexagone">
+        android:background="@drawable/white_hexagone"
+        android:elevation="4dp"
+        android:translationZ="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="18dp"
@@ -170,9 +173,18 @@
             android:layout_gravity="center"
             android:src="@drawable/right_arrow" />
 
-
     </FrameLayout>
 
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear" />
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 

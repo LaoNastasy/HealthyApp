@@ -23,6 +23,7 @@
     <string name="registration_title">Регистрация</string>
     <string name="password_repeat">Повторите пароль</string>
     <string name="registration_error">Проблемы при регистрации</string>
+    <string name="password_error">Пароли не совпадают. Повторите попытку</string>
 
     //главное меню
     <string name="person_screen">Добавить рабочее место</string>
