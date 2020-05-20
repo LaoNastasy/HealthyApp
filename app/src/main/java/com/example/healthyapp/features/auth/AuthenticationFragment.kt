@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
@@ -29,14 +30,17 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.ok.setOnClickListener {
+        activity?.window?.navigationBarColor =
+            ContextCompat.getColor(requireContext(), R.color.colorAccent)
+
+        ok.setOnClickListener {
             presenter.login(
                 login.text.toString(),
                 password.text.toString()
             )
         }
 
-        view.registrate.setOnClickListener {
+        registrate.setOnClickListener {
             val action = AuthenticationFragmentDirections.actionLoginFragmentToRegisterFragment()
             findNavController().navigate(action)
         }
@@ -45,6 +49,11 @@ class AuthenticationFragment : BaseFragment<AuthenticationPresenter, Authenticat
     override fun goToMainScreen() {
         val action = AuthenticationFragmentDirections.actionLoginFragmentToMainFragment()
         findNavController().navigate(action)
+    }
+
+    override fun showLoading(show: Boolean) {
+        loader.visibility = if (show) View.VISIBLE else View.GONE
+        ok.isEnabled = !show
     }
 
 }

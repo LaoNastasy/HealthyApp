@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
@@ -21,12 +22,13 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
-
-        view.person.setOnClickListener { presenter.onPersonClick() }
-        view.statistic.setOnClickListener { presenter.onStatisticClick() }
-        view.kabinet.setOnClickListener { presenter.onNewRoomClick() }
+        activity?.window?.navigationBarColor =
+            ContextCompat.getColor(requireContext(), R.color.colorPrimary)
+        view.add_workplace.setOnClickListener { presenter.onPersonClick() }
+        //view.statistic.setOnClickListener { presenter.onStatisticClick() }
+        view.add_placement.setOnClickListener { presenter.onNewRoomClick() }
         view.info.setOnClickListener { presenter.onInfoClick() }
-        view.exit.setOnClickListener { presenter.logOut() }
+        view.logout.setOnClickListener { presenter.logOut() }
 
         return view
     }
