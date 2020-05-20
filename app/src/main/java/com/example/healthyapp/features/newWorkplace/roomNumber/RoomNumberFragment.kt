@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.person
+package com.example.healthyapp.features.newWorkplace.roomNumber
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -14,7 +14,8 @@ import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_room_number.*
 
-class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(), RoomNumberView {
+class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(),
+    RoomNumberView {
 
     override fun initPresenter() = DI.component.roomNumberPresenter()
 
@@ -33,10 +34,12 @@ class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(), 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        back.setOnClickListener { findNavController().popBackStack() }
+
         adapter =
             ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item)
         room_number_choice_spinner.adapter = adapter
-        presenter.getRoomNumbers()
         room_number_choice_spinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
 
@@ -59,6 +62,8 @@ class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(), 
         room_number_ready.setOnClickListener {
             presenter.onItemSelected(selected ?: return@setOnClickListener)
         }
+
+        presenter.getRoomNumbers()
     }
 
     override fun showNumbers(list: List<Long>) {
@@ -79,7 +84,15 @@ class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(), 
     }
 
     override fun goNext(placementId: String) {
-        val action = RoomNumberFragmentDirections.actionRoomNumberToPersonFragment(placementId)
+        val action =
+            RoomNumberFragmentDirections.actionRoomNumberToPersonFragment(
+                placementId
+            )
         findNavController().navigate(action)
+    }
+
+    override fun showLoading(show: Boolean) {
+        loader.visibility = if (show) View.VISIBLE else View.GONE
+        room_number_ready.isEnabled = !show
     }
 }

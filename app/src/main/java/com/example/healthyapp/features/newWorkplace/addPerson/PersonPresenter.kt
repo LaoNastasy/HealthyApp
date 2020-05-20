@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.person
+package com.example.healthyapp.features.newWorkplace.addPerson
 
 import androidx.annotation.StringRes
 import com.example.healthyapp.base.BasePresenter

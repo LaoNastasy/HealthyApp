@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.person
+package com.example.healthyapp.features.newWorkplace.roomNumber
 
 import androidx.annotation.StringRes
 import com.example.healthyapp.R
@@ -11,6 +11,7 @@ interface RoomNumberView : BaseView {
     fun showNumbers(list: List<Long>)
     fun showWarning(@StringRes res: Int)
     fun goNext(placementId: String)
+    fun showLoading(show: Boolean)
 }
 
 class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter<RoomNumberView>() {
@@ -19,13 +20,16 @@ class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter
     private var chosenPlacementId: String = ""
 
     fun getRoomNumbers() {
+        view?.showLoading(true)
         repo.getPlacements(
             onSuccess = {
+                view?.showLoading(false)
                 listPlacement.clear()
                 listPlacement.addAll(it)
                 view?.showNumbers(it.map { it.number })
             },
             onError = {
+                view?.showLoading(false)
                 view?.showError(it)
             }
         )
@@ -38,8 +42,10 @@ class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter
     fun onItemSelected(position: Int) {
         val placement = listPlacement[position]
         chosenPlacementId = placement.id
+        view?.showLoading(true)
         repo.getWorkplacesByPlacement(placement.id,
             onSuccess = {
+                view?.showLoading(false)
                 val count = it.count()
                 val s = placement.length * placement.width
                 val s1Now = s.toDouble() / count.toDouble()
@@ -51,7 +57,10 @@ class RoomNumberPresenter(private val repo: WorkplaceRepository) : BasePresenter
                     else view?.showWarning(R.string.room_warning_important)
                 }
             },
-            onError = { view?.showError(it) })
+            onError = {
+                view?.showLoading(false)
+                view?.showError(it)
+            })
 
     }
 

@@ -6,9 +6,9 @@ import com.example.healthyapp.features.information.placementList.InfoPresenter
 import com.example.healthyapp.features.information.placementInfo.PlacementInfoPresenter
 import com.example.healthyapp.features.information.workplaceInfo.WorkplaceInfoPresenter
 import com.example.healthyapp.features.main_screen.MainScreenPresenter
-import com.example.healthyapp.features.person.PersonPresenter
-import com.example.healthyapp.features.person.RoomNumberPresenter
-import com.example.healthyapp.features.person.WorkplacePresenter
+import com.example.healthyapp.features.newWorkplace.addPerson.PersonPresenter
+import com.example.healthyapp.features.newWorkplace.roomNumber.RoomNumberPresenter
+import com.example.healthyapp.features.newWorkplace.workplace.WorkplacePresenter
 import com.example.healthyapp.features.registration.RegistrationPresenter
 import com.example.healthyapp.features.roomEdit.NewPlacementPresenter
 import com.example.healthyapp.features.statistic.StatisticPresenter

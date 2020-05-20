@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/personFragment"
-        android:name="com.example.healthyapp.features.person.PersonFragment"
+        android:name="com.example.healthyapp.features.newWorkplace.addPerson.PersonFragment"
         android:label="PersonFragment"
         tools:layout="@layout/fragment_person">
         <argument
@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/workplaceFragment"
-        android:name="com.example.healthyapp.features.person.WorkplaceFragment"
+        android:name="com.example.healthyapp.features.newWorkplace.workplace.WorkplaceFragment"
         android:label="WorkplaceBottomFragment"
         tools:layout="@layout/fragment_new_workplace" />
 
@@ -91,7 +91,7 @@
 
     <fragment
         android:id="@+id/roomNumberFragment"
-        android:name="com.example.healthyapp.features.person.RoomNumberFragment"
+        android:name="com.example.healthyapp.features.newWorkplace.roomNumber.RoomNumberFragment"
         android:label="RoomNumberFragment"
         tools:layout="@layout/fragment_room_number">
         <action

@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.person
+package com.example.healthyapp.features.newWorkplace.workplace
 
 import com.example.healthyapp.base.BasePresenter
 import com.example.healthyapp.base.BaseView

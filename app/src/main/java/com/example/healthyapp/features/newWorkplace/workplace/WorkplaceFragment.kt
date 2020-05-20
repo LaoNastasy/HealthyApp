@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.person
+package com.example.healthyapp.features.newWorkplace.workplace
 
 import android.app.AlertDialog
 import android.os.Bundle
