@@ -55,11 +55,10 @@ class WorkplaceFragment : BaseFragment<WorkplacePresenter, WorkplaceView>(),
             .setMessage(R.string.success_save_workplace)
             .setPositiveButton(R.string.yes) { dialogInterface, _ ->
                 dialogInterface.dismiss()
-                navController.popBackStack()
             }
 
             .setOnDismissListener {
-                navController.popBackStack()
+                findNavController().popBackStack()
             }
             .show()
     }

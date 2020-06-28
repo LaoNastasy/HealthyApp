@@ -40,7 +40,7 @@ class WorkplaceAdapter(
     inner class WorkplaceVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Workplace) {
-            itemView.workplace_id.text = itemView.context.getString(R.string.workplace_id, item.id)
+            itemView.workplace_id.text = itemView.context.getString(R.string.workplace_id, adapterPosition+1)
             itemView.setOnClickListener { onClick.invoke(item) }
         }
     }

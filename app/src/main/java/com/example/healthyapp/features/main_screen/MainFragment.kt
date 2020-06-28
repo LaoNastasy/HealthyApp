@@ -44,7 +44,7 @@ class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainSc
     }
 
     override fun goToNewRoomScreen() {
-        val action = MainFragmentDirections.actionMainFragmentToRoomEditFragment()
+        val action = MainFragmentDirections.actionMainFragmentToNewPlacementFragment()
         findNavController().navigate(action)
     }
 

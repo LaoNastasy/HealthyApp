@@ -14,7 +14,7 @@
             android:id="@+id/action_mainFragment_to_roomNumberFragment"
             app:destination="@id/roomNumberFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_roomEditFragment"
+            android:id="@+id/action_mainFragment_to_newPlacementFragment"
             app:destination="@id/newPlacementFragment" />
         <action
             android:id="@+id/action_mainFragment_to_statisticFragment"

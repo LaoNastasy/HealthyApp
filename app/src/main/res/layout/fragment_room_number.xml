@@ -67,6 +67,7 @@
         android:text="@string/room_number_add"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/room_number_choice_spinner" />
@@ -84,6 +85,7 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/room_number_add_hint" />
