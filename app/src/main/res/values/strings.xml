@@ -41,7 +41,7 @@
     <string name="room_error_validate">Введены некорректные данные - помещение непригодно для работы</string>
     <string name="room_number_exist">Помещение с таким номером уже было зарегистрировано</string>
 
-    <string name="alert_need_add_workplace">Хотите добавить в данное помещение рабочее место?</string>
+    <string name="alert_need_add_workplace">Помещение успешно добавлено</string>
     <string name="add">Добавить</string>
     <string name="exist_workplace">Существующее рабочее место</string>
     <string name="new_workplace">Место для нового сотрудника</string>
@@ -81,12 +81,12 @@
     <string name="placement_space">Площадь помещения: %1$s кв.м</string>
     <string name="placement_wp_number">Количество рабочих мест: %1$d</string>
     <string name="placement_go_to_wps">Рабочие места</string>
-    <string name="placement_height">Высота помещения: %1$d м</string>
+    <string name="placement_height">Высота помещения: %1$d см</string>
     
     <string name="placement_warn">Помещение не соответствует требованиям СанПиН. На каждое рабочее место приходится менее 4,5 кв.м. площади. Для соответствия требованиям необходимо уменьшить количество мест на %1$d</string>
 
     //экран подробной информации
-    <string name="workplace_id">Рабочее место № %1$s</string>
+    <string name="workplace_id">Рабочее место № %1$d</string>
 
     <string name="workplace_user_info">Сведения о пользователе</string>
     <string name="workplace_user_name">Имя пользователя</string>

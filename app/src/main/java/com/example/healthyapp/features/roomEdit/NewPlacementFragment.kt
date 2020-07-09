@@ -44,13 +44,13 @@ class NewPlacementFragment : BaseFragment<NewPlacementPresenter, NewPlacementVie
     override fun showAddWorkplaceDialog() {
         val dialog = AlertDialog.Builder(context ?: return)
             .setMessage(R.string.alert_need_add_workplace)
-            .setNegativeButton(R.string.no) { dialog, _ ->
+//            .setNegativeButton(R.string.no) { dialog, _ ->
+//                dialog.dismiss()
+//                findNavController().popBackStack()
+//            }
+            .setPositiveButton(R.string.ok) { dialog, _ ->
                 dialog.dismiss()
                 findNavController().popBackStack()
-            }
-            .setPositiveButton(R.string.yes) { dialog, _ ->
-                dialog.dismiss()
-                showChooseDialog()
             }
             .create()
         dialog.show()

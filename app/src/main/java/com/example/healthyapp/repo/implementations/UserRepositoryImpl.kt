@@ -41,9 +41,7 @@ open class UserRepositoryImpl @Inject constructor(val db: FirebaseFirestore, val
                     return@addOnSuccessListener
                 }
             }
-            .addOnFailureListener { exception ->
-                onError.invoke(R.string.common_error)
-            }
+            .addOnFailureListener { onError.invoke(R.string.common_error) }
 
 
     }

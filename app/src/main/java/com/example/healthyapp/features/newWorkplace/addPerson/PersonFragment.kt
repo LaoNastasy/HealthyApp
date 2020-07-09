@@ -1,4 +1,4 @@
-package com.example.healthyapp.features.person
+package com.example.healthyapp.features.newWorkplace.addPerson
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -12,7 +12,8 @@ import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_person.*
 import kotlinx.android.synthetic.main.fragment_person.view.*
 
-class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
+class PersonFragment : BaseFragment<PersonPresenter, PersonView>(),
+    PersonView {
 
     override fun initPresenter() = DI.component.personPresenter()
 
@@ -58,7 +59,8 @@ class PersonFragment : BaseFragment<PersonPresenter, PersonView>(), PersonView {
     }
 
     override fun showWorkplace() {
-        val action = PersonFragmentDirections.actionPersonFragmentToWorkplaceFragment()
+        val action =
+            PersonFragmentDirections.actionPersonFragmentToWorkplaceFragment()
         findNavController().navigate(action)
     }
 

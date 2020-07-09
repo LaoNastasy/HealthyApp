@@ -183,7 +183,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
                 }
 
                 if (querySnapshot?.documents?.size != 0) {
-                    onError.invoke(R.string.room_number_exist)
+                   //onError.invoke(R.string.room_number_exist)
                     return@addSnapshotListener
                 }
 

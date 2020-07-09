@@ -34,14 +34,11 @@ class PlacementAdapter(
 
     inner class PlacementVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: Placement) {
-            val placement = item
+        fun bind(placement: Placement) {
             val context = itemView.context
             itemView.setOnClickListener { onClick.invoke(placement) }
             itemView.placement_number.text =
                 context.getString(R.string.placement_number, placement.number)
-            val space = (placement.width.toDouble() / 100) * ((placement.length).toDouble() / 100)
-            val space1 = BigDecimal.valueOf(space).setScale(2).toString()
             itemView.placement_space.text =
                 context.getString(R.string.placement_space, placement.getSpace())
 //            itemView.placement_wp_number.text =

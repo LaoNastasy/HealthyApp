@@ -36,6 +36,8 @@ class InfoFragment : BaseFragment<InfoPresenter, InfoView>(),
         view.placement_list.adapter = adapter
         presenter.getPlacementList()
 
+        view.back.setOnClickListener { findNavController().popBackStack() }
+
         return view
     }
 
