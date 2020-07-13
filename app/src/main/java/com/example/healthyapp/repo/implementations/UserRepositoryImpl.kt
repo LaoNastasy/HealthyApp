@@ -29,15 +29,7 @@ open class UserRepositoryImpl @Inject constructor(val db: FirebaseFirestore, val
                 if (document == null)
                     onError.invoke(R.string.auth_no_login)
                 else {
-                    onSuccess(
-                        User(
-                            id = document.id,
-                            login = document.data["login"] as String? ?: "",
-                            password = document.data["password"] as String? ?: "",
-                            firstName = document.data["firstName"] as String? ?: "",
-                            secondName = document.data["secondName"] as String? ?: ""
-                        )
-                    )
+                    onSuccess(User.fromMap(document.id, document.data))
                     return@addOnSuccessListener
                 }
             }

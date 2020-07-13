@@ -112,18 +112,8 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             .addOnSuccessListener {
                 val document = it.data
                 if (document == null) onError.invoke(R.string.common_error)
-                else {
-                    val wp = Workplace(
-                        id = it.id,
-                        userId = document["user_id"] as String,
-                        tableHeight = document["table"] as Long,
-                        standHeight = document["stand"] as Long,
-                        chairHeight = document["chair"] as Long,
-                        monitorHeight = document["monitor"] as Long,
-                        roomNumber = document["room_number"] as String
-                    )
-                    onSuccess.invoke(wp)
-                }
+                else onSuccess.invoke(Workplace.fromMap(id, document))
+
             }
             .addOnFailureListener {
                 onError.invoke(R.string.common_error)
@@ -140,19 +130,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             .addOnSuccessListener {
                 val document = it.data
                 if (document == null) onError.invoke(R.string.common_error)
-                else {
-                    val wp = WorkplaceUser(
-                        id = it.id,
-                        height = document["height"] as Long,
-                        sitHeight = document["sit_eyes_height"] as Long,
-                        legsHeight = document["leg"] as Long,
-                        eyesHeight = document["sit_eyes_height"] as Long,
-                        shoulder = document["shoulder"] as Long,
-                        back = document["back"] as Long,
-                        name = document["name"] as String
-                    )
-                    onSuccess.invoke(wp)
-                }
+                else onSuccess.invoke(WorkplaceUser.fromMap(it.id, document))
             }
             .addOnFailureListener {
                 onError.invoke(R.string.common_error)
@@ -183,7 +161,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
                 }
 
                 if (querySnapshot?.documents?.size != 0) {
-                   //onError.invoke(R.string.room_number_exist)
+                    //onError.invoke(R.string.room_number_exist)
                     return@addSnapshotListener
                 }
 
@@ -213,15 +191,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             .addOnSuccessListener {
                 val numbers = arrayListOf<Placement>()
                 for (document in it) {
-                    numbers.add(
-                        Placement(
-                            document.id,
-                            number = document["number"] as Long,
-                            height = document["height"] as Long,
-                            width = document["width"] as Long,
-                            length = document["length"] as Long
-                        )
-                    )
+                    numbers.add(Placement.fromMap(document.id, document.data))
                 }
                 onSuccess.invoke(numbers)
             }
@@ -238,17 +208,7 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             .addOnSuccessListener {
                 val data = it.data
                 if (data == null) onError.invoke(R.string.common_error)
-                else {
-                    onSuccess.invoke(
-                        Placement(
-                            id = it.id,
-                            height = data["height"] as Long,
-                            width = data["width"] as Long,
-                            number = data["number"] as Long,
-                            length = data["length"] as Long
-                        )
-                    )
-                }
+                else onSuccess.invoke(Placement.fromMap(it.id, data))
             }
             .addOnFailureListener {
                 onError.invoke(R.string.common_error)
@@ -268,18 +228,8 @@ class WorkplaceRepoImpl(private val db: FirebaseFirestore) : WorkplaceRepository
             .addOnSuccessListener {
                 val workplaces = arrayListOf<Workplace>()
                 for (document in it.documents) {
-
-                    workplaces.add(
-                        Workplace(
-                            id = document.id,
-                            userId = document["user_id"] as String,
-                            tableHeight = document["table"] as Long,
-                            standHeight = document["stand"] as Long,
-                            chairHeight = document["chair"] as Long,
-                            monitorHeight = document["monitor"] as Long,
-                            roomNumber = document["room_number"] as String
-                        )
-                    )
+                    val data = document.data ?: continue
+                    workplaces.add(Workplace.fromMap(document.id, data))
 
                 }
                 onSuccess.invoke(workplaces)
