@@ -13,19 +13,17 @@ class UserRepositoryFakeImpl : UserRepository {
         else onError.invoke(R.string.auth_no_login)
     }
 
-    override fun isUserSignedIn(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun isUserSignedIn() = true
 
     override fun signIn(login: String, onSuccess: () -> Unit, onError: () -> Unit) {
         onSuccess.invoke()
     }
 
     override fun logout(onSuccess: () -> Unit, onError: () -> Unit) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        onSuccess.invoke()
     }
 
     override fun signUp(login: String, password: String, onSuccess: () -> Unit, onError: () -> Unit) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        onSuccess.invoke()
     }
 }
