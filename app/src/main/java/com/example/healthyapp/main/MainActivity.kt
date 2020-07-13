@@ -1,21 +1,19 @@
 package com.example.healthyapp.main
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.healthyapp.R
-import com.example.healthyapp.base.BaseActivity
 import com.example.healthyapp.di.DI
 
-class MainActivity : BaseActivity<MainPresenter, MainView>(), MainView {
+class MainActivity : AppCompatActivity(), MainView {
 
-    override fun initPresenter() = DI.component.mainPresenter()
-
-    override fun getMvpView() = this
-
+    val presenter = DI.component.mainPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        presenter.attachView(this)
         presenter.checkAuth()
     }
 
