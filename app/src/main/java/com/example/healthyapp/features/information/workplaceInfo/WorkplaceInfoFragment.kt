@@ -1,9 +1,7 @@
 package com.example.healthyapp.features.information.workplaceInfo
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
@@ -12,7 +10,7 @@ import com.example.healthyapp.db.model.entity.WorkplaceUser
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_workplace_info.*
 
-class WorkplaceInfoFragment : BaseFragment<WorkplaceInfoPresenter, WorkplaceInfoView>(),
+class WorkplaceInfoFragment : BaseFragment<WorkplaceInfoPresenter, WorkplaceInfoView>(R.layout.fragment_workplace_info),
     WorkplaceInfoView {
 
     override fun initPresenter() = DI.component.workplaceInfoPresenter()
@@ -20,14 +18,6 @@ class WorkplaceInfoFragment : BaseFragment<WorkplaceInfoPresenter, WorkplaceInfo
     override fun getMvpView() = this
 
     private lateinit var workplaceId: String
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_workplace_info, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -1,36 +1,29 @@
 package com.example.healthyapp.features.main_screen
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
-import kotlinx.android.synthetic.main.fragment_main.view.*
+import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(), MainScreenView {
+class MainFragment : BaseFragment<MainScreenPresenter, MainScreenView>(R.layout.fragment_main), MainScreenView {
 
     override fun initPresenter() = DI.component.mainScreenPresenter()
     override fun getMvpView() = this
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_main, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         activity?.window?.navigationBarColor =
             ContextCompat.getColor(requireContext(), R.color.colorPrimary)
-        view.add_workplace.setOnClickListener { presenter.onPersonClick() }
-        //view.statistic.setOnClickListener { presenter.onStatisticClick() }
-        view.add_placement.setOnClickListener { presenter.onNewRoomClick() }
-        view.info.setOnClickListener { presenter.onInfoClick() }
-        view.logout.setOnClickListener { presenter.logOut() }
+        add_workplace.setOnClickListener { presenter.onPersonClick() }
+        //statistic.setOnClickListener { presenter.onStatisticClick() }
+        add_placement.setOnClickListener { presenter.onNewRoomClick() }
+        info.setOnClickListener { presenter.onInfoClick() }
+        logout.setOnClickListener { presenter.logOut() }
 
-        return view
     }
 
     override fun goToPersonScreen() {

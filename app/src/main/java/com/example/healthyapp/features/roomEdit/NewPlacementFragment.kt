@@ -10,23 +10,19 @@ import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.di.DI
+import kotlinx.android.synthetic.main.fragment_new_placement.*
 import kotlinx.android.synthetic.main.fragment_new_placement.view.*
 
-class NewPlacementFragment : BaseFragment<NewPlacementPresenter, NewPlacementView>(),
+class NewPlacementFragment : BaseFragment<NewPlacementPresenter, NewPlacementView>(R.layout.fragment_new_placement),
     NewPlacementView {
 
     override fun initPresenter() = DI.component.newPlacementPresenter()
 
     override fun getMvpView() = this
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_new_placement, container, false)
-
-        view.base_edit_save.setOnClickListener {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        base_edit_save.setOnClickListener {
             presenter.saveRoom(
                 Placement(
                     id = "",
@@ -37,8 +33,6 @@ class NewPlacementFragment : BaseFragment<NewPlacementPresenter, NewPlacementVie
                 )
             )
         }
-
-        return view
     }
 
     override fun showAddWorkplaceDialog() {

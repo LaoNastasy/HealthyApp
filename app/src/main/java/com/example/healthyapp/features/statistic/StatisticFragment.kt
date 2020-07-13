@@ -1,31 +1,24 @@
 package com.example.healthyapp.features.statistic
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.motion.widget.TransitionAdapter
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
-import kotlinx.android.synthetic.main.fragment_try_flow.view.*
+import kotlinx.android.synthetic.main.fragment_try_flow.*
 
-class StatisticFragment : BaseFragment<StatisticPresenter, StatisticView>(), StatisticView {
+class StatisticFragment :
+    BaseFragment<StatisticPresenter, StatisticView>(R.layout.fragment_try_flow), StatisticView {
 
     override fun initPresenter() = DI.component.statisticPresenter()
 
     override fun getMvpView() = this
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_try_flow, container, false)
-
-
-        view.motion_layout.setTransitionListener(object : TransitionAdapter() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        motion_layout.setTransitionListener(object : TransitionAdapter() {
 
             override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
                 when (currentId) {
@@ -37,7 +30,6 @@ class StatisticFragment : BaseFragment<StatisticPresenter, StatisticView>(), Sta
             }
 
         })
-        return view
     }
 
 }

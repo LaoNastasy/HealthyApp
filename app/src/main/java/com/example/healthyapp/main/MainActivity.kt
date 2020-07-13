@@ -6,13 +6,12 @@ import androidx.navigation.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.di.DI
 
-class MainActivity : AppCompatActivity(), MainView {
+class MainActivity : AppCompatActivity(R.layout.activity_main), MainView {
 
     val presenter = DI.component.mainPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         presenter.attachView(this)
         presenter.checkAuth()
     }
@@ -23,6 +22,11 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun goToMainScreen() {
         findNavController(R.id.fragment).navigate(R.id.mainFragment)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.detachView()
     }
 
 }

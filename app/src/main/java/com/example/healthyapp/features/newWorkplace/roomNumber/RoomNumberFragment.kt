@@ -3,9 +3,7 @@ package com.example.healthyapp.features.newWorkplace.roomNumber
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
@@ -14,7 +12,7 @@ import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_room_number.*
 
-class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(),
+class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(R.layout.fragment_room_number),
     RoomNumberView {
 
     override fun initPresenter() = DI.component.roomNumberPresenter()
@@ -24,21 +22,13 @@ class RoomNumberFragment : BaseFragment<RoomNumberPresenter, RoomNumberView>(),
     private lateinit var adapter: ArrayAdapter<String>
     private var selected: Int? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_room_number, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         back.setOnClickListener { findNavController().popBackStack() }
 
         adapter =
-            ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item)
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item)
         room_number_choice_spinner.adapter = adapter
         room_number_choice_spinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {

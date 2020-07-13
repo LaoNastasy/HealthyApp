@@ -18,24 +18,17 @@ class AuthenticationPresenter @Inject constructor(private val userRepository: Us
     fun login(login: String, password: String) {
         view?.showLoading(true)
         userRepository.getUserByLogin(
-            login,
-            {
+            login = login,
+            onSuccess = {
                 if (it.password == password)
-                    userRepository.signIn(login,
-                        { view?.goToMainScreen() },
-                        {
-                            view?.apply {
-                                showLoading(false)
-                                showError()
-                            }
-                        })
+                    signIn(login)
                 else
                     view?.apply {
                         showLoading(false)
                         showError(R.string.wrong_password)
                     }
             },
-            {
+            onError = {
                 view?.apply {
                     showLoading(false)
                     showError(it)
@@ -43,5 +36,18 @@ class AuthenticationPresenter @Inject constructor(private val userRepository: Us
             }
         )
     }
+
+    private fun signIn(login: String){
+        userRepository.signIn(
+            login = login,
+            onSuccess = { view?.goToMainScreen() },
+            onError = {
+                view?.apply {
+                    showLoading(false)
+                    showError()
+                }
+            })
+    }
+
 
 }

@@ -12,34 +12,28 @@ import com.example.healthyapp.di.DI
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_registration.view.*
 
-class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationView>(),
+class RegistrationFragment : BaseFragment<RegistrationPresenter, RegistrationView>(R.layout.fragment_registration),
     RegistrationView {
 
     override fun initPresenter() = DI.component.registrationPresenter()
 
     override fun getMvpView() = this
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_registration, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         activity?.window?.navigationBarColor =
             ContextCompat.getColor(requireContext(), R.color.colorAccent)
 
-        view.registrate.setOnClickListener {
+        registrate.setOnClickListener {
             presenter.register(
                 view.login.text.toString(),
                 view.password.text.toString(),
                 view.password_repeated.text.toString()
             )
         }
-        view.back.setOnClickListener {
+        back.setOnClickListener {
             findNavController().popBackStack()
         }
-
-        return view
     }
 
     override fun goToMainScreen() {

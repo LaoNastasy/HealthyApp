@@ -12,6 +12,4 @@ open class BasePresenter<T : BaseView> {
         view = null
     }
 
-    fun isViewAttached(): Boolean = (view != null)
-
 }

@@ -1,18 +1,17 @@
 package com.example.healthyapp.features.information.placementList
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.db.model.entity.Placement
 import com.example.healthyapp.di.DI
+import kotlinx.android.synthetic.main.fragment_info.*
 import kotlinx.android.synthetic.main.fragment_info.view.*
 
-class InfoFragment : BaseFragment<InfoPresenter, InfoView>(),
+class InfoFragment : BaseFragment<InfoPresenter, InfoView>(R.layout.fragment_info),
     InfoView {
 
     override fun initPresenter() = DI.component.infoPresenter()
@@ -21,24 +20,20 @@ class InfoFragment : BaseFragment<InfoPresenter, InfoView>(),
 
     private lateinit var adapter: PlacementAdapter
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_info, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         adapter =
             PlacementAdapter {
                 goToPlacementInfo(it)
             }
-        view.placement_list.layoutManager = LinearLayoutManager(requireContext())
-        view.placement_list.adapter = adapter
+        placement_list.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = adapter
+        }
         presenter.getPlacementList()
 
         view.back.setOnClickListener { findNavController().popBackStack() }
 
-        return view
     }
 
     private fun goToPlacementInfo(placement: Placement) {
