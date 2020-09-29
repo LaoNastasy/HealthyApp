@@ -18,6 +18,7 @@
     <string name="back">Назад</string>
     <string name="exit">Выйти</string>
     <string name="auth_no_login">Пользователя с таким логином не существует</string>
+    <string name="retry">Повторить</string>
 
     //экран регистрации
     <string name="registration_title">Регистрация</string>

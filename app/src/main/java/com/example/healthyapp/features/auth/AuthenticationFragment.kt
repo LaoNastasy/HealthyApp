@@ -1,5 +1,6 @@
 package com.example.healthyapp.features.auth
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -7,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.healthyapp.R
 import com.example.healthyapp.base.BaseFragment
 import com.example.healthyapp.di.DI
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_authentification.*
 
 class AuthenticationFragment :
@@ -43,6 +45,23 @@ class AuthenticationFragment :
     override fun showLoading(show: Boolean) {
         loader.visibility = if (show) View.VISIBLE else View.GONE
         ok.isEnabled = !show
+    }
+
+    override fun showError(res: Int) {
+        Snackbar.make(view ?: return, res, Snackbar.LENGTH_LONG).apply {
+            setAction(R.string.retry) {
+                presenter.login(
+                    login.text.toString(),
+                    password.text.toString()
+                )
+            }
+            setActionTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.colorAccentLight))
+            setTextColor(Color.WHITE)
+            animationMode = Snackbar.ANIMATION_MODE_SLIDE
+            show()
+        }
+
     }
 
 }
